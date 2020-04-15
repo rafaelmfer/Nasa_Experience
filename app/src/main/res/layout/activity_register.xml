@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/nasalayout"
+    tools:context=".RegisterActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="30dp"
+        android:text="@string/sign_in"
+        android:textColor="#D1FFFFFF"
+        android:textSize="25sp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="1dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="236dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/name"
+        android:singleLine="true"
+        android:textColor="#fff"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="100dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/last_name"
+        android:singleLine="true"
+        android:textColor="#D1FFFFFF"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="150dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="236dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/email_address"
+        android:singleLine="true"
+        android:textColor="#D1F83827"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="250dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="236dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/registerpassword"
+        android:singleLine="true"
+        android:textColor="#D1F83827"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="300dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/create_account"
+        android:textColor="#D1FFFFFF"
+        android:background="#D12876CA"
+        tools:layout_editor_absoluteX="133dp"
+        tools:layout_editor_absoluteY="623dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
