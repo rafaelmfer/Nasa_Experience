@@ -1,5 +1,15 @@
 <resources>
     <string name="app_name">Nasa Experience</string>
-    <string name="nome">Nome</string>
-    <string name="Sobrenome" />
+
+    <string name="title_activity_login">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+
+    <string name="name">Name</string>
+    <string name="last_name">Last name</string>
+    <string name="email_address">Email Address</string>
+    <string name="registerpassword">Password</string>
+    <string name="create_account">Create Account</string>
+    <string name="sign_in">Sign In</string>
+
 </resources>
