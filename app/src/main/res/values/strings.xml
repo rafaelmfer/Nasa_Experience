@@ -1,15 +1,21 @@
 <resources>
     <string name="app_name">Nasa Experience</string>
 
-    <string name="title_activity_login">Sign in</string>
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
+    <string name="back">voltar</string>
+
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+
+    <string name="sign_in">Sign In</string>
+    <string name="sign_in_with_google">Sign In with Google</string>
+    <string name="sign_in_with_facebook">Sign In with Facebook</string>
+    <string name="or">OR</string>
+    <string name="does_not_have_an_account_sign_up">Does not have an account?</string>
+    <string name="sign_up">Sign up</string>
 
     <string name="name">Name</string>
     <string name="last_name">Last name</string>
-    <string name="email_address">Email Address</string>
-    <string name="registerpassword">Password</string>
+    <string name="register">Cadastre-se</string>
     <string name="create_account">Create Account</string>
-    <string name="sign_in">Sign In</string>
 
 </resources>
