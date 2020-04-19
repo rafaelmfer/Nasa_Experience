@@ -5,6 +5,7 @@
     <string name="back">voltar</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
+    <string name="error_field_must_be_filled">Campo deve ser preenchido</string>
 
 <!--    LOGIN ACTIVITY-->
     <string name="sign_in">Sign In</string>
