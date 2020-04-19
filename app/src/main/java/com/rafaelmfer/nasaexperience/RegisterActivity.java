@@ -1,5 +1,6 @@
 package com.rafaelmfer.nasaexperience;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -35,8 +36,7 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View view) {
                 removeErrorOnTextInputLayout(tilRegisterUserName, tilRegisterUserLastName, tilRegisterUserEmail, tilRegisterUserPassword);
                 if (editTextIsNotEmpty(etRegisterUserName, etRegisterUserLastName, etRegisterUserEmail, etRegisterUserPassword)) {
-                    //TODO start HomeActivity
-//                    startActivity(new Intent(view.getContext(), HomeActivity.class));
+                    startActivity(new Intent(view.getContext(), HomeActivity.class));
                 } else {
                     if (!editTextIsNotEmpty(etRegisterUserName)) {
                         tilRegisterUserName.setError(getString(R.string.error_field_must_be_filled));

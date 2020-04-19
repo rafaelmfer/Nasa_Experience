@@ -28,8 +28,7 @@ public class LoginActivity extends AppCompatActivity {
                 tilLoginUserEmail.setError(null);
                 tilLoginUserPassword.setError(null);
                 if (editTextIsNotEmpty(etLoginUserEmail, etLoginUserPassword)) {
-                    //TODO start HomeActivity
-//                    startActivity(new Intent(view.getContext(), HomeActivity.class));
+                    startActivity(new Intent(view.getContext(), HomeActivity.class));
                 } else {
                     if (!editTextIsNotEmpty(etLoginUserEmail)) {
                         tilLoginUserEmail.setError(getString(R.string.error_field_must_be_filled));
