@@ -29,8 +29,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        //TODO start activity Sols e o Clima de Marte
-//        btMarsWeather.setOnClickListener(clickToStartNewActivity(MarsWeatherSunsActivity.class));
+        btMarsWeather.setOnClickListener(clickToStartNewActivity(MarsWeatherSunsActivity.class));
         //TODO start activity Asteroids proximos da Terra
 //        btAsteroids.setOnClickListener(clickToStartNewActivity(AsteroidsNearFromEarthActivity.class));
         //TODO start Imagem Astronomica do Dia
