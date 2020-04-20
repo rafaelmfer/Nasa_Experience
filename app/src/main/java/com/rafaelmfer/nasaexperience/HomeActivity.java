@@ -30,8 +30,7 @@ public class HomeActivity extends AppCompatActivity {
         });
 
         btMarsWeather.setOnClickListener(clickToStartNewActivity(MarsWeatherSunsActivity.class));
-        //TODO start activity Asteroids proximos da Terra
-//        btAsteroids.setOnClickListener(clickToStartNewActivity(AsteroidsNearFromEarthActivity.class));
+        btAsteroids.setOnClickListener(clickToStartNewActivity(AsteroidsNearFromEarthActivity.class));
         //TODO start Imagem Astronomica do Dia
 //        btAstronomicImage.setOnClickListener(clickToStartNewActivity(AstronomicImageOfTheDayActivity.class));
     }
