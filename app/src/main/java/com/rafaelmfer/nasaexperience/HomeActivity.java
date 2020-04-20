@@ -31,8 +31,7 @@ public class HomeActivity extends AppCompatActivity {
 
         btMarsWeather.setOnClickListener(clickToStartNewActivity(MarsWeatherSunsActivity.class));
         btAsteroids.setOnClickListener(clickToStartNewActivity(AsteroidsNearFromEarthActivity.class));
-        //TODO start Imagem Astronomica do Dia
-//        btAstronomicImage.setOnClickListener(clickToStartNewActivity(AstronomicImageOfTheDayActivity.class));
+        btAstronomicImage.setOnClickListener(clickToStartNewActivity(AstronomicImageOfTheDayActivity.class));
     }
 
     private void bindViews() {
