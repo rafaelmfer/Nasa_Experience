@@ -30,4 +30,11 @@
 <!--    MARS WEATHER SUNS ACTIVITY-->
     <string name="mars_weather_and_his_suns">Clima de Marte e Seus Sols</string>
 
+<!--    ASTEROIDS NEAR FROM EARTH ACTIVITY-->
+    <string name="monitoring_asteroids">Monitorando Asteroids</string>
+    <string name="search_asteroids_by_date">Busca Asteróides - Data</string>
+
+<!--    ASTRONOMIC IMAGE OF THE DAY ACTIVITY-->
+    <string name="enter_a_date_to_search">Digite uma data para procurar</string>
+
 </resources>

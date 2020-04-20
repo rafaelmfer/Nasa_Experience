@@ -23,6 +23,8 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".MarsWeatherSunsActivity" />
+        <activity android:name=".AsteroidsNearFromEarthActivity" />
+        <activity android:name=".AstronomicImageOfTheDayActivity" />
     </application>
 
 </manifest>
