@@ -8,9 +8,12 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_16"
+        android:layout_marginTop="@dimen/margin_16"
+        android:layout_marginStart="@dimen/margin_16"
+        android:layout_marginEnd="@dimen/margin_16"
         android:backgroundTint="@color/white"
         app:cardCornerRadius="@dimen/radius_15"
+        android:alpha="0.65"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,7 +52,7 @@
                 tools:text="@tools:sample/lorem" />
 
             <View
-                android:id="@+id/vDecoratorDivisor"
+                android:id="@+id/vDecoratorSuns"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/blue_900"
@@ -62,21 +65,21 @@
                 android:id="@+id/tvTemperature"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/blue_700"
+                android:textColor="@color/black"
                 android:textSize="@dimen/font_18"
                 android:layout_marginEnd="@dimen/margin_16"
                 android:layout_marginTop="@dimen/margin_8"
                 android:layout_marginStart="@dimen/margin_16"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/vDecoratorDivisor"
+                app:layout_constraintTop_toBottomOf="@id/vDecoratorSuns"
                 tools:text="@tools:sample/lorem" />
 
             <TextView
                 android:id="@+id/tvWindSpeed"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/blue_700"
+                android:textColor="@color/black"
                 android:textSize="@dimen/font_18"
                 android:layout_marginEnd="@dimen/margin_16"
                 android:layout_marginTop="@dimen/margin_4"
@@ -90,7 +93,7 @@
                 android:id="@+id/tvPressure"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/blue_700"
+                android:textColor="@color/black"
                 android:textSize="@dimen/font_18"
                 android:layout_marginEnd="@dimen/margin_16"
                 android:layout_marginTop="@dimen/margin_4"
