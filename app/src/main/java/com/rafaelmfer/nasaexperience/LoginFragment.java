@@ -15,6 +15,9 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.textfield.TextInputLayout;
 
+import static com.rafaelmfer.nasaexperience.extensions.Utils.editTextIsNotEmpty;
+import static com.rafaelmfer.nasaexperience.extensions.Utils.removeErrorOnTextInputLayout;
+
 public class LoginFragment extends Fragment {
 
     private TextInputLayout tilLoginUserEmail, tilLoginUserPassword;
@@ -44,8 +47,7 @@ public class LoginFragment extends Fragment {
         btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tilLoginUserEmail.setError(null);
-                tilLoginUserPassword.setError(null);
+                removeErrorOnTextInputLayout(tilLoginUserEmail, tilLoginUserPassword);
                 if (editTextIsNotEmpty(etLoginUserEmail, etLoginUserPassword)) {
                     startActivity(new Intent(view.getContext(), HomeActivity.class));
                 } else {
@@ -78,14 +80,5 @@ public class LoginFragment extends Fragment {
         btFacebookSignIn = view.findViewById(R.id.btFacebookSignIn);
         btGoogleSignIn = view.findViewById(R.id.btGoogleSignIn);
         btSignUp = view.findViewById(R.id.btSignUp);
-    }
-
-    private boolean editTextIsNotEmpty(EditText... editTexts) {
-        for (EditText et : editTexts) {
-            if (et.getText().toString().isEmpty()) {
-                return false;
-            }
-        }
-        return true;
     }
 }

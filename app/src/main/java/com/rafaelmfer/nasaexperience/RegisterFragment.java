@@ -16,6 +16,9 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.textfield.TextInputLayout;
 
+import static com.rafaelmfer.nasaexperience.extensions.Utils.editTextIsNotEmpty;
+import static com.rafaelmfer.nasaexperience.extensions.Utils.removeErrorOnTextInputLayout;
+
 public class RegisterFragment extends Fragment {
 
     private ImageButton btRegisterBack;
@@ -86,20 +89,5 @@ public class RegisterFragment extends Fragment {
         etRegisterUserPassword = view.findViewById(R.id.etRegisterUserPassword);
         btRegisterBack = view.findViewById(R.id.ibRegisterBack);
         btCreateAccount = view.findViewById(R.id.btCreateAccount);
-    }
-
-    private boolean editTextIsNotEmpty(EditText... editTexts) {
-        for (EditText et : editTexts) {
-            if (et.getText().toString().isEmpty()) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    private void removeErrorOnTextInputLayout(TextInputLayout... textInputLayouts) {
-        for (TextInputLayout til : textInputLayouts) {
-            til.setError(null);
-        }
     }
 }
