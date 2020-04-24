@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-public class HomeScreen extends AppCompatActivity {
+public class ActivityHome extends AppCompatActivity {
      Button btn_MarsWeather, btn_Asteroids, btn_Astronomic;
      ImageButton imgBtn_Menu;
     @Override

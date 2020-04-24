@@ -8,7 +8,7 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class RegisterActivity extends AppCompatActivity {
+public class ActivityRegister extends AppCompatActivity {
 
     ImageButton btRegisterBack;
     Button btCreateAccount;
@@ -31,7 +31,7 @@ public class RegisterActivity extends AppCompatActivity {
         btCreateAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(RegisterActivity.this, HomeScreen.class);
+                Intent intent = new Intent(ActivityRegister.this, ActivityHome.class);
                 startActivity(intent);
             }
         });
