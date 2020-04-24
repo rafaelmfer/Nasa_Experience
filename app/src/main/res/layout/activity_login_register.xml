@@ -7,16 +7,14 @@
     android:background="@drawable/wallpaper_login"
     tools:context=".LoginRegisterActivity">
 
-    <fragment
-        android:id="@+id/fragLogin"
+    <FrameLayout
+        android:id="@+id/flContainer"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:name="com.rafaelmfer.nasaexperience.LoginFragment"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout="@layout/fragment_login"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

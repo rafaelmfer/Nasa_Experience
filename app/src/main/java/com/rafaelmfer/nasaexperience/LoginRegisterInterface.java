@@ -1,6 +1,8 @@
 package com.rafaelmfer.nasaexperience;
 
+import androidx.fragment.app.Fragment;
+
 public interface LoginRegisterInterface {
 
-    void startRegisterFragment();
+    void startFragment(Fragment fragment);
 }

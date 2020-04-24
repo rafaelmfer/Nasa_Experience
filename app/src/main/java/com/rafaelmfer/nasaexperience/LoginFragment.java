@@ -64,9 +64,7 @@ public class LoginFragment extends Fragment {
         btSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO descobrir como faz o detach da Login Fragment para não iniciar a Register Fragment por cima
-//                activity.startRegisterFragment();
-                startActivity(new Intent(view.getContext(), RegisterActivity.class));
+                activity.startFragment(new RegisterFragment());
             }
         });
     }
