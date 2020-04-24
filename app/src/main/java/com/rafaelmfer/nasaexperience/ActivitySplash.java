@@ -8,10 +8,7 @@ import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
-public class SplashActivity extends Activity {
+public class ActivitySplash extends AppCompatActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

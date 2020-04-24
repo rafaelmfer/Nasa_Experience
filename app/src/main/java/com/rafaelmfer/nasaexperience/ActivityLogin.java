@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputLayout;
 
-public class LoginActivity extends AppCompatActivity {
+public class ActivityLogin extends AppCompatActivity {
 
     TextInputLayout tilLoginUserName, tilLoginUserPassword;
     Button btSignIn, btFacebookSignIn, btGoogleSignIn, btSignUp;
@@ -24,7 +24,7 @@ public class LoginActivity extends AppCompatActivity {
         btSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), RegisterActivity.class);
+                Intent intent = new Intent(view.getContext(), ActivityRegister.class);
                 startActivity(intent);
             }
         });

@@ -1,30 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/homescreen">
 
     <ImageButton
-        android:id="@+id/ibMenu"
+        android:id="@+id/imgBtn_Menu"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_marginStart="@dimen/margin_16"
-        android:layout_marginTop="@dimen/margin_8"
-        android:layout_marginBottom="@dimen/margin_4"
+        android:layout_marginTop="16dp"
         android:background="@color/transparent"
         android:contentDescription="@string/menu"
         android:padding="@dimen/padding_8"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_menu_24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.043"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/ivAppLogo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
+        android:layout_width="290dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="16dp"
         android:importantForAccessibility="no"
         android:src="@drawable/ic_appname_logo_text_right"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,35 +35,36 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btMarsWeather"
+        android:id="@+id/btn_MarsWeather"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_16"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="150dp"
         android:layout_marginEnd="@dimen/margin_16"
         android:background="@drawable/shape_main_app_button"
         android:text="@string/mars_weather_and_his_sols"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@id/btAsteroids"
+        app:layout_constraintBottom_toTopOf="@id/btn_Asteroids"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivAppLogo" />
 
     <Button
-        android:id="@+id/btAsteroids"
+        android:id="@+id/btn_Asteroids"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_16"
         android:background="@drawable/shape_main_app_button"
         android:text="@string/near_earth_objects"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@id/btAstronomicImage"
+        app:layout_constraintBottom_toTopOf="@id/btn_Astronomic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btMarsWeather" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_MarsWeather" />
 
     <Button
-        android:id="@+id/btAstronomicImage"
+        android:id="@+id/btn_Astronomic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_16"
@@ -69,7 +73,8 @@
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.781"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btAsteroids" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_Asteroids" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
