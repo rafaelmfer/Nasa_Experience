@@ -1,52 +1,53 @@
 package com.rafaelmfer.nasaexperience;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+import org.jetbrains.annotations.NotNull;
+
 public class ActivityHome extends AppCompatActivity {
-     Button btn_MarsWeather, btn_Asteroids, btn_Astronomic;
-     ImageButton imgBtn_Menu;
+
+    ImageButton ibMenu;
+    Button btMarsWeather, btAsteroids, btAstronomicImage;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        bindViews();
 
-        imgBtn_Menu = findViewById(R.id.imgBtn_Menu);
-        btn_MarsWeather = findViewById(R.id.btn_MarsWeather);
-        btn_Asteroids = findViewById(R.id.btn_Asteroids);
-        btn_Astronomic = findViewById(R.id.btn_Astronomic);
-
-        btn_MarsWeather.setOnClickListener(new View.OnClickListener() {
+        ibMenu.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-
+            public void onClick(View v) {
+                //TODO esperar Yuri ou João ensinar sobre Navigation Drawer
             }
         });
 
-        btn_Asteroids.setOnClickListener(new View.OnClickListener() {
+        btMarsWeather.setOnClickListener(clickToStartNewActivity(ActivityMarsWeatherSuns.class));
+        btAsteroids.setOnClickListener(clickToStartNewActivity(ActivityAsteroidsNearFromEarth.class));
+        btAstronomicImage.setOnClickListener(clickToStartNewActivity(ActivityAstronomicImageOfTheDay.class));
+    }
+
+    private void bindViews() {
+        ibMenu = findViewById(R.id.ibMenu);
+        btMarsWeather = findViewById(R.id.btMarsWeather);
+        btAsteroids = findViewById(R.id.btAsteroids);
+        btAstronomicImage = findViewById(R.id.btAstronomicImage);
+    }
+
+    @NotNull
+    private View.OnClickListener clickToStartNewActivity(Class<?> activity) {
+        return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(view.getContext(), activity));
             }
-        });
-
-        btn_Astronomic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-        imgBtn_Menu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
+        };
     }
 }

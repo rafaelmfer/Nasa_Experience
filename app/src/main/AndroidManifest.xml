@@ -10,7 +10,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ActivityHome"></activity>
         <activity
             android:name=".ActivitySplash"
             android:theme="@style/SplashTheme">
@@ -20,8 +19,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ActivityLogin" />
-        <activity android:name=".ActivityRegister" />
+        <activity android:name=".ActivityLoginRegister" />
+        <activity android:name=".ActivityHome" />
+        <activity android:name=".ActivityMarsWeatherSuns" />
+        <activity android:name=".ActivityAsteroidsNearFromEarth" />
+        <activity android:name=".ActivityAstronomicImageOfTheDay" />
     </application>
 
 </manifest>

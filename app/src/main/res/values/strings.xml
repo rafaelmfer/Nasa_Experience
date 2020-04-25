@@ -5,6 +5,7 @@
     <string name="back">voltar</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
+    <string name="error_field_must_be_filled">Campo deve ser preenchido</string>
 
     <!--    LOGIN ACTIVITY-->
     <string name="sign_in">Sign In</string>
@@ -25,5 +26,15 @@
     <string name="astronomy_picture_of_the_day">Imagem Astronômica do Dia</string>
     <string name="near_earth_objects">Asteróides que passaram próximo da Terra</string>
     <string name="mars_weather_and_his_sols">Informações dos Sols de Marte</string>
+
+    <!--    MARS WEATHER SUNS ACTIVITY-->
+    <string name="mars_weather_and_his_suns">Clima de Marte e Seus Sols</string>
+
+    <!--    ASTEROIDS NEAR FROM EARTH ACTIVITY-->
+    <string name="monitoring_asteroids">Monitorando Asteroids</string>
+    <string name="search_asteroids_by_date">Busca Asteróides - Data</string>
+
+    <!--    ASTRONOMIC IMAGE OF THE DAY ACTIVITY-->
+    <string name="enter_a_date_to_search">Digite uma data para procurar</string>
 
 </resources>

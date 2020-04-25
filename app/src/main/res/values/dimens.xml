@@ -8,6 +8,7 @@
 
     <!--    RADIUS-->
     <dimen name="radius_10">10dp</dimen>
+    <dimen name="radius_15">15dp</dimen>
 
     <!--    MARGIN-->
     <dimen name="margin_4">4dp</dimen>
@@ -15,7 +16,9 @@
     <dimen name="margin_16">16dp</dimen>
     <dimen name="margin_24">24dp</dimen>
     <dimen name="margin_32">32dp</dimen>
+    <dimen name="margin_36">36dp</dimen>
     <dimen name="margin_48">48dp</dimen>
+    <dimen name="margin_52">52dp</dimen>
 
     <!--    PADDING-->
     <dimen name="padding_4">4dp</dimen>
@@ -25,11 +28,13 @@
     <!--    WIDTH-->
     <dimen name="width_24">24dp</dimen>
     <dimen name="width_48">48dp</dimen>
+    <dimen name="width_60">60dp</dimen>
     <dimen name="width_200">200dp</dimen>
 
     <!--    HEIGHT-->
     <dimen name="height_24">24dp</dimen>
     <dimen name="height_48">48dp</dimen>
+    <dimen name="height_60">60dp</dimen>
     <dimen name="height_200">200dp</dimen>
 
 </resources>

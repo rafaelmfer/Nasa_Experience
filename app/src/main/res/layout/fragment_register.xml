@@ -4,22 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/wallpaper_login"
-    tools:context=".ActivityRegister">
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/glMarginStart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="@dimen/margin_16" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/glMarginEnd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_end="@dimen/margin_16" />
+    tools:background="@drawable/wallpaper_login"
+    tools:context=".RegisterActivity">
 
     <ImageButton
         android:id="@+id/ibRegisterBack"
@@ -27,19 +13,20 @@
         android:layout_height="@dimen/height_48"
         android:layout_marginTop="@dimen/margin_8"
         android:layout_marginBottom="@dimen/margin_4"
+        android:layout_marginStart="@dimen/margin_4"
         android:background="@color/transparent"
         android:contentDescription="@string/back"
         android:padding="@dimen/padding_8"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_arrow_24dp"
-        app:layout_constraintStart_toStartOf="@+id/glMarginStart"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvRegisterToolbar"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="@dimen/margin_48"
+        android:layout_marginEnd="@dimen/margin_52"
         android:background="@color/transparent"
         android:gravity="center"
         android:padding="@dimen/padding_4"
@@ -47,7 +34,7 @@
         android:textAlignment="center"
         android:textSize="@dimen/font_20"
         app:layout_constraintBottom_toBottomOf="@+id/ibRegisterBack"
-        app:layout_constraintEnd_toStartOf="@+id/glMarginEnd"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/ibRegisterBack"
         app:layout_constraintTop_toTopOf="@+id/ibRegisterBack" />
 
@@ -169,13 +156,15 @@
         android:id="@+id/btCreateAccount"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_16"
+        android:layout_marginEnd="@dimen/margin_16"
         android:layout_marginBottom="@dimen/margin_32"
         android:alpha="0.8"
         android:background="@drawable/shape_normal_button"
         android:text="@string/create_account"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/glMarginEnd"
-        app:layout_constraintStart_toEndOf="@+id/glMarginStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilRegisterUserPassword"
         app:layout_constraintVertical_bias="1" />
 
