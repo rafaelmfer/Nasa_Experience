@@ -18,15 +18,15 @@ import com.google.android.material.textfield.TextInputLayout;
 import static com.rafaelmfer.nasaexperience.extensions.Utils.editTextIsNotEmpty;
 import static com.rafaelmfer.nasaexperience.extensions.Utils.removeErrorOnTextInputLayout;
 
-public class LoginFragment extends Fragment {
+public class FragmentLogin extends Fragment {
 
     private TextInputLayout tilLoginUserEmail, tilLoginUserPassword;
     private EditText etLoginUserEmail, etLoginUserPassword;
     private Button btLogin, btFacebookSignIn, btGoogleSignIn, btSignUp;
 
-    private LoginRegisterInterface activity;
+    private InterfaceLoginRegister activity;
 
-    public LoginFragment() { }
+    public FragmentLogin() { }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -36,7 +36,7 @@ public class LoginFragment extends Fragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        activity = (LoginRegisterInterface) context;
+        activity = (InterfaceLoginRegister) context;
     }
 
     @Override
@@ -49,7 +49,7 @@ public class LoginFragment extends Fragment {
             public void onClick(View view) {
                 removeErrorOnTextInputLayout(tilLoginUserEmail, tilLoginUserPassword);
                 if (editTextIsNotEmpty(etLoginUserEmail, etLoginUserPassword)) {
-                    startActivity(new Intent(view.getContext(), HomeActivity.class));
+                    startActivity(new Intent(view.getContext(), ActivityHome.class));
                 } else {
                     if (!editTextIsNotEmpty(etLoginUserEmail)) {
                         tilLoginUserEmail.setError(getString(R.string.error_field_must_be_filled));
@@ -64,7 +64,7 @@ public class LoginFragment extends Fragment {
         btSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                activity.startFragment(new RegisterFragment());
+                activity.startFragment(new FragmentRegister());
             }
         });
     }

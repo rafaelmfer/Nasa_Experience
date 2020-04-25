@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-public class LoginRegisterActivity extends AppCompatActivity implements LoginRegisterInterface {
+public class ActivityLoginRegister extends AppCompatActivity implements InterfaceLoginRegister {
 
     FragmentManager fragManager = getSupportFragmentManager();
 
@@ -15,7 +15,7 @@ public class LoginRegisterActivity extends AppCompatActivity implements LoginReg
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_register);
-        startFragment(new LoginFragment());
+        startFragment(new FragmentLogin());
     }
 
     @Override

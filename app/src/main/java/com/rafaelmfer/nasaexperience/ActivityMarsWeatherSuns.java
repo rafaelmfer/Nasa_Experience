@@ -7,7 +7,7 @@ import android.widget.ImageButton;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MarsWeatherSunsActivity extends AppCompatActivity {
+public class ActivityMarsWeatherSuns extends AppCompatActivity {
 
     ImageButton ibMarsWeatherBack;
 

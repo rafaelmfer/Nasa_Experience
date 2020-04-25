@@ -7,7 +7,7 @@ import android.widget.ImageButton;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class AstronomicImageOfTheDayActivity extends AppCompatActivity {
+public class ActivityAstronomicImageOfTheDay extends AppCompatActivity {
 
     ImageButton ibAstronomicImageBack, ibShareImage;
 

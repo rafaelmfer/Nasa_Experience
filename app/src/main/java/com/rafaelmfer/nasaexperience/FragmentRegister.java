@@ -19,16 +19,16 @@ import com.google.android.material.textfield.TextInputLayout;
 import static com.rafaelmfer.nasaexperience.extensions.Utils.editTextIsNotEmpty;
 import static com.rafaelmfer.nasaexperience.extensions.Utils.removeErrorOnTextInputLayout;
 
-public class RegisterFragment extends Fragment {
+public class FragmentRegister extends Fragment {
 
     private ImageButton btRegisterBack;
     private TextInputLayout tilRegisterUserName, tilRegisterUserLastName, tilRegisterUserEmail, tilRegisterUserPassword;
     private EditText etRegisterUserName, etRegisterUserLastName, etRegisterUserEmail, etRegisterUserPassword;
     private Button btCreateAccount;
 
-    private LoginRegisterInterface activity;
+    private InterfaceLoginRegister activity;
 
-    public RegisterFragment() { }
+    public FragmentRegister() { }
 
     @Nullable
     @Override
@@ -39,7 +39,7 @@ public class RegisterFragment extends Fragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        activity = (LoginRegisterInterface) context;
+        activity = (InterfaceLoginRegister) context;
     }
 
     @Override
@@ -59,7 +59,7 @@ public class RegisterFragment extends Fragment {
             public void onClick(View view) {
                 removeErrorOnTextInputLayout(tilRegisterUserName, tilRegisterUserLastName, tilRegisterUserEmail, tilRegisterUserPassword);
                 if (editTextIsNotEmpty(etRegisterUserName, etRegisterUserLastName, etRegisterUserEmail, etRegisterUserPassword)) {
-                    startActivity(new Intent(view.getContext(), HomeActivity.class));
+                    startActivity(new Intent(view.getContext(), ActivityHome.class));
                 } else {
                     if (!editTextIsNotEmpty(etRegisterUserName)) {
                         tilRegisterUserName.setError(getString(R.string.error_field_must_be_filled));

@@ -7,7 +7,7 @@ import android.widget.ImageButton;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class AsteroidsNearFromEarthActivity extends AppCompatActivity {
+public class ActivityAsteroidsNearFromEarth extends AppCompatActivity {
 
     ImageButton ibAsteroidsBack;
 
