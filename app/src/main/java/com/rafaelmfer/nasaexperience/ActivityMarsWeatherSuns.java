@@ -45,20 +45,20 @@ public class ActivityMarsWeatherSuns extends AppCompatActivity {
 
     public void preparaSuns(){
 
-        this.suns.add(new MarsModel("Sol número 1","01/01/1971","-83ºC - (Levem blusa)","Velocidade - 50 Sonic's por hora","Pressão - Chorei no chuveiro =/"));
+        suns.add(new MarsModel("Sol número 1","01/01/1971","-83ºC - (Levem blusa)","Velocidade - 50 Sonic's por hora","Pressão - Chorei no chuveiro =/"));
 
-        this.suns.add(new MarsModel("Sol 2 ","01/01/1971","-21ºC - (Sou do Sul, dia normal!)","3 Papaléguas por hora","Prazos e mais prazos"));
+        suns.add(new MarsModel("Sol 2 ","01/01/1971","-21ºC - (Sou do Sul, dia normal!)","3 Papaléguas por hora","Prazos e mais prazos"));
 
-        this.suns.add(new MarsModel("Sol 3","01/01/1971 (Foi um dia agitado)","-120ºC - (Vem nimim Titanic)","5 Icebergs por hora","Toca o violino!"));
+        suns.add(new MarsModel("Sol 3","01/01/1971 (Foi um dia agitado)","-120ºC - (Vem nimim Titanic)","5 Icebergs por hora","Toca o violino!"));
 
-        this.suns.add(new MarsModel("Sol 4","01/01/1971","43ºC - (Ta com kalor paulixxta? kkkk otário)","6 assaltos por minuto (Só nessa rua)","Passa o celular!"));
+        suns.add(new MarsModel("Sol 4","01/01/1971","43ºC - (Ta com kalor paulixxta? kkkk otário)","6 assaltos por minuto (Só nessa rua)","Passa o celular!"));
 
-        this.suns.add(new MarsModel("Sol 7","01/01/1976","17ºC - (Spectrum Philadelphia)","15 minutos da minha casa (Rocky)","Apollo não consegue acreditar no que está vendo, nem nós também!"));
+        suns.add(new MarsModel("Sol 7","01/01/1976","17ºC - (Spectrum Philadelphia)","15 minutos da minha casa (Rocky)","Apollo não consegue acreditar no que está vendo, nem nós também!"));
 
-        this.suns.add(new MarsModel("Sol 6","01/01/1985","-9ºC - (Se morrer, morreu)","10km (Dragoo!)","Rocky parece um pedaço de ferro"));
+        suns.add(new MarsModel("Sol 6","01/01/1985","-9ºC - (Se morrer, morreu)","10km (Dragoo!)","Rocky parece um pedaço de ferro"));
 
-        this.suns.add(new MarsModel("Sol 7","01/01/1985","-9ºC - (Se morrer, morreu)","10km (Dragoooooooooooo!)","A força do soviético é impressionante"));
+        suns.add(new MarsModel("Sol 7","01/01/1985","-9ºC - (Se morrer, morreu)","10km (Dragoooooooooooo!)","A força do soviético é impressionante"));
 
-        this.suns.add(new MarsModel("Sol 8","01/01/1985","-9ºC - (Essa é a Rússia? Não parece taõ ruim...)","10km (Dragooooo!)","Este homem pequeno é fisicamente incapaz de vencer Drago!"));
+        suns.add(new MarsModel("Sol 8","01/01/1985","-9ºC - (Essa é a Rússia? Não parece taõ ruim...)","10km (Dragooooo!)","Este homem pequeno é fisicamente incapaz de vencer Drago!"));
     }
 }

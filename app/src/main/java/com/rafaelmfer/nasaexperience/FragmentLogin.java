@@ -48,18 +48,18 @@ public class FragmentLogin extends Fragment {
             @Override
             public void onClick(View view) {
                 removeErrorOnTextInputLayout(tilLoginUserEmail, tilLoginUserPassword);
-                if (editTextIsNotEmpty(etLoginUserEmail, etLoginUserPassword)) {
-                    startActivity(new Intent(view.getContext(), ActivityHome.class));
-                } else {
-                    if (!editTextIsNotEmpty(etLoginUserEmail)) {
-                        tilLoginUserEmail.setError(getString(R.string.error_field_must_be_filled));
-                    }
-                    if (!editTextIsNotEmpty(etLoginUserPassword)) {
-                        tilLoginUserPassword.setError(getString(R.string.error_field_must_be_filled));
-                    }
-                }
+        if (editTextIsNotEmpty(etLoginUserEmail, etLoginUserPassword)) {
+            startActivity(new Intent(view.getContext(), ActivityHome.class));
+        } else {
+            if (!editTextIsNotEmpty(etLoginUserEmail)) {
+                tilLoginUserEmail.setError(getString(R.string.error_field_must_be_filled));
             }
-        });
+            if (!editTextIsNotEmpty(etLoginUserPassword)) {
+                tilLoginUserPassword.setError(getString(R.string.error_field_must_be_filled));
+            }
+        }
+    }
+});
 
         btSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
