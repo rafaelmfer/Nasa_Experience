@@ -20,21 +20,21 @@ public class AdapterMars extends RecyclerView.Adapter<ViewHolderMars> {
     @NonNull
     @Override
     public ViewHolderMars onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View sunsLista = LayoutInflater.from(parent.getContext())
+        View sunsList = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_suns_mars_card, parent, false);
 
-        return new ViewHolderMars(sunsLista);
+        return new ViewHolderMars(sunsList);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolderMars marsHolder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolderMars holder, int position) {
 
         MarsModel sunModel = suns.get(position);
-        marsHolder.tvSunsNumber.setText(sunModel.getSunNumber());
-        marsHolder.tvDateObservation.setText(sunModel.getSunDateObservation());
-        marsHolder.tvTemperature.setText(sunModel.getSunTemperature());
-        marsHolder.tvWindSpeed.setText(sunModel.getSunWindSpeed());
-        marsHolder.tvPressure.setText(sunModel.getSunPressure());
+        holder.tvSunsNumber.setText(sunModel.getSunNumber());
+        holder.tvDateObservation.setText(sunModel.getSunDateObservation());
+        holder.tvTemperature.setText(sunModel.getSunTemperature());
+        holder.tvWindSpeed.setText(sunModel.getSunWindSpeed());
+        holder.tvPressure.setText(sunModel.getSunPressure());
 
     }
 

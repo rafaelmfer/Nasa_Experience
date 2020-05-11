@@ -8,8 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class ViewHolderMars extends RecyclerView.ViewHolder {
 
-    public TextView tvSunsNumber, tvDateObservation, tvTemperature, tvWindSpeed,tvPressure;
-
+    public TextView tvSunsNumber, tvDateObservation, tvTemperature, tvWindSpeed, tvPressure;
 
     public ViewHolderMars(@NonNull View itemView) {
         super(itemView);
@@ -18,6 +17,5 @@ public class ViewHolderMars extends RecyclerView.ViewHolder {
         tvTemperature = itemView.findViewById(R.id.tvTemperature);
         tvWindSpeed = itemView.findViewById(R.id.tvWindSpeed);
         tvPressure = itemView.findViewById(R.id.tvPressure);
-
     }
 }

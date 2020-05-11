@@ -35,34 +35,25 @@ public class ActivityAsteroidsNearFromEarth extends AppCompatActivity {
         rvSunsOfMars = findViewById(R.id.rvAsteroidsNear);
         //Define layout
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        rvSunsOfMars.setLayoutManager( layoutManager );
+        rvSunsOfMars.setLayoutManager(layoutManager);
         //Define Adapter
-        prepararAsteroids();
+        setupListAsteroid();
         AdapterAsteroids asteroidsAdapter = new AdapterAsteroids(asteroids);
-        rvSunsOfMars.setAdapter( asteroidsAdapter);
+        rvSunsOfMars.setAdapter(asteroidsAdapter);
     }
 
-    public void prepararAsteroids(){
+    public void setupListAsteroid() {
 
-        asteroids.add(new AsteroidModel("Primeiro Asteroide","Esse é rápido!"));
-
-        asteroids.add(new AsteroidModel("Segundo Asteroide","Multa!"));
-
-        asteroids.add(new AsteroidModel("Terceiro Asteroide","Mais ou menos"));
-
-        asteroids.add(new AsteroidModel("Quarto Asteroide","Brilha brilha estrelinha"));
-
-        asteroids.add(new AsteroidModel("Quinto Asteroide","Meteoro de Pegasus!"));
-
-        asteroids.add(new AsteroidModel("Sexto Asteroide","Vênu(s)"));
-
-        asteroids.add(new AsteroidModel("Sétimo Asteroide","Lobo homem?"));
-
-        asteroids.add(new AsteroidModel("Oitavo Asteroide","É 'preda'!"));
-
-        asteroids.add(new AsteroidModel("Nono Asteroide","Nhonho!!"));
-
-        asteroids.add(new AsteroidModel("Décimo Asteroide","Teste ok!"));
+        asteroids.add(new AsteroidModel("Primeiro Asteroide", "Esse é rápido!"));
+        asteroids.add(new AsteroidModel("Segundo Asteroide", "Multa!"));
+        asteroids.add(new AsteroidModel("Terceiro Asteroide", "Mais ou menos"));
+        asteroids.add(new AsteroidModel("Quarto Asteroide", "Brilha brilha estrelinha"));
+        asteroids.add(new AsteroidModel("Quinto Asteroide", "Meteoro de Pegasus!"));
+        asteroids.add(new AsteroidModel("Sexto Asteroide", "Vênu(s)"));
+        asteroids.add(new AsteroidModel("Sétimo Asteroide", "Lobo homem?"));
+        asteroids.add(new AsteroidModel("Oitavo Asteroide", "É 'preda'!"));
+        asteroids.add(new AsteroidModel("Nono Asteroide", "Nhonho!!"));
+        asteroids.add(new AsteroidModel("Décimo Asteroide", "Teste ok!"));
 
     }
 }

@@ -13,27 +13,26 @@ public class AdapterAsteroids extends RecyclerView.Adapter<ViewHolderAsteroids> 
 
     private List<AsteroidModel> asteroids;
 
-    public AdapterAsteroids(List<AsteroidModel> listaAsteroids) {
-        this.asteroids = listaAsteroids;
+    public AdapterAsteroids(List<AsteroidModel> listAsteroids) {
+        this.asteroids = listAsteroids;
     }
 
     @NonNull
     @Override
     public ViewHolderAsteroids onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemListAst = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_asteroids, parent , false);
+                .inflate(R.layout.item_asteroids, parent, false);
 
         return new ViewHolderAsteroids(itemListAst);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolderAsteroids astHolder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolderAsteroids holder, int position) {
 
-        AsteroidModel asteroid = asteroids.get( position );
+        AsteroidModel asteroid = asteroids.get(position);
 
-        astHolder.tvAsteroidNumber.setText(asteroid.getAsteroidNumber());
-        astHolder.tvAsteroidDescription.setText(asteroid.getAsteroidDescription());
-
+        holder.tvAsteroidNumber.setText(asteroid.getAsteroidNumber());
+        holder.tvAsteroidDescription.setText(asteroid.getAsteroidDescription());
     }
 
     @Override

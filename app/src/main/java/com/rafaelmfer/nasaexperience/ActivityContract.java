@@ -2,7 +2,7 @@ package com.rafaelmfer.nasaexperience;
 
 import androidx.fragment.app.Fragment;
 
-public interface InterfaceLoginRegister {
+public interface ActivityContract {
 
     void startFragment(Fragment fragment);
 }
