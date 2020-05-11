@@ -26,9 +26,10 @@ public class FragmentRegister extends Fragment {
     private EditText etRegisterUserName, etRegisterUserLastName, etRegisterUserEmail, etRegisterUserPassword;
     private Button btCreateAccount;
 
-    private InterfaceLoginRegister activity;
+    private ActivityContract activity;
 
-    public FragmentRegister() { }
+    public FragmentRegister() {
+    }
 
     @Nullable
     @Override
@@ -39,7 +40,7 @@ public class FragmentRegister extends Fragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        activity = (InterfaceLoginRegister) context;
+        activity = (ActivityContract) context;
     }
 
     @Override

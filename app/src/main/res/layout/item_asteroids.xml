@@ -24,7 +24,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/tvSunsNumberMars"
+                android:id="@+id/tvAsteroidNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_16"
@@ -47,7 +47,7 @@
                 android:background="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvSunsNumberMars" />
+                app:layout_constraintTop_toBottomOf="@id/tvAsteroidNumber" />
 
             <TextView
                 android:id="@+id/tvAsteroidDescription"
