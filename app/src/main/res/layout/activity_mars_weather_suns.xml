@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/wallpaper_mars_weather"
-    tools:context=".ActivityMarsWeatherSuns">
+    tools:context="com.rafaelmfer.nasaexperience.activityMars.ActivityMarsWeatherSuns">
 
     <ImageButton
         android:id="@+id/ibMarsWeatherBack"
@@ -39,6 +39,7 @@
         app:layout_constraintTop_toTopOf="@+id/ibMarsWeatherBack" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView_mars"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/margin_4"

@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import org.jetbrains.annotations.NotNull;
 
+import com.rafaelmfer.nasaexperience.activityMars.ActivityMarsWeatherSuns;
+
 public class ActivityHome extends AppCompatActivity {
 
     ImageButton ibMenu;

@@ -21,7 +21,7 @@
         </activity>
         <activity android:name=".ActivityLoginRegister" />
         <activity android:name=".ActivityHome" />
-        <activity android:name=".ActivityMarsWeatherSuns" />
+        <activity android:name="com.rafaelmfer.nasaexperience.activityMars.ActivityMarsWeatherSuns" />
         <activity android:name=".ActivityAsteroidsNearFromEarth" />
         <activity android:name=".ActivityAstronomicImageOfTheDay" />
     </application>
