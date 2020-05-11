@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-public class ActivityLoginRegister extends AppCompatActivity implements InterfaceLoginRegister {
+public class ActivityLoginRegister extends AppCompatActivity implements ActivityContract {
 
     FragmentManager fragManager = getSupportFragmentManager();
 

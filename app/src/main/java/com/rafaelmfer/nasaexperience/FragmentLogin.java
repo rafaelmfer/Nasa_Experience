@@ -24,9 +24,10 @@ public class FragmentLogin extends Fragment {
     private EditText etLoginUserEmail, etLoginUserPassword;
     private Button btLogin, btFacebookSignIn, btGoogleSignIn, btSignUp;
 
-    private InterfaceLoginRegister activity;
+    private ActivityContract activity;
 
-    public FragmentLogin() { }
+    public FragmentLogin() {
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -36,7 +37,7 @@ public class FragmentLogin extends Fragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        activity = (InterfaceLoginRegister) context;
+        activity = (ActivityContract) context;
     }
 
     @Override

@@ -54,7 +54,7 @@
         app:layout_constraintTop_toBottomOf="@id/tvAsteroidsTittleToolbar" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvSunsOfMars"
+        android:id="@+id/rvAsteroidsNear"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/margin_4"
@@ -74,7 +74,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rvSunsOfMars">
+        app:layout_constraintTop_toBottomOf="@+id/rvAsteroidsNear">
 
         <ImageView
             android:id="@+id/ivNasaLogoBottom"
