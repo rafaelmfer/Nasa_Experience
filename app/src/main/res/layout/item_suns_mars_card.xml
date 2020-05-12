@@ -24,7 +24,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/tvSunsNumber"
+                android:id="@+id/tvSunsNumberMars"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/margin_16"
@@ -38,7 +38,7 @@
                 tools:text="@tools:sample/lorem" />
 
             <TextView
-                android:id="@+id/tvDateObservation"
+                android:id="@+id/tvDateObservationMars"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/font_20"
@@ -48,28 +48,28 @@
                 android:layout_marginStart="@dimen/margin_16"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvSunsNumber"
+                app:layout_constraintTop_toBottomOf="@id/tvSunsNumberMars"
                 tools:text="@tools:sample/lorem" />
 
             <View
                 android:id="@+id/vDecoratorSuns"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/blue_900"
+                android:layout_height="200dp"
                 android:layout_margin="@dimen/margin_4"
-                app:layout_constraintStart_toStartOf="parent"
+                android:background="@color/blue_900"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvDateObservation"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvDateObservationMars" />
 
             <TextView
                 android:id="@+id/tvTemperature"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_16"
+                android:layout_marginTop="@dimen/margin_8"
+                android:layout_marginEnd="@dimen/margin_16"
                 android:textColor="@color/black"
                 android:textSize="@dimen/font_18"
-                android:layout_marginEnd="@dimen/margin_16"
-                android:layout_marginTop="@dimen/margin_8"
-                android:layout_marginStart="@dimen/margin_16"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/vDecoratorSuns"
