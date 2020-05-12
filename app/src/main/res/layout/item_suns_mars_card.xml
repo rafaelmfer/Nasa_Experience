@@ -24,7 +24,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/tvSunsNumberMars"
+                android:id="@+id/suns_number_mars"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/margin_16"
@@ -38,7 +38,7 @@
                 tools:text="@tools:sample/lorem" />
 
             <TextView
-                android:id="@+id/tvDateObservationMars"
+                android:id="@+id/date_observation_mars"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/font_20"
@@ -48,21 +48,21 @@
                 android:layout_marginStart="@dimen/margin_16"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvSunsNumberMars"
+                app:layout_constraintTop_toBottomOf="@id/suns_number_mars"
                 tools:text="@tools:sample/lorem" />
 
             <View
-                android:id="@+id/vDecoratorSuns"
+                android:id="@+id/decorator_suns_divider"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="1dp"
                 android:layout_margin="@dimen/margin_4"
                 android:background="@color/blue_900"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvDateObservationMars" />
+                app:layout_constraintTop_toBottomOf="@id/date_observation_mars" />
 
             <TextView
-                android:id="@+id/tvTemperature"
+                android:id="@+id/temperature_mars"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_16"
@@ -72,11 +72,11 @@
                 android:textSize="@dimen/font_18"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/vDecoratorSuns"
+                app:layout_constraintTop_toBottomOf="@id/decorator_suns_divider"
                 tools:text="@tools:sample/lorem" />
 
             <TextView
-                android:id="@+id/tvWindSpeed"
+                android:id="@+id/wind_speed_mars"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
@@ -86,11 +86,11 @@
                 android:layout_marginStart="@dimen/margin_16"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvTemperature"
+                app:layout_constraintTop_toBottomOf="@id/temperature_mars"
                 tools:text="@tools:sample/lorem" />
 
             <TextView
-                android:id="@+id/tvPressure"
+                android:id="@+id/pressure_mars"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
@@ -101,7 +101,7 @@
                 android:layout_marginBottom="@dimen/margin_8"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvWindSpeed"
+                app:layout_constraintTop_toBottomOf="@id/wind_speed_mars"
                 app:layout_constraintBottom_toBottomOf="parent"
                 tools:text="@tools:sample/lorem" />
 

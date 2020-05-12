@@ -1,4 +1,4 @@
-package com.rafaelmfer.nasaexperience;
+package com.rafaelmfer.nasaexperience.ui.activity;
 
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +8,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.rafaelmfer.nasaexperience.ui.adapter.AdapterAsteroids;
+import com.rafaelmfer.nasaexperience.model.AsteroidModel;
+import com.rafaelmfer.nasaexperience.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +28,7 @@ public class ActivityAsteroidsNearFromEarth extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_asteroids_near_from_earth);
 
-        ibAsteroidsBack = findViewById(R.id.ibAsteroidsBack);
+        ibAsteroidsBack = findViewById(R.id.asteroids_back);
         ibAsteroidsBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -32,7 +36,7 @@ public class ActivityAsteroidsNearFromEarth extends AppCompatActivity {
             }
         });
 
-        rvSunsOfMars = findViewById(R.id.rvAsteroidsNear);
+        rvSunsOfMars = findViewById(R.id.asteroids_near);
         //Define layout
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         rvSunsOfMars.setLayoutManager(layoutManager);

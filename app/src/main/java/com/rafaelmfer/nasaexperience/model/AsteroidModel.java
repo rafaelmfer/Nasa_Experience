@@ -1,4 +1,4 @@
-package com.rafaelmfer.nasaexperience;
+package com.rafaelmfer.nasaexperience.model;
 
 public class AsteroidModel {
 

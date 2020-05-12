@@ -1,4 +1,4 @@
-package com.rafaelmfer.nasaexperience;
+package com.rafaelmfer.nasaexperience.ui.activity;
 
 import android.os.Bundle;
 
@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
+import com.rafaelmfer.nasaexperience.ui.fragments.FragmentLogin;
+import com.rafaelmfer.nasaexperience.R;
 
 public class ActivityLoginRegister extends AppCompatActivity implements ActivityContract {
 

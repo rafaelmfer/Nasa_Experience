@@ -1,4 +1,4 @@
-package com.rafaelmfer.nasaexperience;
+package com.rafaelmfer.nasaexperience.ui.fragments;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +15,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.rafaelmfer.nasaexperience.R;
+import com.rafaelmfer.nasaexperience.ui.activity.ActivityContract;
+import com.rafaelmfer.nasaexperience.ui.activity.ActivityHome;
 
 import static com.rafaelmfer.nasaexperience.extensions.Utils.editTextIsNotEmpty;
 import static com.rafaelmfer.nasaexperience.extensions.Utils.removeErrorOnTextInputLayout;

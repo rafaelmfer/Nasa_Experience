@@ -1,4 +1,4 @@
-package com.rafaelmfer.nasaexperience;
+package com.rafaelmfer.nasaexperience.ui.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -6,6 +6,10 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.rafaelmfer.nasaexperience.model.AsteroidModel;
+import com.rafaelmfer.nasaexperience.R;
+import com.rafaelmfer.nasaexperience.ui.viewholder.ViewHolderAsteroids;
 
 import java.util.List;
 
@@ -31,7 +35,7 @@ public class AdapterAsteroids extends RecyclerView.Adapter<ViewHolderAsteroids> 
 
         AsteroidModel asteroid = asteroids.get(position);
 
-        holder.tvAsteroidNumber.setText(asteroid.getAsteroidNumber());
+        holder.tvDateObservationAsteroids.setText(asteroid.getAsteroidNumber());
         holder.tvAsteroidDescription.setText(asteroid.getAsteroidDescription());
     }
 
