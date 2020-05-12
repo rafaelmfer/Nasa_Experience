@@ -54,7 +54,7 @@ public class FragmentRegister extends Fragment {
         btRegisterBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                onBackPressed();
+                getActivity().onBackPressed();
             }
         });
 
