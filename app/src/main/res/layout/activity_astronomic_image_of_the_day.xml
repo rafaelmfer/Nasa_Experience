@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".ActivityAstronomicImageOfTheDay">
+    tools:context=".ui.activity.ActivityAstronomicImageOfTheDay">
 
     <ImageButton
         android:id="@+id/ibAstronomicImageBack"
@@ -167,21 +167,21 @@
             </com.google.android.material.card.MaterialCardView>
 
             <ImageView
-                android:id="@+id/ivNasaLogoBottom"
+                android:id="@+id/nasa_logo_bottom_image"
                 android:layout_width="@dimen/width_60"
                 android:layout_height="@dimen/height_60"
                 android:layout_marginTop="@dimen/margin_16"
                 android:layout_marginBottom="@dimen/margin_4"
                 android:src="@drawable/ic_nasa_logo"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/tvNasaLogoBottom"
+                app:layout_constraintEnd_toStartOf="@id/nasa_logo_bottom_name"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cvAstronomicImageInfo"
                 app:layout_constraintVertical_bias="1" />
 
             <TextView
-                android:id="@+id/tvNasaLogoBottom"
+                android:id="@+id/nasa_logo_bottom_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -189,10 +189,10 @@
                 android:text="@string/app_name"
                 android:textAlignment="center"
                 android:textSize="@dimen/font_20"
-                app:layout_constraintBottom_toBottomOf="@+id/ivNasaLogoBottom"
+                app:layout_constraintBottom_toBottomOf="@+id/nasa_logo_bottom_image"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/ivNasaLogoBottom"
-                app:layout_constraintTop_toTopOf="@+id/ivNasaLogoBottom" />
+                app:layout_constraintStart_toEndOf="@id/nasa_logo_bottom_image"
+                app:layout_constraintTop_toTopOf="@+id/nasa_logo_bottom_image" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

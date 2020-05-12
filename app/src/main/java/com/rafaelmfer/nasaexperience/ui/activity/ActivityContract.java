@@ -1,4 +1,4 @@
-package com.rafaelmfer.nasaexperience;
+package com.rafaelmfer.nasaexperience.ui.activity;
 
 import androidx.fragment.app.Fragment;
 

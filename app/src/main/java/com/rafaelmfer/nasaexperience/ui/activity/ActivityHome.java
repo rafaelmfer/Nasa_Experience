@@ -1,4 +1,4 @@
-package com.rafaelmfer.nasaexperience;
+package com.rafaelmfer.nasaexperience.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import org.jetbrains.annotations.NotNull;
 
-import com.rafaelmfer.nasaexperience.activityMars.ActivityMarsWeatherSuns;
+import com.rafaelmfer.nasaexperience.R;
 
 public class ActivityHome extends AppCompatActivity {
 

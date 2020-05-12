@@ -1,4 +1,4 @@
-package com.rafaelmfer.nasaexperience;
+package com.rafaelmfer.nasaexperience.ui.activity;
 
 import android.os.Bundle;
 import android.view.View;
@@ -6,6 +6,8 @@ import android.widget.ImageButton;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.rafaelmfer.nasaexperience.R;
 
 public class ActivityAstronomicImageOfTheDay extends AppCompatActivity {
 

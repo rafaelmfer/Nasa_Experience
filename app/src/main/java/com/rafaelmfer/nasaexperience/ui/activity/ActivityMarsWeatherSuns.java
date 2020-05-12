@@ -1,4 +1,4 @@
-package com.rafaelmfer.nasaexperience.activityMars;
+package com.rafaelmfer.nasaexperience.ui.activity;
 
 import android.os.Bundle;
 import android.view.View;
@@ -10,8 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.rafaelmfer.nasaexperience.R;
-import com.rafaelmfer.nasaexperience.adapter.AdapterMars;
-import com.rafaelmfer.nasaexperience.modelMars.Posts;
+import com.rafaelmfer.nasaexperience.ui.adapter.AdapterMars;
+import com.rafaelmfer.nasaexperience.model.PostsMars;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,24 +19,24 @@ import java.util.List;
 public class ActivityMarsWeatherSuns extends AppCompatActivity {
      RecyclerView recyclerView_mars;
      ImageButton ibMarsWeatherBack;
-      List<Posts> posts = new ArrayList<>();
+      List<PostsMars> posts = new ArrayList<>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mars_weather_suns);
 
-        recyclerView_mars = findViewById(R.id.recyclerView_mars);
+        recyclerView_mars = findViewById(R.id.recycler_mars);
         //Define Layout
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView_mars.setLayoutManager( layoutManager );
         //Define Adapter
-        this.newPosts();
+        newPosts();
 
         AdapterMars adapterMars = new AdapterMars(posts);
         recyclerView_mars.setAdapter(adapterMars);
 
-        ibMarsWeatherBack = findViewById(R.id.ibMarsWeatherBack);
+        ibMarsWeatherBack = findViewById(R.id.mars_weather_back);
         ibMarsWeatherBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,18 +45,21 @@ public class ActivityMarsWeatherSuns extends AppCompatActivity {
         });
     }
     public void newPosts(){
-        Posts posts = new Posts();
-        posts.setTvDateObservationMars("ObservationMars");
-        this.posts.add(posts);
-        posts.setTvPressure("Pressure");
-        this.posts.add(posts);
-        posts.setTvSunsNumberMars("Mars Number");
-        this.posts.add(posts);
-        posts.setTvTemperature("Temperature");
-        this.posts.add(posts);
-        posts.setTvWindSpeed("WindSpeed");
-        this.posts.add(posts);
-        posts.setvDecoratorSuns(R.color.blue_50);
-        this.posts.add(posts);
+        posts.add(new PostsMars("ObservationsMars", "Pressure",
+                "Mars Numbers", "Temperature",
+                "Presure"));
+        posts.add(new PostsMars("ObservationsMars", "Pressure",
+                "Mars Numbers", "Temperature",
+                "Presure"));
+        posts.add(new PostsMars("ObservationsMars", "Pressure",
+                "Mars Numbers", "Temperature",
+                "Presure"));
+        posts.add(new PostsMars("ObservationsMars", "Pressure",
+                "Mars Numbers", "Temperature",
+                "Presure"));
+        posts.add(new PostsMars("ObservationsMars", "Pressure",
+                "Mars Numbers", "Temperature",
+                "Presure"));
+
     }
 }
