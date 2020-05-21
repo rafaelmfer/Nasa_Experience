@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.rafaelmfer.nasaexperience.model.AsteroidModel;
 import com.rafaelmfer.nasaexperience.R;
+import com.rafaelmfer.nasaexperience.model.AsteroidModel;
 import com.rafaelmfer.nasaexperience.ui.viewholder.ViewHolderAsteroids;
 
 import java.util.List;
