@@ -31,11 +31,11 @@ public class AdapterMars extends RecyclerView.Adapter<AdapterMars.MyViewHolderMa
     @Override
     public void onBindViewHolder(@NonNull MyViewHolderMars holder, int position) {
         PostsMars post = posts.get(position);
-        holder.tvSunsNumberMars.setText(post.getTvSunsNumberMars());
-        holder.tvDateObservationMars.setText(post.getTvDateObservationMars());
-        holder.tvPressure.setText(post.getTvPressure());
-        holder.tvWindSpeed.setText(post.getTvWindSpeed());
-        holder.tvTemperature.setText(post.getTvTemperature());
+        holder.tvSunsNumberMars.setText(post.getSunsNumberMars());
+        holder.tvDateObservationMars.setText(post.getDateObservationMars());
+        holder.tvPressure.setText(post.getPressure());
+        holder.tvWindSpeed.setText(post.getWindSpeed());
+        holder.tvTemperature.setText(post.getTemperature());
     }
 
     @Override

@@ -45,19 +45,19 @@ public class ActivityMarsWeatherSuns extends AppCompatActivity {
         });
     }
     public void newPosts(){
-        posts.add(new PostsMars("ObservationsMars", "Pressure",
+        posts.add(new PostsMars(0,"ObservationsMars", "Pressure",
                 "Mars Numbers", "Temperature",
                 "Presure"));
-        posts.add(new PostsMars("ObservationsMars", "Pressure",
+        posts.add(new PostsMars(1,"ObservationsMars", "Pressure",
                 "Mars Numbers", "Temperature",
                 "Presure"));
-        posts.add(new PostsMars("ObservationsMars", "Pressure",
+        posts.add(new PostsMars(2,"ObservationsMars", "Pressure",
                 "Mars Numbers", "Temperature",
                 "Presure"));
-        posts.add(new PostsMars("ObservationsMars", "Pressure",
+        posts.add(new PostsMars(3,"ObservationsMars", "Pressure",
                 "Mars Numbers", "Temperature",
                 "Presure"));
-        posts.add(new PostsMars("ObservationsMars", "Pressure",
+        posts.add(new PostsMars(4,"ObservationsMars", "Pressure",
                 "Mars Numbers", "Temperature",
                 "Presure"));
 
