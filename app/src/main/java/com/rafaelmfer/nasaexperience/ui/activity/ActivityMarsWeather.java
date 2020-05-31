@@ -10,29 +10,27 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.rafaelmfer.nasaexperience.R;
-import com.rafaelmfer.nasaexperience.ui.adapter.AdapterMars;
 import com.rafaelmfer.nasaexperience.model.PostsMars;
+import com.rafaelmfer.nasaexperience.ui.adapter.AdapterMars;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ActivityMarsWeatherSuns extends AppCompatActivity {
-     RecyclerView recyclerView_mars;
-     ImageButton ibMarsWeatherBack;
-      List<PostsMars> posts = new ArrayList<>();
+public class ActivityMarsWeather extends AppCompatActivity {
+
+    RecyclerView recyclerView_mars;
+    ImageButton ibMarsWeatherBack;
+    List<PostsMars> posts = new ArrayList<>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mars_weather_suns);
-
+        setContentView(R.layout.activity_mars_weather);
         recyclerView_mars = findViewById(R.id.recycler_mars);
-        //Define Layout
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView_mars.setLayoutManager( layoutManager );
-        //Define Adapter
-        newPosts();
 
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView_mars.setLayoutManager(layoutManager);
+        newPosts();
         AdapterMars adapterMars = new AdapterMars(posts);
         recyclerView_mars.setAdapter(adapterMars);
 
@@ -44,22 +42,22 @@ public class ActivityMarsWeatherSuns extends AppCompatActivity {
             }
         });
     }
-    public void newPosts(){
-        posts.add(new PostsMars(0,"ObservationsMars", "Pressure",
-                "Mars Numbers", "Temperature",
-                "Presure"));
-        posts.add(new PostsMars(1,"ObservationsMars", "Pressure",
-                "Mars Numbers", "Temperature",
-                "Presure"));
-        posts.add(new PostsMars(2,"ObservationsMars", "Pressure",
-                "Mars Numbers", "Temperature",
-                "Presure"));
-        posts.add(new PostsMars(3,"ObservationsMars", "Pressure",
-                "Mars Numbers", "Temperature",
-                "Presure"));
-        posts.add(new PostsMars(4,"ObservationsMars", "Pressure",
-                "Mars Numbers", "Temperature",
-                "Presure"));
 
+    public void newPosts() {
+        posts.add(new PostsMars(0, "ObservationsMars", "Pressure",
+                "Mars Numbers", "Temperature",
+                "Presure"));
+        posts.add(new PostsMars(1, "ObservationsMars", "Pressure",
+                "Mars Numbers", "Temperature",
+                "Presure"));
+        posts.add(new PostsMars(2, "ObservationsMars", "Pressure",
+                "Mars Numbers", "Temperature",
+                "Presure"));
+        posts.add(new PostsMars(3, "ObservationsMars", "Pressure",
+                "Mars Numbers", "Temperature",
+                "Presure"));
+        posts.add(new PostsMars(4, "ObservationsMars", "Pressure",
+                "Mars Numbers", "Temperature",
+                "Presure"));
     }
 }

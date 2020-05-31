@@ -9,9 +9,9 @@ import android.widget.ImageButton;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.jetbrains.annotations.NotNull;
-
 import com.rafaelmfer.nasaexperience.R;
+
+import org.jetbrains.annotations.NotNull;
 
 public class ActivityHome extends AppCompatActivity {
 
@@ -31,7 +31,7 @@ public class ActivityHome extends AppCompatActivity {
             }
         });
 
-        btMarsWeather.setOnClickListener(clickToStartNewActivity(ActivityMarsWeatherSuns.class));
+        btMarsWeather.setOnClickListener(clickToStartNewActivity(ActivityMarsWeather.class));
         btAsteroids.setOnClickListener(clickToStartNewActivity(ActivityAsteroidsNearFromEarth.class));
         btAstronomicImage.setOnClickListener(clickToStartNewActivity(ActivityAstronomicImageOfTheDay.class));
     }

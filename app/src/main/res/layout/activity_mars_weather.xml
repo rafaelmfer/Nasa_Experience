@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/wallpaper_mars_weather"
-    tools:context=".ui.activity.ActivityMarsWeatherSuns">
+    tools:context=".ui.activity.ActivityMarsWeather">
 
     <ImageButton
         android:id="@+id/mars_weather_back"
