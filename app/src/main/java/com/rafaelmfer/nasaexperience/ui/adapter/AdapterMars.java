@@ -29,6 +29,11 @@ public class AdapterMars extends RecyclerView.Adapter<AdapterMars.MyViewHolderMa
     }
 
     @Override
+    public int getItemCount() {
+        return posts.size();
+    }
+
+    @Override
     public void onBindViewHolder(@NonNull MyViewHolderMars holder, int position) {
         PostsMars post = posts.get(position);
         holder.tvSunsNumberMars.setText(post.getSunsNumberMars());
@@ -38,12 +43,7 @@ public class AdapterMars extends RecyclerView.Adapter<AdapterMars.MyViewHolderMa
         holder.tvTemperature.setText(post.getTemperature());
     }
 
-    @Override
-    public int getItemCount() {
-        return posts.size();
-    }
-
-    public class MyViewHolderMars extends RecyclerView.ViewHolder {
+    public static class MyViewHolderMars extends RecyclerView.ViewHolder {
 
         TextView tvSunsNumberMars, tvDateObservationMars, tvWindSpeed, tvTemperature, tvPressure;
 
