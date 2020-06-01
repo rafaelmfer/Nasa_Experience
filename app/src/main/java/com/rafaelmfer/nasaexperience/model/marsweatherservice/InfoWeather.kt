@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class X529(
+data class InfoWeather(
     @SerializedName("AT") val atmosphericTemperature: AtmosphericTemperature = AtmosphericTemperature(),
     @SerializedName("First_UTC") val firstUTC: String = "",
     @SerializedName("HWS") val horizontalWindSpeed: HorizontalWindSpeed = HorizontalWindSpeed(),
