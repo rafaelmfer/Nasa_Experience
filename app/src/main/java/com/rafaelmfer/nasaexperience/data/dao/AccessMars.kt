@@ -1,4 +1,4 @@
-package com.rafaelmfer.nasaexperience
+package com.rafaelmfer.nasaexperience.data.dao
 
 import androidx.room.*
 import com.rafaelmfer.nasaexperience.model.MarsModel

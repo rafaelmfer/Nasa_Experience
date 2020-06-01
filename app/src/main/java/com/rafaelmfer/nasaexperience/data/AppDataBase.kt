@@ -1,9 +1,12 @@
-package com.rafaelmfer.nasaexperience
+package com.rafaelmfer.nasaexperience.data
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.rafaelmfer.nasaexperience.data.dao.AccessAsteroid
+import com.rafaelmfer.nasaexperience.data.dao.AccessMars
+import com.rafaelmfer.nasaexperience.data.dao.AccessPostsMars
 import com.rafaelmfer.nasaexperience.model.AsteroidModel
 import com.rafaelmfer.nasaexperience.model.MarsModel
 import com.rafaelmfer.nasaexperience.model.PostsMars
@@ -27,7 +30,8 @@ object DatabaseBuilder {
     private var instance: AppDatabase? = null
 
     @JvmStatic
-    fun getAppDatabase(context: Context) = instance ?: build(context)
+    fun getAppDatabase(context: Context) = instance
+            ?: build(context)
 
     private fun build(context: Context): AppDatabase {
         val database = Room.databaseBuilder(
