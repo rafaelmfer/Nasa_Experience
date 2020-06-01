@@ -10,5 +10,5 @@ class RepositoryNasa {
 
     private val serviceRick = RetroInit(url).create(service)
 
-    suspend fun getCharacters(): MarsWeatherResponse = serviceRick.getMarsWeather(apiKey = apiKey)
+    suspend fun getMarsWeather(): MarsWeatherResponse = serviceRick.getMarsWeather(apiKey = apiKey)
 }
