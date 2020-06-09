@@ -13,9 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.navigation.NavigationView;
 import com.rafaelmfer.nasaexperience.R;
@@ -33,7 +31,7 @@ public class ActivityHome extends AppCompatActivity implements  NavigationView.O
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.nav_content);
+        setContentView(R.layout.activity_home);
         bindViews();
 
         ibMenu.setOnClickListener(new View.OnClickListener() {

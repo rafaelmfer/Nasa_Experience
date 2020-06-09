@@ -1,77 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/wallpaper_home">
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
 
-    <ImageView
-        android:id="@+id/ivAppLogo"
+    <include
+        layout="@layout/content_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
-        android:importantForAccessibility="no"
-        android:src="@drawable/ic_appname_logo_text_right"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/menu_navigation_drawer_home" />
 
-    <Button
-        android:id="@+id/btMarsWeather"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_16"
-        android:layout_marginTop="96dp"
-        android:layout_marginEnd="@dimen/margin_16"
-        android:background="@drawable/shape_main_app_button"
-        android:text="@string/mars_weather_and_his_sols"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@id/btAsteroids"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivAppLogo" />
-
-    <Button
-        android:id="@+id/btAsteroids"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_16"
-        android:background="@drawable/shape_main_app_button"
-        android:text="@string/near_earth_objects"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@id/btAstronomicImage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btMarsWeather" />
-
-    <Button
-        android:id="@+id/btAstronomicImage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_16"
-        android:background="@drawable/shape_main_app_button"
-        android:text="@string/astronomy_picture_of_the_day"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btAsteroids" />
-
-
-
-    <ImageButton
-        android:id="@+id/ibMenu"
-        android:layout_width="@dimen/width_48"
-        android:layout_height="@dimen/height_48"
-        android:layout_marginStart="@dimen/margin_4"
-        android:layout_marginTop="@dimen/margin_8"
-        android:layout_marginBottom="@dimen/margin_4"
-        android:background="@color/transparent"
-        android:contentDescription="@string/menu"
-        android:padding="@dimen/padding_8"
-        android:scaleType="fitCenter"
-        android:src="@drawable/ic_menu_24dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

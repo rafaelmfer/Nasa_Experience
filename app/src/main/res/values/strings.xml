@@ -36,13 +36,6 @@
 
     <!--    ASTRONOMIC IMAGE OF THE DAY ACTIVITY-->
     <string name="enter_a_date_to_search">Digite uma data para procurar</string>
-    <string name="title_activity_testando">testando</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
 
     <string name="menu_favorites">Favoritos</string>
     <string name="menu_logout">Sair</string>
