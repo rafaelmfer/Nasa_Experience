@@ -72,13 +72,13 @@ public class ActivityHome extends AppCompatActivity implements  NavigationView.O
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.favorites:
+            case R.id.nav_favorites:
                 Toast.makeText(this,"Me faz a " + "Lei Audio" + "!",Toast.LENGTH_LONG).show();
                 break;
-            case R.id.logout:
+            case R.id.nav_log_out:
                 Toast.makeText(this,"Me faz um LÊ ALTO!",Toast.LENGTH_LONG).show();
                 break;
-            case R.id.rateus:
+            case R.id.nav_rate_avaliation:
                 Toast.makeText(this,"Me faz um Le'ato!",Toast.LENGTH_LONG).show();
                 break;
         }
