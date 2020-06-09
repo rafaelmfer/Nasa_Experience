@@ -36,12 +36,6 @@ public class ActivityHome extends AppCompatActivity implements  NavigationView.O
         setContentView(R.layout.nav_content);
         bindViews();
 
-        ibMenu = findViewById(R.id.ibMenu);
-        navigationView = findViewById(R.id.nav_view);
-        drawerLayout = findViewById(R.id.drawer_layout);
-        navigationView.setNavigationItemSelectedListener(this);
-        manager = getSupportFragmentManager();
-
         ibMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,6 +53,11 @@ public class ActivityHome extends AppCompatActivity implements  NavigationView.O
         btMarsWeather = findViewById(R.id.btMarsWeather);
         btAsteroids = findViewById(R.id.btAsteroids);
         btAstronomicImage = findViewById(R.id.btAstronomicImage);
+        ibMenu = findViewById(R.id.ibMenu);
+        navigationView = findViewById(R.id.nav_view);
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView.setNavigationItemSelectedListener(this);
+        manager = getSupportFragmentManager();
     }
 
     @NotNull
@@ -87,9 +86,4 @@ public class ActivityHome extends AppCompatActivity implements  NavigationView.O
         return false;
     }
 
-    public void vaPara(Fragment fragment) {
-        FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.framelayout, fragment);
-        transaction.commit();
-    }
 }
