@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "15142691210",
+    "firebase_url": "https://nasa-experience.firebaseio.com",
+    "project_id": "nasa-experience",
+    "storage_bucket": "nasa-experience.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:15142691210:android:5bba949a461c8a4520e873",
+        "android_client_info": {
+          "package_name": "com.rafaelmfer.nasaexperience"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "15142691210-6ter1afqkcqqm1gs71vhbnh8bsdlghun.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCijJFOO0CRxZ-DIA4cPn4nS936G1c3b5s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "15142691210-6ter1afqkcqqm1gs71vhbnh8bsdlghun.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
