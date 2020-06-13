@@ -1,5 +1,6 @@
 package com.rafaelmfer.nasaexperience.repository
 
+import com.rafaelmfer.nasaexperience.model.asteroids.CelestialObjectsResponse
 import com.rafaelmfer.nasaexperience.model.marsweatherservice.MarsWeatherResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -12,4 +13,10 @@ interface ServiceNasaAPIs {
         @Query("feedtype") feedType: String = "json",
         @Query("version") version: Float = 1.0f
     ): MarsWeatherResponse
+
+    @GET("neo/rest/v1/feed?")
+    suspend fun getCelestialObjects(
+        @Query("api_key") apiKey: String,
+        @Query("start_date") startDate: String
+    ): CelestialObjectsResponse
 }

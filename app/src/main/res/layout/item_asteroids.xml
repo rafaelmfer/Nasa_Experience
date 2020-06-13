@@ -24,47 +24,228 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/date_observation_asteroids"
-                android:layout_width="match_parent"
+                android:id="@+id/name_object"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_16"
+                android:layout_marginStart="@dimen/margin_8"
                 android:layout_marginTop="@dimen/margin_8"
-                android:layout_marginEnd="@dimen/margin_16"
-                android:gravity="center"
-                android:textAlignment="center"
+                android:layout_marginEnd="@dimen/margin_4"
                 android:textColor="@color/black"
-                android:textSize="@dimen/font_24"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:textSize="@dimen/font_22"
+                app:layout_constraintEnd_toStartOf="@id/favorite_sun_button"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="@tools:sample/lorem" />
+                tools:text="Name: abcdef" />
+
+            <CheckBox
+                android:id="@+id/favorite_sun_button"
+                android:layout_width="@dimen/width_24"
+                android:layout_height="@dimen/height_24"
+                android:layout_marginEnd="@dimen/margin_16"
+                android:button="@drawable/bt_selector_toggle_favorite"
+                android:buttonTint="@color/black"
+                app:layout_constraintBottom_toBottomOf="@id/name_object"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/name_object" />
 
             <View
-                android:id="@+id/decorator_asteroids"
+                android:id="@+id/decorator_suns_divider"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_margin="@dimen/margin_4"
-                android:background="@color/white"
+                android:layout_margin="@dimen/margin_2"
+                android:background="@color/blue_900"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/date_observation_asteroids" />
+                app:layout_constraintTop_toBottomOf="@id/name_object" />
 
             <TextView
-                android:id="@+id/asteroid_description"
-                android:layout_width="match_parent"
+                android:id="@+id/date_seen_object"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_16"
+                android:layout_marginStart="@dimen/margin_8"
+                android:layout_marginTop="@dimen/margin_4"
+                android:layout_marginEnd="@dimen/margin_4"
+                android:autoSizeTextType="uniform"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/blue_700"
+                android:textSize="@dimen/font_16"
+                app:layout_constraintEnd_toStartOf="@id/favorite_sun_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/decorator_suns_divider"
+                tools:targetApi="o"
+                tools:text="Visto em: 07/Jul/2020 às 20h20" />
+
+            <TextView
+                android:id="@+id/potentially_hazardous_asteroid"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_8"
+                android:layout_marginTop="@dimen/margin_8"
+                android:layout_marginEnd="@dimen/margin_16"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_18"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/date_seen_object"
+                tools:text="Objeto Potencial Perigoso: Sim/Não" />
+
+            <TextView
+                android:id="@+id/sentry_object"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_8"
                 android:layout_marginTop="@dimen/margin_4"
                 android:layout_marginEnd="@dimen/margin_16"
-                android:layout_marginBottom="@dimen/margin_8"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_18"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/potentially_hazardous_asteroid"
+                tools:text="Monitorado Programa Sentinela da NASA: (Sim /Não)" />
+
+            <TextView
+                android:id="@+id/absolute_magnitude"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_8"
+                android:layout_marginTop="@dimen/margin_4"
+                android:layout_marginEnd="@dimen/margin_16"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_18"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/sentry_object"
+                tools:text="Magnitude Absoluta: XXXX" />
+
+            <TextView
+                android:id="@+id/relative_velocity_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_8"
+                android:layout_marginTop="@dimen/margin_4"
+                android:layout_marginEnd="@dimen/margin_16"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_18"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/absolute_magnitude"
+                tools:text="Velocidade Estimada:" />
+
+            <TextView
+                android:id="@+id/relative_velocity_kmh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_42"
+                android:layout_marginTop="@dimen/margin_4"
+                android:layout_marginEnd="@dimen/margin_16"
+                android:text="@string/relative_velocity_kmh"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_18"
+                app:layout_constraintEnd_toStartOf="@id/relative_velocity_kms"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/relative_velocity_title" />
+
+            <TextView
+                android:id="@+id/relative_velocity_kms"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_16"
+                android:layout_marginEnd="@dimen/margin_16"
+                android:text="@string/relative_velocity_kms"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_18"
+                app:layout_constraintBottom_toBottomOf="@+id/relative_velocity_kmh"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/relative_velocity_kmh"
+                app:layout_constraintTop_toTopOf="@id/relative_velocity_kmh" />
+
+            <TextView
+                android:id="@+id/estimated_diameter_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_8"
+                android:layout_marginTop="@dimen/margin_4"
+                android:layout_marginEnd="@dimen/margin_16"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_18"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/relative_velocity_kmh"
+                tools:text="Diâmetro Estimado:" />
+
+            <TextView
+                android:id="@+id/estimated_diameter_min"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_42"
+                android:layout_marginTop="@dimen/margin_4"
+                android:lines="2"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_18"
+                app:layout_constraintEnd_toStartOf="@id/estimated_diameter_max"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/estimated_diameter_title"
+                tools:text="Min.: XXX Km\nMin.: XXX m" />
+
+            <TextView
+                android:id="@+id/estimated_diameter_max"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_32"
+                android:layout_marginEnd="@dimen/margin_16"
+                android:lines="2"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_18"
+                app:layout_constraintBottom_toBottomOf="@+id/estimated_diameter_min"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/estimated_diameter_min"
+                app:layout_constraintTop_toTopOf="@+id/estimated_diameter_min"
+                tools:text="Min.: XXX km\nMin.: XXX m" />
+
+            <TextView
+                android:id="@+id/miss_distance_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_8"
+                android:layout_marginTop="@dimen/margin_4"
+                android:layout_marginEnd="@dimen/margin_16"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_18"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/estimated_diameter_min"
+                tools:text="Distancia aproximada entre a Terra:" />
+
+            <TextView
+                android:id="@+id/miss_distance_km"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_42"
+                android:layout_marginTop="@dimen/margin_4"
+                android:layout_marginEnd="@dimen/margin_16"
+                android:layout_marginBottom="@dimen/margin_16"
                 android:textColor="@color/black"
                 android:textSize="@dimen/font_18"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/decorator_asteroids"
-                tools:lines="4"
-                tools:text="@tools:sample/lorem/random" />
+                app:layout_constraintTop_toBottomOf="@id/miss_distance_title"
+                tools:text="Kilômetros: XXX     Lunar: XXX" />
+
+            <TextView
+                android:id="@+id/more_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_42"
+                android:layout_marginTop="@dimen/margin_4"
+                android:layout_marginEnd="@dimen/margin_8"
+                android:layout_marginBottom="@dimen/margin_4"
+                android:text="@string/more_info"
+                android:textColor="@color/black"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>

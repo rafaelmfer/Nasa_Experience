@@ -1,6 +1,5 @@
 package com.rafaelmfer.nasaexperience.extensions
 
-import android.annotation.SuppressLint
 import java.util.*
 
 const val LINE_BREAK = "\n"
@@ -14,7 +13,6 @@ val <T> T.string get() = toString()
 
 fun String.replaceAll(regex: String, newValue: String) = this.replace(regex.toRegex(), newValue)
 
-@SuppressLint("DefaultLocale")
 fun String.capitalizeEveryWord(): String {
     val text = this.toLowerCase(Locale.ROOT).split(" ")
     var formattedText = ""

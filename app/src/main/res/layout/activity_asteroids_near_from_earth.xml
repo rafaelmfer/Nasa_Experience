@@ -39,7 +39,7 @@
         app:layout_constraintTop_toTopOf="@+id/asteroids_back" />
 
     <SearchView
-        android:id="@+id/search_view_asteroids"
+        android:id="@+id/search_view_objects"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_16"
@@ -54,7 +54,7 @@
         app:layout_constraintTop_toBottomOf="@id/asteroids_title_toolbar" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/asteroids_near"
+        android:id="@+id/recycler_objects"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/margin_4"
@@ -63,7 +63,7 @@
         app:layout_constraintBottom_toTopOf="@id/cl_logo_bottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/search_view_asteroids"
+        app:layout_constraintTop_toBottomOf="@id/search_view_objects"
         tools:itemCount="4"
         tools:listitem="@layout/item_asteroids" />
 
@@ -74,7 +74,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/asteroids_near">
+        app:layout_constraintTop_toBottomOf="@+id/recycler_objects">
 
         <ImageView
             android:id="@+id/nasa_logo_bottom_image"
