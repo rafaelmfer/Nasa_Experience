@@ -17,13 +17,3 @@ fun <T : Fragment> T.newInstance(bundleBuilder: Bundle.() -> Unit) = apply {
 
 fun Fragment.requireAct(block: Fragment.() -> Unit) =
     requireActivity().run { block.invoke(this@requireAct) }
-
-//@Suppress("DEPRECATION")
-//inline fun <reified Model : ViewModel> FragmentActivity.viewModel(): Lazy<Model> = lazy {
-//    ViewModelProviders.of(this).get(Model::class.java)
-//}
-//
-//@Suppress("DEPRECATION")
-//inline fun <reified Model : ViewModel> Fragment.viewModel(): Lazy<Model> = lazy {
-//    ViewModelProviders.of(this).get(Model::class.java)
-//}
