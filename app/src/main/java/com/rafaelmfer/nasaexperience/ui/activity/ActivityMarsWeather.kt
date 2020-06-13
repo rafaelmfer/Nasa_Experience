@@ -11,7 +11,7 @@ import com.rafaelmfer.nasaexperience.viewmodel.ViewModelMarsWeather
 class ActivityMarsWeather : ActBind<ActivityMarsWeatherBinding>() {
 
     override val bindClass by lazy { ActivityMarsWeatherBinding::class.java }
-    private val viewModel by lazy { viewModel<ViewModelMarsWeather>() }
+    private val viewModel: ViewModelMarsWeather by viewModel()
     private val adapterMars = AdapterMars()
 
     override fun ActivityMarsWeatherBinding.onBoundView() {
@@ -23,6 +23,5 @@ class ActivityMarsWeather : ActBind<ActivityMarsWeatherBinding>() {
             adapterMars.setMarsWeather(it)
         })
         viewModel.getMarsWeather()
-
     }
 }
