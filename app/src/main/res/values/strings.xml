@@ -23,12 +23,21 @@
 
     <!--    HOME ACTIVITY-->
     <string name="menu">menu</string>
+    <string name="menu_favorites">Favoritos</string>
+    <string name="menu_logout">Sair</string>
+    <string name="menu_rate">Gostou? Nos avalie!</string>
+    <string name="image_header">image_header</string>
     <string name="astronomy_picture_of_the_day">Imagem Astronômica do Dia</string>
     <string name="near_earth_objects">Asteróides que passaram próximo da Terra</string>
     <string name="mars_weather_and_his_sols">Informações dos Sols de Marte</string>
 
     <!--    MARS WEATHER SUNS ACTIVITY-->
     <string name="mars_weather_and_his_suns">Clima de Marte e Seus Sols</string>
+    <string name="sun_number">Sol %1$s</string>
+    <string name="date_of_observation">Observado em: %1$s</string>
+    <string name="temperature_min_max">• Temperatura:\n\t\tMín.: %1$s°F - Máx.: %2$s°F</string>
+    <string name="wind_speed_min_max">• Vel. Vento:\n\t\tMín.: %1$s m/s - Máx.: %2$s m/s</string>
+    <string name="pressure_min_max">• Pressão:\n\t\tMín.: %1$s Pa - Máx.: %2$s Pa</string>
 
     <!--    ASTEROIDS NEAR FROM EARTH ACTIVITY-->
     <string name="monitoring_asteroids">Monitorando Asteroids</string>
@@ -36,10 +45,5 @@
 
     <!--    ASTRONOMIC IMAGE OF THE DAY ACTIVITY-->
     <string name="enter_a_date_to_search">Digite uma data para procurar</string>
-
-    <string name="menu_favorites">Favoritos</string>
-    <string name="menu_logout">Sair</string>
-    <string name="menu_rate">Gostou? Nos avalie!</string>
-    <string name="image_header">image_header</string>
 
 </resources>
