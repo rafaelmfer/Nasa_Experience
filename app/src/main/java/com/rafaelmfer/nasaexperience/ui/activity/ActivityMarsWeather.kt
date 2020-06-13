@@ -1,17 +1,17 @@
 package com.rafaelmfer.nasaexperience.ui.activity
 
+import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rafaelmfer.nasaexperience.baseviews.ActBind
 import com.rafaelmfer.nasaexperience.databinding.ActivityMarsWeatherBinding
-import com.rafaelmfer.nasaexperience.extensions.viewModel
 import com.rafaelmfer.nasaexperience.ui.adapter.AdapterMars
 import com.rafaelmfer.nasaexperience.viewmodel.ViewModelMarsWeather
 
 class ActivityMarsWeather : ActBind<ActivityMarsWeatherBinding>() {
 
     override val bindClass by lazy { ActivityMarsWeatherBinding::class.java }
-    private val viewModel: ViewModelMarsWeather by viewModel()
+    private val viewModel: ViewModelMarsWeather by viewModels()
     private val adapterMars = AdapterMars()
 
     override fun ActivityMarsWeatherBinding.onBoundView() {
