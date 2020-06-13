@@ -1,6 +1,6 @@
 package com.rafaelmfer.nasaexperience.repository
 
-import com.rafaelmfer.nasaexperience.model.asteroids.AsteroidsResponse
+import com.rafaelmfer.nasaexperience.model.asteroids.CelestialObjectsResponse
 import com.rafaelmfer.nasaexperience.model.marsweatherservice.MarsWeatherResponse
 
 class RepositoryNasa {
@@ -13,6 +13,6 @@ class RepositoryNasa {
 
     suspend fun getMarsWeather(): MarsWeatherResponse = serviceNasaAPIs.getMarsWeather(apiKey = apiKey)
 
-    suspend fun getNearEarthObjects(startDate : String): AsteroidsResponse =
-        serviceNasaAPIs.getNearEarthObjects(apiKey = apiKey, startDate = startDate)
+    suspend fun getCelestialObjects(startDate : String): CelestialObjectsResponse =
+        serviceNasaAPIs.getCelestialObjects(apiKey = apiKey, startDate = startDate)
 }

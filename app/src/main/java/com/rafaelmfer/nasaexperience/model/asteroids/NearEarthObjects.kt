@@ -6,7 +6,6 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class NearEarthObjects(
-    @SerializedName("2015-09-08") val x20150908: List<X20150908> = listOf(),
-    @SerializedName("2015-09-07") val x20150907: List<X20150907> = listOf(),
-    var celestialObjects: MutableSet<CelestialObjects> = mutableSetOf()
+    @SerializedName("2015-09-08") val x20150908: MutableSet<Celestial> = mutableSetOf(),
+    @SerializedName("2015-09-07") val x20150907: MutableSet<Celestial> = mutableSetOf()
 ) : Parcelable
