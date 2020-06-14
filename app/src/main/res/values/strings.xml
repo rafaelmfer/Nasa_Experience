@@ -49,4 +49,10 @@
     <!--    ASTRONOMIC IMAGE OF THE DAY ACTIVITY-->
     <string name="enter_a_date_to_search">Digite uma data para procurar</string>
 
+    <!--    CUSTOM VIEWS-->
+    <string name="acs_back">voltar</string>
+    <string name="acs_close">fechar</string>
+    <string name="acs_toolbar_title">%1$s</string>
+    <string name="panel">Panel</string>
+
 </resources>
