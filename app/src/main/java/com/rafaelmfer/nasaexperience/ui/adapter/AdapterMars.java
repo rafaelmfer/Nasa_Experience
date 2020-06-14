@@ -20,11 +20,11 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Locale;
 
-public class AdapterMars extends RecyclerView.Adapter<AdapterMars.MyViewHolderMars> {
+import static com.rafaelmfer.nasaexperience.ConstantsKt.DATE_TIME_PATTERN_DESIRED;
+import static com.rafaelmfer.nasaexperience.ConstantsKt.SERVER_MARS_WEATHER_DATE_TIME_PATTERN;
+import static com.rafaelmfer.nasaexperience.ConstantsKt.TWO_DECIMALS;
 
-    private static final String SERVER_NASA_DATE_TIME_PATTERN = "yyyy-MM-dd'T'HH:mm:ss'Z'";
-    private static final String DATE_TIME_PATTERN_DESIRED = "dd/MMM/yyyy' às 'HH'h'mm";
-    private static final String TWO_DECIMALS = "%.2f";
+public class AdapterMars extends RecyclerView.Adapter<AdapterMars.MyViewHolderMars> {
 
     public MarsWeatherResponse marsWeather = new MarsWeatherResponse();
 
@@ -100,7 +100,7 @@ public class AdapterMars extends RecyclerView.Adapter<AdapterMars.MyViewHolderMa
                 R.string.date_of_observation,
                 ExtDateTimeStampsKt.formatFromServer(
                         sunNumber.getFirstUTC(),
-                        SERVER_NASA_DATE_TIME_PATTERN,
+                        SERVER_MARS_WEATHER_DATE_TIME_PATTERN,
                         DATE_TIME_PATTERN_DESIRED));
     }
 

@@ -6,6 +6,8 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="error_field_must_be_filled">Campo deve ser preenchido</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
 
     <!--    LOGIN ACTIVITY-->
     <string name="sign_in">Sign In</string>
@@ -41,9 +43,19 @@
 
     <!--    ASTEROIDS NEAR FROM EARTH ACTIVITY-->
     <string name="monitoring_asteroids">Monitorando Asteroids</string>
-    <string name="search_asteroids_by_date">Data – 2015–09-08</string>
-    <string name="relative_velocity_kmh">%1$d Km/h ou</string>
-    <string name="relative_velocity_kms">%1$d Km/s</string>
+    <string name="search_asteroids_by_date">Data – 2015–09–08</string>
+    <string name="object_name">Nome: %1$s</string>
+    <string name="seen_in">Visto em: %1$s</string>
+    <string name="potentially_hazardous_asteroid">Objeto Potencial Perigoso: %1$s</string>
+    <string name="sentry_object">Sentinela da NASA monitora? %1$s</string>
+    <string name="absolute_magnitude">Magnitude Absoluta (H): %1$s</string>
+    <string name="relative_velocity_title">Velocidade Estimada:</string>
+    <string name="relative_velocity">%1$s Km/h \t\tou\t\t%2$s Km/s</string>
+    <string name="estimated_diameter_title">Diâmetro Estimado:</string>
+    <string name="estimated_diameter_min">Min.: %1$s Km\nMin.: %2$s m</string>
+    <string name="estimated_diameter_max">Máx.: %1$s Km\nMáx.: %2$s m</string>
+    <string name="miss_distance_title">Distancia aproximada entre a Terra:</string>
+    <string name="miss_distance">Kilômetros: %1$s\t\t\tLunar: %2$s</string>
     <string name="more_info"><u>more info</u></string>
 
     <!--    ASTRONOMIC IMAGE OF THE DAY ACTIVITY-->
