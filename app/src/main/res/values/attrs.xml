@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    BUTTONS /////////////////////////////////////////////////////////////////////////////-->
+    <declare-styleable name="ButtonMaterialIcon">
+        <attr name="android:background" />
+    </declare-styleable>
+
+    <!--    TOOLBARS ////////////////////////////////////////////////////////////////////////////-->
+    <declare-styleable name="BasicToolbar">
+        <attr name="toolbarText" format="string" />
+        <attr name="toolbarTextColor" format="color" />
+        <attr name="buttonLeftTextColor" format="color" />
+        <attr name="buttonRightTextColor" format="color" />
+        <attr name="showTitle" format="boolean" />
+        <attr name="showCloseButton" format="boolean" />
+        <attr name="showBackButton" format="boolean" />
+    </declare-styleable>
+</resources>
