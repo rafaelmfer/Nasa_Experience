@@ -19,7 +19,7 @@ fun String.toDate(pattern: String = DATE_TIME_PATTERN): Date =
 
 @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 fun String.formatFromServer(serverPattern: String, pattern: String): String {
-    val parse = SimpleDateFormat(serverPattern)
-    val formatterDate = SimpleDateFormat(pattern)
+    val parse = SimpleDateFormat(serverPattern, Locale.US)
+    val formatterDate = SimpleDateFormat(pattern, Locale.US)
     return formatterDate.format(parse.parse(this))
 }
