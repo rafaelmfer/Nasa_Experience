@@ -84,7 +84,7 @@
                 android:id="@+id/ivAstronomicImageOfTheDay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/padding_4"
+                android:layout_marginTop="@dimen/margin_8"
                 android:layout_marginStart="@dimen/margin_16"
                 android:layout_marginEnd="@dimen/margin_16"
                 android:adjustViewBounds="true"
@@ -113,23 +113,22 @@
                         android:id="@+id/ibShareImage"
                         android:layout_width="@dimen/width_24"
                         android:layout_height="@dimen/height_48"
-                        android:layout_marginTop="@dimen/margin_8"
                         android:layout_marginEnd="@dimen/margin_4"
                         android:background="@color/transparent"
                         android:src="@drawable/ic_share_24dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/tvCredits"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="@+id/tvImageTitle" />
 
                     <TextView
-                        android:id="@+id/tvImageTittle"
+                        android:id="@+id/tvImageTitle"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_16"
                         android:layout_marginStart="@dimen/margin_16"
-                        android:layout_marginTop="@dimen/margin_8"
                         android:layout_marginEnd="@dimen/margin_4"
                         android:textSize="@dimen/font_18"
                         android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="@+id/ibShareImage"
                         app:layout_constraintEnd_toStartOf="@id/ibShareImage"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -140,17 +139,27 @@
                         android:id="@+id/tvImageDescription"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_16"
                         android:layout_marginStart="@dimen/margin_16"
-                        android:layout_marginTop="@dimen/margin_24"
                         android:layout_marginEnd="@dimen/margin_16"
-                        android:layout_marginBottom="@dimen/margin_8"
+                        android:layout_marginBottom="@dimen/margin_16"
                         android:justificationMode="inter_word"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tvImageTittle"
+                        app:layout_constraintTop_toBottomOf="@+id/tvCredits"
                         tools:lines="8"
                         tools:text="@tools:sample/lorem/random" />
+
+                    <TextView
+                        android:id="@+id/tvCredits"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_16"
+                        android:layout_marginTop="@dimen/margin_8"
+                        tools:text="Créditos ao autor"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvImageTitle" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
