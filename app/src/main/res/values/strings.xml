@@ -60,11 +60,15 @@
 
     <!--    ASTRONOMIC IMAGE OF THE DAY ACTIVITY-->
     <string name="enter_a_date_to_search">Digite uma data para procurar</string>
+    <string name="search_image_by_date">Data – 2020–06–08</string>
 
     <!--    CUSTOM VIEWS-->
     <string name="acs_back">voltar</string>
     <string name="acs_close">fechar</string>
     <string name="acs_toolbar_title">%1$s</string>
     <string name="panel">Panel</string>
+    <string name="video_case_message">Hoje temos um vídeo! Aperte o Play!</string>
+    <string name="video_click_message">Você está sendo redirecionado!</string>
+    <string name="null_case_message">Desculpe, não houve imagem para nesta data.</string>
 
 </resources>

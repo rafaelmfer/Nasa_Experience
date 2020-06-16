@@ -51,48 +51,46 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tilSearchToolbar"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/height_60"
-                android:layout_marginStart="@dimen/margin_16"
-                android:layout_marginTop="@dimen/margin_4"
-                android:layout_marginEnd="@dimen/margin_16"
-                android:background="@color/grey_700"
-                android:hint="@string/enter_a_date_to_search"
-                android:paddingStart="@dimen/padding_4"
-                android:paddingEnd="@dimen/padding_4"
-                android:textColorHint="@color/white"
-                app:endIconDrawable="@drawable/ic_search_24dp"
-                app:endIconMode="custom"
+            <SearchView
+                android:id="@+id/search_view_objects_image_day"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_16"
+                android:alpha="0.7"
+                android:closeIcon="@drawable/ic_close_24dp"
+                android:iconifiedByDefault="false"
+                android:queryHint="@string/search_image_by_date"
+                android:searchIcon="@drawable/ic_search_24dp"
+                android:theme="@style/SearchViewTextWhite"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tieSearchToolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:imeOptions="actionSearch"
-                    android:maxLines="1"
-                    android:paddingBottom="@dimen/padding_8"
-                    android:singleLine="true"
-                    android:textSize="@dimen/font_18" />
-            </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/tvImageVideoCase"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_4"
+                android:layout_marginStart="@dimen/font_20"
+                android:layout_marginEnd="@dimen/font_20"
+                android:gravity="center"
+                android:textSize="@dimen/font_18"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search_view_objects_image_day"
+                tools:text="@tools:sample/lorem" />
 
             <ImageView
                 android:id="@+id/ivAstronomicImageOfTheDay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_4"
                 android:layout_marginStart="@dimen/margin_16"
-                android:layout_marginTop="@dimen/margin_16"
                 android:layout_marginEnd="@dimen/margin_16"
-                android:layout_marginBottom="@dimen/margin_16"
                 android:adjustViewBounds="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tilSearchToolbar"
+                app:layout_constraintTop_toBottomOf="@+id/tvImageVideoCase"
                 tools:src="@tools:sample/backgrounds/scenic" />
 
             <com.google.android.material.card.MaterialCardView
@@ -113,7 +111,7 @@
 
                     <ImageButton
                         android:id="@+id/ibShareImage"
-                        android:layout_width="@dimen/width_48"
+                        android:layout_width="@dimen/width_24"
                         android:layout_height="@dimen/height_48"
                         android:layout_marginTop="@dimen/margin_8"
                         android:layout_marginEnd="@dimen/margin_4"
@@ -131,35 +129,26 @@
                         android:layout_marginEnd="@dimen/margin_4"
                         android:textSize="@dimen/font_18"
                         android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@+id/ibShareImage"
                         app:layout_constraintEnd_toStartOf="@id/ibShareImage"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:text="@tools:sample/lorem" />
 
-                    <TextView
-                        android:id="@+id/tvImageCredits"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/margin_16"
-                        android:layout_marginTop="@dimen/margin_4"
-                        app:layout_constraintEnd_toEndOf="@id/tvImageTittle"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tvImageTittle"
-                        tools:text="@tools:sample/lorem" />
 
                     <TextView
                         android:id="@+id/tvImageDescription"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin_16"
-                        android:layout_marginTop="@dimen/margin_16"
+                        android:layout_marginTop="@dimen/margin_24"
                         android:layout_marginEnd="@dimen/margin_16"
                         android:layout_marginBottom="@dimen/margin_8"
                         android:justificationMode="inter_word"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tvImageCredits"
+                        app:layout_constraintTop_toBottomOf="@id/tvImageTittle"
                         tools:lines="8"
                         tools:text="@tools:sample/lorem/random" />
 
