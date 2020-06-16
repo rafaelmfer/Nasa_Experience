@@ -1,6 +1,7 @@
 package com.rafaelmfer.nasaexperience.repository
 
 import com.rafaelmfer.nasaexperience.model.asteroids.CelestialObjectsResponse
+import com.rafaelmfer.nasaexperience.model.imageoftheday.ImageResponseItem
 import com.rafaelmfer.nasaexperience.model.marsweatherservice.MarsWeatherResponse
 
 class RepositoryNasa {
@@ -15,4 +16,9 @@ class RepositoryNasa {
 
     suspend fun getCelestialObjects(startDate : String): CelestialObjectsResponse =
         serviceNasaAPIs.getCelestialObjects(apiKey = apiKey, startDate = startDate)
+
+    suspend fun getImageofDay () : ImageResponseItem = serviceNasaAPIs.getServiceImage(apiKey)
+
+    suspend fun getImageByDate(ImageDate : String): ImageResponseItem =
+            serviceNasaAPIs.getImageByDate(api = apiKey, imageDate = ImageDate)
 }
