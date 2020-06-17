@@ -27,8 +27,10 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="@dimen/margin_52"
+        android:autoSizeTextType="uniform"
         android:background="@color/transparent"
         android:gravity="center"
+        android:maxLines="1"
         android:padding="@dimen/padding_4"
         android:text="@string/astronomy_picture_of_the_day"
         android:textAlignment="center"
@@ -70,8 +72,8 @@
                 android:id="@+id/tvImageVideoCase"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/padding_4"
                 android:layout_marginStart="@dimen/font_20"
+                android:layout_marginTop="@dimen/margin_16"
                 android:layout_marginEnd="@dimen/font_20"
                 android:gravity="center"
                 android:textSize="@dimen/font_18"
@@ -81,17 +83,18 @@
                 tools:text="@tools:sample/lorem" />
 
             <ImageView
-                android:id="@+id/ivAstronomicImageOfTheDay"
+                android:id="@+id/astronomic_image_of_the_day"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_8"
                 android:layout_marginStart="@dimen/margin_16"
+                android:layout_marginTop="@dimen/margin_8"
                 android:layout_marginEnd="@dimen/margin_16"
                 android:adjustViewBounds="true"
+                android:importantForAccessibility="no"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvImageVideoCase"
-                tools:src="@tools:sample/backgrounds/scenic" />
+                tools:src="@drawable/ic_play_100dp" />
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cvAstronomicImageInfo"
@@ -103,7 +106,7 @@
                 android:backgroundTint="@color/blue_grey_800"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ivAstronomicImageOfTheDay">
+                app:layout_constraintTop_toBottomOf="@id/astronomic_image_of_the_day">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -111,21 +114,22 @@
 
                     <ImageButton
                         android:id="@+id/ibShareImage"
-                        android:layout_width="@dimen/width_24"
+                        android:layout_width="@dimen/width_48"
                         android:layout_height="@dimen/height_48"
                         android:layout_marginEnd="@dimen/margin_4"
                         android:background="@color/transparent"
+                        android:importantForAccessibility="no"
                         android:src="@drawable/ic_share_24dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/tvCredits"
+                        app:layout_constraintBottom_toBottomOf="@+id/image_credits"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/tvImageTitle" />
+                        app:layout_constraintTop_toTopOf="@+id/image_title" />
 
                     <TextView
-                        android:id="@+id/tvImageTitle"
+                        android:id="@+id/image_title"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/margin_16"
                         android:layout_marginStart="@dimen/margin_16"
+                        android:layout_marginTop="@dimen/margin_16"
                         android:layout_marginEnd="@dimen/margin_4"
                         android:textSize="@dimen/font_18"
                         android:textStyle="bold"
@@ -136,30 +140,31 @@
 
 
                     <TextView
-                        android:id="@+id/tvImageDescription"
+                        android:id="@+id/image_description"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/margin_16"
                         android:layout_marginStart="@dimen/margin_16"
+                        android:layout_marginTop="@dimen/margin_16"
                         android:layout_marginEnd="@dimen/margin_16"
                         android:layout_marginBottom="@dimen/margin_16"
                         android:justificationMode="inter_word"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tvCredits"
+                        app:layout_constraintTop_toBottomOf="@+id/image_credits"
                         tools:lines="8"
                         tools:text="@tools:sample/lorem/random" />
 
                     <TextView
-                        android:id="@+id/tvCredits"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/image_credits"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin_16"
-                        android:layout_marginTop="@dimen/margin_8"
-                        tools:text="Créditos ao autor"
+                        android:layout_marginTop="@dimen/margin_4"
+                        app:layout_constraintEnd_toEndOf="@id/image_title"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tvImageTitle" />
+                        app:layout_constraintTop_toBottomOf="@id/image_title"
+                        tools:text="Créditos ao autor: Dr. Hans Chucrute" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -170,6 +175,7 @@
                 android:layout_height="@dimen/height_60"
                 android:layout_marginTop="@dimen/margin_16"
                 android:layout_marginBottom="@dimen/margin_4"
+                android:importantForAccessibility="no"
                 android:src="@drawable/ic_nasa_logo"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/nasa_logo_bottom_name"

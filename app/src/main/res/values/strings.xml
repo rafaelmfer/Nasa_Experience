@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Nasa Experience</string>
+    <string name="facebook_app_id">287810432583184</string>
+    <string name="fb_login_protocol_scheme">fb287810432583184</string>
 
     <!--    COMMON-->
     <string name="back">voltar</string>

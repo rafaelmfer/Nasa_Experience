@@ -6,3 +6,5 @@ const val SERVER_NEAR_OBJECTS_DATE_PATTERN = "yyyy-MM-dd"
 const val DATE_TIME_PATTERN_DESIRED = "dd/MMM/yyyy' às 'HH'h'mm"
 const val TIME_PATTERN_DESIRED = "dd/MMM/yyyy"
 const val TWO_DECIMALS = "%.2f"
+
+const val FACEBOOK_INFO = "FACEBOOK_INFO"
