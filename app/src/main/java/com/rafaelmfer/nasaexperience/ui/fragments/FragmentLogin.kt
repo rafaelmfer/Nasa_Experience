@@ -13,6 +13,7 @@ import com.facebook.FacebookCallback
 import com.facebook.FacebookException
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
+import com.google.firebase.auth.FirebaseAuth
 import com.rafaelmfer.nasaexperience.R
 import com.rafaelmfer.nasaexperience.extensions.Utils
 import com.rafaelmfer.nasaexperience.extensions.toast
@@ -27,6 +28,7 @@ class FragmentLogin : Fragment() {
     private val userID get() = accessToken?.userId ?: "4"
 
     private var activity: ActivityContract? = null
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_login, container, false)
