@@ -41,7 +41,9 @@
     <!--    HEIGHT-->
     <dimen name="height_24">24dp</dimen>
     <dimen name="height_48">48dp</dimen>
+    <dimen name="height_55">55dp</dimen>
     <dimen name="height_60">60dp</dimen>
+    <dimen name="height_75">75dp</dimen>
     <dimen name="height_200">200dp</dimen>
 
 </resources>

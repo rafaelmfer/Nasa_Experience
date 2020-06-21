@@ -29,11 +29,9 @@ import com.rafaelmfer.nasaexperience.ui.activity.ActivityHome
 import com.rafaelmfer.nasaexperience.viewmodel.ViewModelLogin
 import kotlinx.android.synthetic.main.fragment_login.*
 
-
 class FragmentLogin : Fragment() {
 
     private val viewModel: ViewModelLogin by viewModels()
-
 
     private val callbackManager = CallbackManager.Factory.create()
     private val accessToken: AccessToken? get() = AccessToken.getCurrentAccessToken()
@@ -86,18 +84,16 @@ class FragmentLogin : Fragment() {
         }
 
         sign_up.setOnClickListener { activityContract.startFragment(FragmentRegister()) }
-
         viewModel.loginResponse.observe(activityContract as LifecycleOwner, Observer {
             if (it) {
                 val intent = Intent(context, ActivityHome::class.java)
                 startActivity(intent)
             } else {
-                Toast.makeText(context, "erro ao realizar o login", Toast.LENGTH_LONG).show()
+                requireContext().toast("erro ao realizar o login")
             }
         })
         btGoogleSignIn = view.findViewById(R.id.btGoogleSignIn)
         btGoogleSignIn.setOnClickListener {
-
             startActivityForResult(loginIntent, loginCode)
         }
     }
