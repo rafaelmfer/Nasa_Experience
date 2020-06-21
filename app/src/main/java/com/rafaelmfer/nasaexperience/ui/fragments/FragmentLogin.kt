@@ -6,37 +6,62 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.Observer
 import com.facebook.AccessToken
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
 import com.facebook.FacebookException
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
-import com.google.firebase.auth.FirebaseAuth
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.SignInButton
 import com.rafaelmfer.nasaexperience.R
 import com.rafaelmfer.nasaexperience.extensions.Utils
 import com.rafaelmfer.nasaexperience.extensions.toast
 import com.rafaelmfer.nasaexperience.ui.activity.ActivityContract
 import com.rafaelmfer.nasaexperience.ui.activity.ActivityHome
+import com.rafaelmfer.nasaexperience.viewmodel.ViewModelLogin
 import kotlinx.android.synthetic.main.fragment_login.*
 
+
 class FragmentLogin : Fragment() {
+
+    private val viewModel: ViewModelLogin by viewModels()
+
 
     private val callbackManager = CallbackManager.Factory.create()
     private val accessToken: AccessToken? get() = AccessToken.getCurrentAccessToken()
     private val userID get() = accessToken?.userId ?: "4"
 
-    private var activity: ActivityContract? = null
+    private val loginCode = 300
+    lateinit var btGoogleSignIn: Button
 
+
+    lateinit var activityContract : ActivityContract
+
+
+    private val loginIntent by lazy {
+        GoogleSignIn.getClient(activityContract.activity, GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build())
+                .signInIntent
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_login, container, false)
     }
 
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        activity = context as ActivityContract
+        activityContract = context as ActivityContract
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -59,7 +84,22 @@ class FragmentLogin : Fragment() {
                 }
             }
         }
-        sign_up.setOnClickListener { activity?.startFragment(FragmentRegister()) }
+
+        sign_up.setOnClickListener { activityContract.startFragment(FragmentRegister()) }
+
+        viewModel.loginResponse.observe(activityContract as LifecycleOwner, Observer {
+            if (it) {
+                val intent = Intent(context, ActivityHome::class.java)
+                startActivity(intent)
+            } else {
+                Toast.makeText(context, "erro ao realizar o login", Toast.LENGTH_LONG).show()
+            }
+        })
+        btGoogleSignIn = view.findViewById(R.id.btGoogleSignIn)
+        btGoogleSignIn.setOnClickListener {
+
+            startActivityForResult(loginIntent, loginCode)
+        }
     }
 
     private val facebookCallback = object : FacebookCallback<LoginResult> {
@@ -86,5 +126,9 @@ class FragmentLogin : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         callbackManager.onActivityResult(requestCode, resultCode, data)
         super.onActivityResult(requestCode, resultCode, data)
+
+        when (requestCode) {
+            loginCode -> viewModel.logIn(data)
+        }
     }
 }
