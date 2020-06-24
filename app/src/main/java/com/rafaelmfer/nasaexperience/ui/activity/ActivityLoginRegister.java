@@ -1,5 +1,6 @@
 package com.rafaelmfer.nasaexperience.ui.activity;
 
+import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +9,8 @@ import androidx.fragment.app.FragmentManager;
 
 import com.rafaelmfer.nasaexperience.R;
 import com.rafaelmfer.nasaexperience.ui.fragments.FragmentLogin;
+
+import org.jetbrains.annotations.NotNull;
 
 public class ActivityLoginRegister extends AppCompatActivity implements ActivityContract {
 
@@ -55,5 +58,11 @@ public class ActivityLoginRegister extends AppCompatActivity implements Activity
         } else {
             startFragment(new FragmentLogin());
         }
+    }
+
+    @NotNull
+    @Override
+    public Activity getActivity() {
+        return this;
     }
 }

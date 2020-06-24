@@ -15,6 +15,7 @@
     <!--    MARGIN-->
     <dimen name="margin_2">2dp</dimen>
     <dimen name="margin_4">4dp</dimen>
+    <dimen name="margin_6">6dp</dimen>
     <dimen name="margin_8">8dp</dimen>
     <dimen name="margin_12">12dp</dimen>
     <dimen name="margin_16">16dp</dimen>
@@ -40,7 +41,9 @@
     <!--    HEIGHT-->
     <dimen name="height_24">24dp</dimen>
     <dimen name="height_48">48dp</dimen>
+    <dimen name="height_55">55dp</dimen>
     <dimen name="height_60">60dp</dimen>
+    <dimen name="height_75">75dp</dimen>
     <dimen name="height_200">200dp</dimen>
 
 </resources>
