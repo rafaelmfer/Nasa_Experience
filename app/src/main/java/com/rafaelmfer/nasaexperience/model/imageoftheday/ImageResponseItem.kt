@@ -1,9 +1,8 @@
 package com.rafaelmfer.nasaexperience.model.imageoftheday
 
-
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
-import android.os.Parcelable
 
 @Parcelize
 data class ImageResponseItem(

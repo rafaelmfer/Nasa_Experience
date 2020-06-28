@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 
-abstract class FragBase(private val layout: Int? = null) : Fragment() {
+abstract class FragBase(private val layout: Int = 0) : Fragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, state: Bundle?) =
-        layout?.let { inflater.inflate(it, container, false) }
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, state: Bundle?): View? =
+        inflater.inflate(layout, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

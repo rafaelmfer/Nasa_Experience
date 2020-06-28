@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.rafaelmfer.nasaexperience.R;
+import com.rafaelmfer.nasaexperience.extensions.ExtActKt;
+import com.rafaelmfer.nasaexperience.extensions.ExtViewKt;
 import com.rafaelmfer.nasaexperience.ui.fragments.FragmentLogin;
 
 import org.jetbrains.annotations.NotNull;
@@ -20,6 +22,8 @@ public class ActivityLoginRegister extends AppCompatActivity implements Activity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_register);
+        ExtActKt.setFullScreen(this);
+        ExtViewKt.addMarginTopStatusBarHeight(findViewById(R.id.flContainer));
     }
 
     @Override

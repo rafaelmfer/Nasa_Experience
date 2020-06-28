@@ -3,10 +3,12 @@ package com.rafaelmfer.nasaexperience.extensions
 import android.app.Activity
 import android.os.Build
 import android.view.View
+import android.view.WindowManager
 import androidx.annotation.ColorRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 
 fun Activity.setStatusBarColor(@ColorRes colorId: Int, hasLightTextColor: Boolean = true) {
     window.statusBarColor = ContextCompat.getColor(this, colorId)
@@ -25,4 +27,8 @@ fun AppCompatActivity.replaceFragment(
         supportFragmentManager.setFragmentsVisibleHint(fragment, container)
         replace(container, fragment, fragment.javaClass.name).commit()
     }
+}
+
+fun FragmentActivity.setFullScreen() {
+    this.window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
 }

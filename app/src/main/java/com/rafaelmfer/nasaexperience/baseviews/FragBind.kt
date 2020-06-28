@@ -16,11 +16,7 @@ abstract class FragBind<Binding : ViewBinding> : FragBase() {
         bindClass.getMethod("inflate", LayoutInflater::class.java)
             .invoke(null, layoutInflater) as Binding
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        state: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, state: Bundle?): View? {
         binding = inflate()
         return (binding.root)
     }
