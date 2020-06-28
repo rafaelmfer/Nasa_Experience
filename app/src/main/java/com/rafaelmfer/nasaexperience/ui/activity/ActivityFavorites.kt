@@ -4,6 +4,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.rafaelmfer.nasaexperience.R
 import com.rafaelmfer.nasaexperience.baseviews.ActBase
+import com.rafaelmfer.nasaexperience.debugging.ExceptionHandler
 import com.rafaelmfer.nasaexperience.extensions.viewpager.setupPagerAdapter
 import kotlinx.android.synthetic.main.bottom_sheet_favorites.*
 
@@ -13,6 +14,7 @@ class ActivityFavorites : ActBase(R.layout.bottom_sheet_favorites) {
         mutableListOf(FragFavoritesCelestialObjects(), FragFavoritesMars(), FragFavoritesAstronomicImage())
 
     override fun ViewGroup.onView() {
+        exceptionHandler = ExceptionHandler::class.java
         viewpager_favorites.apply {
             //Usado para não destruir o fragment, e evitar o erro de adicionar itens novamente no adapter da recycler no primeiro fragment
             offscreenPageLimit = fragmentList.size

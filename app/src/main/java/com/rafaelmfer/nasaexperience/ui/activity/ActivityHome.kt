@@ -11,6 +11,7 @@ import com.google.android.material.navigation.NavigationView
 import com.rafaelmfer.nasaexperience.R
 import com.rafaelmfer.nasaexperience.baseviews.ActBind
 import com.rafaelmfer.nasaexperience.databinding.ActivityHomeBinding
+import com.rafaelmfer.nasaexperience.debugging.ExceptionHandler
 import com.rafaelmfer.nasaexperience.extensions.addMarginTopStatusBarHeight
 import com.rafaelmfer.nasaexperience.extensions.setFullScreen
 import com.rafaelmfer.nasaexperience.extensions.toast
@@ -22,6 +23,7 @@ class ActivityHome : ActBind<ActivityHomeBinding>(), NavigationView.OnNavigation
     override val bindClass: Class<ActivityHomeBinding> by lazy { ActivityHomeBinding::class.java }
 
     override fun ActivityHomeBinding.onBoundView() {
+        exceptionHandler = ExceptionHandler::class.java
         setFullScreen()
         binding.contentHome.apply {
             menuNavdrawer.run {
