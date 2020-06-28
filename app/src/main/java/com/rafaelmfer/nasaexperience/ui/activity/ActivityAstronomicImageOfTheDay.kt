@@ -4,10 +4,11 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.widget.SearchView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.rafaelmfer.nasaexperience.R
+import com.rafaelmfer.nasaexperience.baseviews.ActBase
+import com.rafaelmfer.nasaexperience.debugging.ExceptionHandler
 import com.rafaelmfer.nasaexperience.extensions.addMarginTopStatusBarHeight
 import com.rafaelmfer.nasaexperience.extensions.setFullScreen
 import com.rafaelmfer.nasaexperience.extensions.toast
@@ -16,13 +17,14 @@ import com.rafaelmfer.nasaexperience.viewmodel.ViewModelImage
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_astronomic_image_of_the_day.*
 
-class ActivityAstronomicImageOfTheDay : AppCompatActivity() {
+class ActivityAstronomicImageOfTheDay : ActBase() {
 
     private val viewModelImage by lazy { ViewModelProviders.of(this).get(ViewModelImage::class.java) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_astronomic_image_of_the_day)
+        exceptionHandler = ExceptionHandler::class.java
         setFullScreen()
         ibAstronomicImageBack.apply {
             addMarginTopStatusBarHeight()

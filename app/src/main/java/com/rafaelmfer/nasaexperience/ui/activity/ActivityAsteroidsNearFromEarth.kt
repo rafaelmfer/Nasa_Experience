@@ -7,6 +7,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rafaelmfer.nasaexperience.R
 import com.rafaelmfer.nasaexperience.baseviews.ActBase
+import com.rafaelmfer.nasaexperience.debugging.ExceptionHandler
 import com.rafaelmfer.nasaexperience.extensions.addMarginTopStatusBarHeight
 import com.rafaelmfer.nasaexperience.extensions.recyclerview.setupViewBinding
 import com.rafaelmfer.nasaexperience.extensions.recyclerview.update
@@ -22,6 +23,7 @@ class ActivityAsteroidsNearFromEarth : ActBase(R.layout.activity_asteroids_near_
     private val viewModel: ViewModelNearEarthObjects by viewModels()
 
     override fun ViewGroup.onView() {
+        exceptionHandler = ExceptionHandler::class.java
         setFullScreen()
         asteroids_back.apply {
             addMarginTopStatusBarHeight()

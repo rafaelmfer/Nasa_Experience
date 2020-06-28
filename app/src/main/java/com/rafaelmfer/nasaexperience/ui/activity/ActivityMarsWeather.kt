@@ -5,6 +5,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rafaelmfer.nasaexperience.baseviews.ActBind
 import com.rafaelmfer.nasaexperience.databinding.ActivityMarsWeatherBinding
+import com.rafaelmfer.nasaexperience.debugging.ExceptionHandler
 import com.rafaelmfer.nasaexperience.extensions.addMarginTopStatusBarHeight
 import com.rafaelmfer.nasaexperience.extensions.setFullScreen
 import com.rafaelmfer.nasaexperience.ui.adapter.AdapterMars
@@ -17,6 +18,7 @@ class ActivityMarsWeather : ActBind<ActivityMarsWeatherBinding>() {
     private val adapterMars = AdapterMars()
 
     override fun ActivityMarsWeatherBinding.onBoundView() {
+        exceptionHandler = ExceptionHandler::class.java
         setFullScreen()
         marsWeatherBack.apply {
             addMarginTopStatusBarHeight()
