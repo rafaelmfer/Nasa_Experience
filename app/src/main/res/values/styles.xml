@@ -1,5 +1,10 @@
 <resources>
 
+    <style name="SplashTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
         <!-- Customize your theme here. -->
@@ -8,14 +13,10 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColor">@android:color/white</item>
 
-<!--        Setup para Animação padrão do app-->
+        <!--  Setup para Animação padrão do app-->
         <item name="android:windowContentTransitions">true</item>
-        <item name="android:windowAnimationStyle">@style/Animation.WindowTransition.LeftToRight</item>
-    </style>
-
-    <style name="SplashTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
-        <item name="android:windowBackground">@drawable/splash_screen</item>
-        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowAnimationStyle">@style/Animation.WindowTransition.LeftToRight
+        </item>
     </style>
 
     <style name="Animation.WindowTransition.LeftToRight" parent="android:style/Animation.Activity">
@@ -32,6 +33,7 @@
         <item name="iconTint">@color/white</item>
     </style>
 
+    <!-- CUSTOM VIEWS    -->
     <style name="FadeAnimation">
         <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
         <item name="android:windowExitAnimation">@android:anim/fade_out</item>

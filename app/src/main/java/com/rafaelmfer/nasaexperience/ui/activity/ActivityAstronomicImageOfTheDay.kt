@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.rafaelmfer.nasaexperience.R
+import com.rafaelmfer.nasaexperience.extensions.addMarginTopStatusBarHeight
+import com.rafaelmfer.nasaexperience.extensions.setFullScreen
 import com.rafaelmfer.nasaexperience.extensions.toast
 import com.rafaelmfer.nasaexperience.model.imageoftheday.ImageResponseItem
 import com.rafaelmfer.nasaexperience.viewmodel.ViewModelImage
@@ -21,9 +23,12 @@ class ActivityAstronomicImageOfTheDay : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_astronomic_image_of_the_day)
-
-        ibAstronomicImageBack?.setOnClickListener { onBackPressed() }
-        ibShareImage?.setOnClickListener {
+        setFullScreen()
+        ibAstronomicImageBack.apply {
+            addMarginTopStatusBarHeight()
+            setOnClickListener { onBackPressed() }
+        }
+        ibShareImage.setOnClickListener {
             toast("Eu ainda não compartilho :( , você pode voltar quando eu estiver pronto para seguirmos juntos?")
             //TODO esperar ensinar sobre compartilhamento nas redes sociais
             //Achar um jeito de compartilhar a imagem e o texto
@@ -65,7 +70,6 @@ class ActivityAstronomicImageOfTheDay : AppCompatActivity() {
                     toast(response.title)
                 }
             }
-
         }
     }
 

@@ -6,8 +6,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.LifecycleOwner
@@ -20,7 +18,6 @@ import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.common.SignInButton
 import com.rafaelmfer.nasaexperience.R
 import com.rafaelmfer.nasaexperience.extensions.Utils
 import com.rafaelmfer.nasaexperience.extensions.toast
@@ -38,11 +35,8 @@ class FragmentLogin : Fragment() {
     private val userID get() = accessToken?.userId ?: "4"
 
     private val loginCode = 300
-    lateinit var btGoogleSignIn: Button
-
 
     lateinit var activityContract : ActivityContract
-
 
     private val loginIntent by lazy {
         GoogleSignIn.getClient(activityContract.activity, GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -73,6 +67,7 @@ class FragmentLogin : Fragment() {
             Utils.removeErrorOnTextInputLayout(tilLoginUserEmail, tilLoginUserPassword)
             if (Utils.editTextIsNotEmpty(etLoginUserEmail, etLoginUserPassword)) {
                 startActivity(Intent(viewButton.context, ActivityHome::class.java))
+//                viewModel.validaissoae(etLoginUserEmail.string)
             } else {
                 if (!Utils.editTextIsNotEmpty(etLoginUserEmail)) {
                     tilLoginUserEmail.error = getString(R.string.error_field_must_be_filled)
@@ -92,7 +87,6 @@ class FragmentLogin : Fragment() {
                 requireContext().toast("erro ao realizar o login")
             }
         })
-        btGoogleSignIn = view.findViewById(R.id.btGoogleSignIn)
         btGoogleSignIn.setOnClickListener {
             startActivityForResult(loginIntent, loginCode)
         }
@@ -127,4 +121,10 @@ class FragmentLogin : Fragment() {
             loginCode -> viewModel.logIn(data)
         }
     }
+
+//
+//    viewModel.observer.blabla {
+//        sucesso ->
+//        errado ->
+//    }
 }
