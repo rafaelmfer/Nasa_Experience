@@ -9,9 +9,9 @@ import com.google.firebase.auth.FirebaseAuth
 class ViewModelRegister : ViewModel() {
     val registerResponse = MutableLiveData<Boolean>()
     private val authRegister: FirebaseAuth = FirebaseAuth.getInstance()
-    val user get() = authRegister.currentUser
+    val userRegister get() = authRegister.currentUser
 
-    fun resgisterUser(name: String, lastName: String, email: String, pass: String) {
+    fun loginRegister(name: String, lastName: String, email: String, pass: String) {
         if (name.isEmpty() || lastName.isEmpty() || email.isEmpty() || pass.isEmpty()) {
             registerResponse.postValue(false)
             Log.i("VALIDACAO", "erro ao validar string")

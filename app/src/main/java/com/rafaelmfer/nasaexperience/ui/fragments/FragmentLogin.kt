@@ -26,13 +26,13 @@ import com.rafaelmfer.nasaexperience.R
 import com.rafaelmfer.nasaexperience.extensions.toast
 import com.rafaelmfer.nasaexperience.ui.activity.ActivityContract
 import com.rafaelmfer.nasaexperience.ui.activity.ActivityHome
-import com.rafaelmfer.nasaexperience.viewmodel.ViewModelLogin
+import com.rafaelmfer.nasaexperience.viewmodel.ViewModelLoginGoogle
 import com.rafaelmfer.nasaexperience.viewmodel.ViewModelLoginFire
 import kotlinx.android.synthetic.main.fragment_login.*
 
 class FragmentLogin : Fragment() {
 
-    private val viewModel: ViewModelLogin by viewModels()
+    private val viewModelGoogle: ViewModelLoginGoogle by viewModels()
 
     private val callbackManager = CallbackManager.Factory.create()
     private val accessToken: AccessToken? get() = AccessToken.getCurrentAccessToken()
@@ -52,7 +52,7 @@ class FragmentLogin : Fragment() {
         ViewModelProviders.of(this).get(ViewModelLoginFire::class.java)
     }
 
-    private val loginIntent by lazy {
+    private val loginIntentGoogle by lazy {
         GoogleSignIn.getClient(activityContract.activity, GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
@@ -91,10 +91,10 @@ class FragmentLogin : Fragment() {
         loginFirebaseAuth = FirebaseAuth.getInstance()
         loginFire = view.findViewById(R.id.login)
         loginFire.setOnClickListener {
-            viewModelLoginFire.authLoginbyFire(logEmail.text.toString(), logPass.text.toString())
+            viewModelLoginFire.loginFire(logEmail.text.toString(), logPass.text.toString())
         }
         authStateListener = FirebaseAuth.AuthStateListener {
-            val firebaseUser = viewModelLoginFire.user
+            val firebaseUser = viewModelLoginFire.userFire
             if (firebaseUser != null) {
                 val intent = Intent(context, ActivityHome::class.java)
                 startActivity(intent)
@@ -103,7 +103,7 @@ class FragmentLogin : Fragment() {
         }
 
         sign_up.setOnClickListener { activityContract.startFragment(FragmentRegister()) }
-        viewModel.loginResponse.observe(activityContract as LifecycleOwner, Observer {
+        viewModelGoogle.loginResponseGoogle.observe(activityContract as LifecycleOwner, Observer {
             if (it) {
                 val intent = Intent(context, ActivityHome::class.java)
                 startActivity(intent)
@@ -112,7 +112,7 @@ class FragmentLogin : Fragment() {
             }
         })
         btGoogleSignIn.setOnClickListener {
-            startActivityForResult(loginIntent, loginCode)
+            startActivityForResult(loginIntentGoogle, loginCode)
         }
     }
 
@@ -142,7 +142,7 @@ class FragmentLogin : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
 
         when (requestCode) {
-            loginCode -> viewModel.logIn(data)
+            loginCode -> viewModelGoogle.logInGoogle(data)
         }
     }
 
