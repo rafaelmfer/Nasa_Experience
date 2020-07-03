@@ -7,16 +7,16 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 
-class ViewModelLogin: ViewModel() {
+class ViewModelLoginGoogle: ViewModel() {
 
-    private val auth: FirebaseAuth = FirebaseAuth.getInstance()
-    val loginResponse = MutableLiveData<Boolean>()
-    val exitresponse = MutableLiveData<Boolean>()
-    val user get() = auth.currentUser
-    fun logIn(data: Intent?) = try {
+    private val authGoogle: FirebaseAuth = FirebaseAuth.getInstance()
+    val loginResponseGoogle = MutableLiveData<Boolean>()
+    val exitResponseGoogle = MutableLiveData<Boolean>()
+    val userGoogle get() = authGoogle.currentUser
+    fun logInGoogle(data: Intent?) = try {
         GoogleSignIn.getSignedInAccountFromIntent(data).run {
             val credential = GoogleAuthProvider.getCredential(result?.idToken, null)
-            auth.signInWithCredential(credential)
+            authGoogle.signInWithCredential(credential)
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) onLoginSuccess() else onLoginFail()
                     }
@@ -25,17 +25,17 @@ class ViewModelLogin: ViewModel() {
         onLoginFail()
     }
     val onLoginSuccess = {
-        loginResponse.postValue(true)
+        loginResponseGoogle.postValue(true)
     }
     val onLoginFail = {
-        loginResponse.postValue(false)
+        loginResponseGoogle.postValue(false)
     }
-    fun logOff() {
-        if (user != null) {
-            auth.signOut()
-            exitresponse.postValue(true)
+    fun logOffGoogle() {
+        if (userGoogle != null) {
+            authGoogle.signOut()
+            exitResponseGoogle.postValue(true)
         } else {
-            exitresponse.postValue(false)
+            exitResponseGoogle.postValue(false)
         }
     }
 }

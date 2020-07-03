@@ -63,7 +63,7 @@ class FragmentRegister : Fragment() {
         firebaseAuth = FirebaseAuth.getInstance()
         btCreateAccount = view.findViewById(R.id.btCreateAccount)
         btCreateAccount.setOnClickListener {
-            viewModelRegister.resgisterUser(etRegisterUserName.text.toString()
+            viewModelRegister.loginRegister(etRegisterUserName.text.toString()
                     ,etRegisterUserLastName.text.toString()
                     ,etRegisterUserEmail.text.toString()
                     ,etRegisterUserPassword.text.toString())

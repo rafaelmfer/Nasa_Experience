@@ -8,9 +8,9 @@ import com.google.firebase.auth.FirebaseAuth
 class ViewModelLoginFire : ViewModel() {
     val fireLoginResponse = MutableLiveData<Boolean>()
     private val authLoginFire: FirebaseAuth = FirebaseAuth.getInstance()
-    val user get() = authLoginFire.currentUser
+    val userFire get() = authLoginFire.currentUser
 
-    fun authLoginbyFire(eMail: String, passWord: String){
+    fun loginFire(eMail: String, passWord: String){
         if (eMail.isEmpty() || passWord.isEmpty()) {
             fireLoginResponse.postValue(false)
         } else if (eMail.isNotEmpty() && passWord.isNotEmpty()) {
