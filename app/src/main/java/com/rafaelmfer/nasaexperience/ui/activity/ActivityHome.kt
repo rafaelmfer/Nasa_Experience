@@ -3,11 +3,13 @@ package com.rafaelmfer.nasaexperience.ui.activity
 import android.content.Intent
 import android.view.MenuItem
 import android.view.View
+import android.widget.Button
 import android.widget.Toast
 import androidx.core.view.GravityCompat
 import com.facebook.CallbackManager
 import com.facebook.login.LoginManager
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
 import com.rafaelmfer.nasaexperience.R
 import com.rafaelmfer.nasaexperience.baseviews.ActBind
 import com.rafaelmfer.nasaexperience.databinding.ActivityHomeBinding
@@ -15,10 +17,12 @@ import com.rafaelmfer.nasaexperience.debugging.ExceptionHandler
 import com.rafaelmfer.nasaexperience.extensions.addMarginTopStatusBarHeight
 import com.rafaelmfer.nasaexperience.extensions.setFullScreen
 import com.rafaelmfer.nasaexperience.extensions.toast
+import com.rafaelmfer.nasaexperience.ui.fragments.FragmentLogin
 
 class ActivityHome : ActBind<ActivityHomeBinding>(), NavigationView.OnNavigationItemSelectedListener {
 
     private var callbackManager = CallbackManager.Factory.create()
+    private val authRegister: FirebaseAuth = FirebaseAuth.getInstance()
 
     override val bindClass: Class<ActivityHomeBinding> by lazy { ActivityHomeBinding::class.java }
 
@@ -38,7 +42,7 @@ class ActivityHome : ActBind<ActivityHomeBinding>(), NavigationView.OnNavigation
     }
 
     private fun clickToStartNewActivity(activity: Class<*>) =
-        View.OnClickListener { startActivity(Intent(it.context, activity)) }
+            View.OnClickListener { startActivity(Intent(it.context, activity)) }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
@@ -46,7 +50,7 @@ class ActivityHome : ActBind<ActivityHomeBinding>(), NavigationView.OnNavigation
                 openFavoritesScreen()
             }
             R.id.nav_log_out -> {
-                facebookLogout()
+                logoffFire()
             }
             R.id.nav_rate_avaliation -> {
                 Toast.makeText(this, "Me faz um Le'ato!", Toast.LENGTH_LONG).show()
@@ -71,5 +75,10 @@ class ActivityHome : ActBind<ActivityHomeBinding>(), NavigationView.OnNavigation
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         callbackManager.onActivityResult(requestCode, resultCode, data)
+    }
+
+    private fun logoffFire() {
+        authRegister.signOut()
+        onBackPressed()
     }
 }

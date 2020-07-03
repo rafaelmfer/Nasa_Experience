@@ -6,10 +6,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.facebook.AccessToken
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
@@ -18,12 +21,13 @@ import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.firebase.auth.FirebaseAuth
 import com.rafaelmfer.nasaexperience.R
-import com.rafaelmfer.nasaexperience.extensions.Utils
 import com.rafaelmfer.nasaexperience.extensions.toast
 import com.rafaelmfer.nasaexperience.ui.activity.ActivityContract
 import com.rafaelmfer.nasaexperience.ui.activity.ActivityHome
 import com.rafaelmfer.nasaexperience.viewmodel.ViewModelLogin
+import com.rafaelmfer.nasaexperience.viewmodel.ViewModelLoginFire
 import kotlinx.android.synthetic.main.fragment_login.*
 
 class FragmentLogin : Fragment() {
@@ -36,7 +40,17 @@ class FragmentLogin : Fragment() {
 
     private val loginCode = 300
 
+    lateinit var logEmail: EditText
+    lateinit var logPass: EditText
+    lateinit var loginFire: Button
+    lateinit var loginFirebaseAuth: FirebaseAuth
+    lateinit var authStateListener: FirebaseAuth.AuthStateListener
+
     lateinit var activityContract : ActivityContract
+
+    private val viewModelLoginFire by lazy {
+        ViewModelProviders.of(this).get(ViewModelLoginFire::class.java)
+    }
 
     private val loginIntent by lazy {
         GoogleSignIn.getClient(activityContract.activity, GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -63,18 +77,28 @@ class FragmentLogin : Fragment() {
             LoginManager.getInstance().logInWithReadPermissions(this, listOf("public_profile", "user_friends"))
         }
 
-        login.setOnClickListener { viewButton ->
-            Utils.removeErrorOnTextInputLayout(tilLoginUserEmail, tilLoginUserPassword)
-            if (Utils.editTextIsNotEmpty(etLoginUserEmail, etLoginUserPassword)) {
-                startActivity(Intent(viewButton.context, ActivityHome::class.java))
-//                viewModel.validaissoae(etLoginUserEmail.string)
+        logEmail = view.findViewById(R.id.etLoginUserEmail)
+        logPass = view.findViewById(R.id.etLoginUserPassword)
+
+        viewModelLoginFire.fireLoginResponse.observe(activityContract as LifecycleOwner, Observer {
+            if (it) {
+                requireContext().toast(getString(R.string.loginfire_message_success))
             } else {
-                if (!Utils.editTextIsNotEmpty(etLoginUserEmail)) {
-                    tilLoginUserEmail.error = getString(R.string.error_field_must_be_filled)
-                }
-                if (!Utils.editTextIsNotEmpty(etLoginUserPassword)) {
-                    tilLoginUserPassword.error = getString(R.string.error_field_must_be_filled)
-                }
+                requireContext().toast(getString(R.string.loginfire_message_fail))
+            }
+        })
+
+        loginFirebaseAuth = FirebaseAuth.getInstance()
+        loginFire = view.findViewById(R.id.login)
+        loginFire.setOnClickListener {
+            viewModelLoginFire.authLoginbyFire(logEmail.text.toString(), logPass.text.toString())
+        }
+        authStateListener = FirebaseAuth.AuthStateListener {
+            val firebaseUser = viewModelLoginFire.user
+            if (firebaseUser != null) {
+                val intent = Intent(context, ActivityHome::class.java)
+                startActivity(intent)
+
             }
         }
 
@@ -120,6 +144,11 @@ class FragmentLogin : Fragment() {
         when (requestCode) {
             loginCode -> viewModel.logIn(data)
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        loginFirebaseAuth.addAuthStateListener(authStateListener)
     }
 
 //

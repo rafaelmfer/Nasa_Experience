@@ -78,5 +78,7 @@
     <string name="nav_favorites_text">Minhas preferências</string>
     <string name="nav_rateus_text">Sua opnião é muito importante!</string>
     <string name="nav_logout_text">Meu acesso</string>
+    <string name="loginfire_message_fail">Erro: E-mail e senha estão corretos?</string>
+    <string name="loginfire_message_success">Seja bem-vindo!</string>
 
 </resources>
