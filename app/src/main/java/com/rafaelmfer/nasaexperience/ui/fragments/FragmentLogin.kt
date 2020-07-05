@@ -10,26 +10,20 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import com.facebook.login.LoginManager
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.rafaelmfer.nasaexperience.R
+import com.rafaelmfer.nasaexperience.extensions.hideKeyboard
 import com.rafaelmfer.nasaexperience.extensions.toast
 import com.rafaelmfer.nasaexperience.ui.activity.ActivityContract
 import com.rafaelmfer.nasaexperience.ui.activity.ActivityHome
-import com.rafaelmfer.nasaexperience.viewmodel.ViewModelLoginFire
-import com.rafaelmfer.nasaexperience.viewmodel.ViewModelLoginGoogle
+import com.rafaelmfer.nasaexperience.viewmodel.ViewModelLoginRegisterFirebase
 import kotlinx.android.synthetic.main.fragment_login.*
 
 class FragmentLogin : Fragment() {
 
-    private val viewModelLoginFire by lazy {
-        ViewModelProviders.of(this).get(ViewModelLoginFire::class.java)
-    }
-    private val viewModelGoogle: ViewModelLoginGoogle by viewModels()
-
-    private lateinit var activityContract: ActivityContract
+    private val viewModelLoginFirebase : ViewModelLoginRegisterFirebase by viewModels()
 
     private val loginIntentGoogle by lazy {
         GoogleSignIn.getClient(
@@ -39,6 +33,8 @@ class FragmentLogin : Fragment() {
                 .build()
         ).signInIntent
     }
+
+    private lateinit var activityContract: ActivityContract
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_login, container, false)
@@ -55,36 +51,20 @@ class FragmentLogin : Fragment() {
         observables()
 
         login.setOnClickListener {
-            viewModelLoginFire.loginFire(etLoginUserEmail.text.toString(), etLoginUserPassword.text.toString())
+            hideKeyboard()
+            viewModelLoginFirebase.loginFire(etLoginUserEmail.text.toString(), etLoginUserPassword.text.toString())
         }
 
-        btGoogleSignIn.setOnClickListener { startActivityForResult(loginIntentGoogle, LOGIN_CODE) }
+        google_sing_in.setOnClickListener { startActivityForResult(loginIntentGoogle, LOGIN_CODE) }
 
         facebook_sign_in.setOnClickListener {
             LoginManager.getInstance().logInWithReadPermissions(this, listOf("email", "public_profile"))
-            viewModelLoginFire.loginWithFacebookCall()
+            viewModelLoginFirebase.loginWithFacebookCall()
         }
     }
 
     private fun observables() {
-        viewModelLoginFire.fireLoginResponse.observe(activityContract as LifecycleOwner, Observer {
-            if (it) {
-                requireContext().toast(getString(R.string.loginfire_message_success))
-                startActivity(Intent(context, ActivityHome::class.java))
-            } else {
-                requireContext().toast(getString(R.string.loginfire_message_fail))
-            }
-        })
-
-        viewModelGoogle.loginResponseGoogle.observe(activityContract as LifecycleOwner, Observer {
-            if (it) {
-                startActivity(Intent(context, ActivityHome::class.java))
-            } else {
-                requireContext().toast("erro ao realizar o login")
-            }
-        })
-
-        viewModelLoginFire.fireFacebook.observe(activityContract as LifecycleOwner, Observer {
+        viewModelLoginFirebase.fireLoginResponse.observe(activityContract as LifecycleOwner, Observer {
             if (it) {
                 requireContext().toast(getString(R.string.loginfire_message_success))
                 startActivity(Intent(context, ActivityHome::class.java))
@@ -96,10 +76,10 @@ class FragmentLogin : Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        viewModelLoginFire.callbackManager.onActivityResult(requestCode, resultCode, data)
+        viewModelLoginFirebase.callbackManager.onActivityResult(requestCode, resultCode, data)
 
         when (requestCode) {
-            LOGIN_CODE -> viewModelGoogle.logInGoogle(data)
+            LOGIN_CODE -> viewModelLoginFirebase.loginWithGoogle(data)
         }
     }
 
