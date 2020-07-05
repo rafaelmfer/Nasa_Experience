@@ -1,10 +1,13 @@
 package com.rafaelmfer.nasaexperience.extensions
 
+import android.app.Activity
 import android.content.Context
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.core.view.updateMargins
+import androidx.fragment.app.Fragment
 
 private var toast: Toast? = null
 fun Context.toast(message: String) {
@@ -34,5 +37,18 @@ fun View.addMarginTopStatusBarHeight() {
     val params = this.layoutParams as ViewGroup.MarginLayoutParams
     params.updateMargins(top = params.topMargin + getDeviceStatusBarHeight())
     this.layoutParams = params
+}
+
+fun Context.hideKeyboard(view: View) {
+    val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+    inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+}
+
+fun Activity.hideKeyboard() {
+    if (currentFocus == null) View(this) else currentFocus?.let { hideKeyboard(it) }
+}
+
+fun Fragment.hideKeyboard() {
+    view?.let { activity?.hideKeyboard(it) }
 }
 

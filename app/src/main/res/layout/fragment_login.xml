@@ -139,12 +139,12 @@
         app:iconGravity="textStart"
         app:iconPadding="@dimen/padding_12"
         app:iconSize="@dimen/height_24"
-        app:layout_constraintBottom_toTopOf="@+id/btGoogleSignIn"
+        app:layout_constraintBottom_toTopOf="@+id/google_sing_in"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <in.championswimmer.libsocialbuttons.BtnSocial
-        android:id="@+id/btGoogleSignIn"
+        android:id="@+id/google_sing_in"
         style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_75"

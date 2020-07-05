@@ -3,11 +3,9 @@ package com.rafaelmfer.nasaexperience.ui.activity
 import android.content.Intent
 import android.view.MenuItem
 import android.view.View
-import android.widget.Button
 import android.widget.Toast
 import androidx.core.view.GravityCompat
 import com.facebook.CallbackManager
-import com.facebook.login.LoginManager
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.rafaelmfer.nasaexperience.R
@@ -16,8 +14,6 @@ import com.rafaelmfer.nasaexperience.databinding.ActivityHomeBinding
 import com.rafaelmfer.nasaexperience.debugging.ExceptionHandler
 import com.rafaelmfer.nasaexperience.extensions.addMarginTopStatusBarHeight
 import com.rafaelmfer.nasaexperience.extensions.setFullScreen
-import com.rafaelmfer.nasaexperience.extensions.toast
-import com.rafaelmfer.nasaexperience.ui.fragments.FragmentLogin
 
 class ActivityHome : ActBind<ActivityHomeBinding>(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -64,12 +60,6 @@ class ActivityHome : ActBind<ActivityHomeBinding>(), NavigationView.OnNavigation
         //TODO ABRIR BOTTOM SHEET FUTURAMENTE AQUI
         //TODO POR ENQUANTO ABRE ESSA ACTIVITY MESMO ( ͡° ʖ̯ ͡°)
         startActivity(Intent(this@ActivityHome, ActivityFavorites::class.java))
-    }
-
-    private fun facebookLogout() {
-        LoginManager.getInstance().logOut()
-        this@ActivityHome.toast("Saiu Pq fii da mãe?!")
-        onBackPressed()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
