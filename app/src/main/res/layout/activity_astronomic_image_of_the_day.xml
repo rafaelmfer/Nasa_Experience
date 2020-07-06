@@ -124,6 +124,16 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/image_title" />
 
+                    <CheckBox
+                        android:id="@+id/favorite_image_day"
+                        android:layout_width="@dimen/width_24"
+                        android:layout_height="@dimen/height_24"
+                        android:button="@drawable/bt_selector_toggle_favorite"
+                        android:buttonTint="@color/white"
+                        app:layout_constraintBottom_toBottomOf="@+id/image_credits"
+                        app:layout_constraintEnd_toStartOf="@id/ibShareImage"
+                        app:layout_constraintTop_toTopOf="@+id/image_title" />
+
                     <TextView
                         android:id="@+id/image_title"
                         android:layout_width="0dp"
@@ -133,7 +143,7 @@
                         android:layout_marginEnd="@dimen/margin_4"
                         android:textSize="@dimen/font_18"
                         android:textStyle="bold"
-                        app:layout_constraintEnd_toStartOf="@id/ibShareImage"
+                        app:layout_constraintEnd_toStartOf="@id/favorite_image_day"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:text="@tools:sample/lorem" />
