@@ -8,7 +8,7 @@ import com.google.gson.annotations.SerializedName
 @Entity(tableName = "near_objects_model")
 data class CelestialRoom(
     @PrimaryKey(autoGenerate = true)
-    val id: String = "",
+    val id: Int = 0,
 
     @ColumnInfo(name = "name")
     @SerializedName("name") val name: String = "",

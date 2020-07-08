@@ -46,6 +46,7 @@
         android:alpha="0.7"
         android:closeIcon="@drawable/ic_close_24dp"
         android:iconifiedByDefault="false"
+        android:inputType="phone"
         android:queryHint="@string/search_asteroids_by_date"
         android:searchIcon="@drawable/ic_search_24dp"
         android:theme="@style/SearchViewTextWhite"

@@ -1,16 +1,19 @@
 package com.rafaelmfer.nasaexperience.ui.activity
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.activity.viewModels
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.view.GravityCompat
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
 import com.rafaelmfer.nasaexperience.R
 import com.rafaelmfer.nasaexperience.baseviews.ActBind
 import com.rafaelmfer.nasaexperience.databinding.ActivityHomeBinding
@@ -18,16 +21,17 @@ import com.rafaelmfer.nasaexperience.debugging.ExceptionHandler
 import com.rafaelmfer.nasaexperience.extensions.CircleTransform
 import com.rafaelmfer.nasaexperience.extensions.addMarginTopStatusBarHeight
 import com.rafaelmfer.nasaexperience.extensions.setFullScreen
+import com.rafaelmfer.nasaexperience.extensions.toast
 import com.rafaelmfer.nasaexperience.viewmodel.ViewModelLoginRegisterFirebase
 import com.squareup.picasso.Picasso
 
-
 class ActivityHome : ActBind<ActivityHomeBinding>(), NavigationView.OnNavigationItemSelectedListener {
 
-    private val viewModelLoginFirebase : ViewModelLoginRegisterFirebase by viewModels()
+    private val viewModelLoginFirebase: ViewModelLoginRegisterFirebase by viewModels()
 
     private val loginIntentGoogle by lazy {
-        GoogleSignIn.getClient(this, GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+        GoogleSignIn.getClient(
+            this, GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build()
@@ -57,10 +61,10 @@ class ActivityHome : ActBind<ActivityHomeBinding>(), NavigationView.OnNavigation
         profileName.text = currentUser?.displayName
         profileEmail.text = currentUser?.email
         Picasso.get().load(currentUser?.photoUrl)
-                .resize(100, 100)
-                .transform(CircleTransform())
-                .centerCrop()
-                .into(profileImage)
+            .resize(100, 100)
+            .transform(CircleTransform())
+            .centerCrop()
+            .into(profileImage)
     }
 
     private fun clickToStartNewActivity(activity: Class<*>) =
@@ -74,8 +78,8 @@ class ActivityHome : ActBind<ActivityHomeBinding>(), NavigationView.OnNavigation
             R.id.nav_log_out -> {
                 logoffFire()
             }
-            R.id.nav_rate_avaliation -> {
-                Toast.makeText(this, "Me faz um Le'ato!", Toast.LENGTH_LONG).show()
+            R.id.nav_about -> {
+                openAboutScreen()
             }
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)
@@ -88,9 +92,31 @@ class ActivityHome : ActBind<ActivityHomeBinding>(), NavigationView.OnNavigation
         startActivity(Intent(this@ActivityHome, ActivityFavorites::class.java))
     }
 
+    private fun openAboutScreen() {
+        startActivity(Intent(this@ActivityHome, ActivityAbout::class.java))
+    }
+
     private fun logoffFire() {
         viewModelLoginFirebase.logoffFirebase()
         loginIntentGoogle.revokeAccess()
         onBackPressed()
+    }
+
+    override fun onBackPressed() {
+
+        val builder = AlertDialog.Builder(this)
+        builder.setMessage("Deseja sair da nave?")
+        builder.setCancelable(true)
+        builder.setNegativeButton("Cancelar") { dialogInterface, cancel ->
+
+            dialogInterface.cancel()
+        }
+        builder.setPositiveButton("Sair") { dialogInterface, exit ->
+            toast(getString(R.string.dialog_exite_message))
+            finishAffinity()
+        }
+
+        val alertDialog = builder.create()
+        alertDialog.show()
     }
 }

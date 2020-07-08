@@ -28,11 +28,18 @@
         <activity
             android:name=".ui.activity.ActivityHome"
             android:screenOrientation="portrait" />
-        <activity android:name=".ui.activity.ActivityMarsWeather" />
-        <activity android:name=".ui.activity.ActivityAsteroidsNearFromEarth" />
-        <activity android:name=".ui.activity.ActivityAstronomicImageOfTheDay" />
-
-        <!--        Facebook Login-->
+        <activity
+            android:name=".ui.activity.ActivityMarsWeather"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.ActivityAsteroidsNearFromEarth"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.ActivityAstronomicImageOfTheDay"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.ActivityAbout"
+            android:screenOrientation="portrait" /><!-- Facebook Login -->
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
@@ -54,7 +61,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.activity.ActivityFavorites" />
-
     </application>
 
 </manifest>

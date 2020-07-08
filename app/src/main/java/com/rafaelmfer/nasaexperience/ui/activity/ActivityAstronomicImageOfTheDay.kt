@@ -64,6 +64,7 @@ class ActivityAstronomicImageOfTheDay : ActBase() {
                     setImageResource(R.drawable.ic_play_100dp)
                 }
                 tvImageVideoCase.text = getString(R.string.video_case_message)
+                //Considerem pensar um texto para quando for um dia difernte de hoje talvez...
                 astronomic_image_of_the_day.setOnClickListener {
                     toast(getString(R.string.video_click_message))
                     val url = response.url
@@ -78,15 +79,15 @@ class ActivityAstronomicImageOfTheDay : ActBase() {
                 astronomic_image_of_the_day.setOnClickListener {
                     toast(response.title)
                 }
-
                 ibShareImage.setOnClickListener {
-                    shareImageFromURI(response.url,
-                            image_title.text.toString(),
-                            image_description.text.toString())
+                    shareImageFromURI(
+                        response.url,
+                        image_title.text.toString(),
+                        image_description.text.toString()
+                    )
                 }
             }
         }
-
         //Click do ROOM
         favorite_image_day.setOnClickListener { view ->
             if ((view as CheckBox).isChecked) {

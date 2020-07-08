@@ -23,7 +23,7 @@ import kotlinx.android.synthetic.main.fragment_login.*
 
 class FragmentLogin : Fragment() {
 
-    private val viewModelLoginFirebase : ViewModelLoginRegisterFirebase by viewModels()
+    private val viewModelLoginFirebase: ViewModelLoginRegisterFirebase by viewModels()
 
     private val loginIntentGoogle by lazy {
         GoogleSignIn.getClient(

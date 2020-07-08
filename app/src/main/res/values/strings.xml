@@ -29,8 +29,8 @@
     <!--    HOME ACTIVITY-->
     <string name="menu">Menu</string>
     <string name="menu_favorites">Favoritos</string>
-    <string name="menu_logout">Sair</string>
-    <string name="menu_rate">Gostou? Nos avalie!</string>
+    <string name="menu_logout">Sair da nave</string>
+    <string name="menu_about">Nosso caminho até aqui!</string>
     <string name="image_header">image_header</string>
     <string name="astronomy_picture_of_the_day">Imagem Astronômica do Dia</string>
     <string name="near_earth_objects">Objetos que passaram próximo da Terra</string>
@@ -64,7 +64,7 @@
     <!--    ASTRONOMIC IMAGE OF THE DAY ACTIVITY-->
     <string name="enter_a_date_to_search">Digite uma data para procurar</string>
     <string name="search_image_by_date">Data – YYYY-MM-DD</string>
-    <string name="video_case_message"> É um vídeo, aperte o Play!</string>
+    <string name="video_case_message">Hoje temos um vídeo! Aperte o Play!</string>
     <string name="video_click_message">Você está sendo redirecionado!</string>
     <string name="null_case_message">Desculpe, não houve imagem para nesta data.</string>
 
@@ -76,9 +76,26 @@
 
     <!--   NAVDRAWER -->
     <string name="nav_favorites_text">Minhas preferências</string>
-    <string name="nav_rateus_text">Sua opnião é muito importante!</string>
+    <string name="nav_about_text">Saiba mais sobre o app</string>
     <string name="nav_logout_text">Meu acesso</string>
     <string name="loginfire_message_fail">Erro: E-mail e senha estão corretos?</string>
     <string name="loginfire_message_success">Seja bem-vindo!</string>
+    <string name="dialog_exite_message">Cuidado com o vácuo do espaço!</string>
+    <string name="profile_photo">profile_photo</string>
+    <string name="nasa_logo_about_activity">nasa_logo_about_activity</string>
+    <string name="back_botton_about_activity">back_botton_about_activity</string>
+    <string name="about_text">Se você chegou até aqui, posso começar te dando o spoiler de que essa foi uma história que acabou muito bem! \n
+        \nNós, assim como todos aqueles que se propõe a ser um estudante, precisam ter seus conhecimentos avaliados, ou mais do que isso, colocados em prática, afinal de contas não podemos viver apenas de conhecimento teórico, certo? \n
+        \nHoje nós que fomos da turma de Desenvolvimento Mobile da escola de tecnologia Digital House, estamos aqui lhe apresentando o fruto de nosso trabalho em cima do que foi proposto como tema de projeto. \n
+        \nQual o objetivo do nosso trabalho? \nDesenvolver conhecimentos sobre o mundo da programação na teoria e na prática, e nosso grupo fez isso da melhor forma que o brasileiro poderia imaginar, estudando a NASA! \n
+        \nTínhamos muitas possibilidades de o que fazer com o material que a própria NASA disponibiliza, e tentamos trazer algo diferente para o público e que ao mesmo tempo também fosse prático. \n
+        \nForam alguns meses de trabalho até chegarmos aqui, pois essa foi literalmente a nossa última tela feita até a entrega do nosso trabalho. Muitos irão chamar de isto de “TCC”, mas hoje não poderia chamar de outra coisa além de “nosso Astro de bolso”. \n
+        \nDeixamos aqui o crédito a todos os que se envolveram diretamente no projeto, seja em sua idealização ou fase de produção, todos tiveram uma função importante para o resultado que foi entregue hoje à você, nosso querido usuário!\n</string>
+    <string name="final_thanks">A todos uns envolvidos, obrigado! \n
+        \nRafael de Mello Ferreira
+        \nAlexandre dos Santos Silva
+        \nSandro Batista
+        \nFernanda Denovellis
+        \nThaís Wada\n\n\n\n\n\n\n</string>
 
 </resources>

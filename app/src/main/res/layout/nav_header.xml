@@ -2,7 +2,8 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
         android:layout_width="match_parent"
@@ -12,13 +13,14 @@
         android:src="@drawable/wallpaper_splash" />
 
     <ImageView
+        android:contentDescription="@string/profile_photo"
         android:id="@+id/profile_image"
         android:layout_width="160dp"
         android:layout_height="160dp"
         android:layout_marginTop="50dp"
         android:layout_gravity="center_horizontal"
         android:padding="8dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:srcCompat="@drawable/ic_profile" />
 
     <TextView
         android:id="@+id/profile_name"
