@@ -64,6 +64,7 @@ class ActivityAstronomicImageOfTheDay : ActBase() {
                     setImageResource(R.drawable.ic_play_100dp)
                 }
                 tvImageVideoCase.text = getString(R.string.video_case_message)
+                //Considerem pensar um texto para quando for um dia difernte de hoje talvez...
                 astronomic_image_of_the_day.setOnClickListener {
                     toast(getString(R.string.video_click_message))
                     val url = response.url

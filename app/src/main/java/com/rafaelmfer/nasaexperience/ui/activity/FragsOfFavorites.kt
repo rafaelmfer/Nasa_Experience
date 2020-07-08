@@ -6,6 +6,7 @@ import com.rafaelmfer.nasaexperience.databinding.FragFavoritesRecyclerViewBindin
 import com.rafaelmfer.nasaexperience.extensions.recyclerview.setup
 import com.rafaelmfer.nasaexperience.extensions.recyclerview.setupViewBinding
 import com.rafaelmfer.nasaexperience.model.asteroids.Celestial
+import com.rafaelmfer.nasaexperience.model.marsweatherservice.InfoWeather
 import com.rafaelmfer.nasaexperience.ui.adapter.AdapterMars
 import com.rafaelmfer.nasaexperience.ui.adapter.ItemViewBuilderAstronomicImage
 import com.rafaelmfer.nasaexperience.ui.adapter.ItemViewNearEarthObjects
@@ -29,7 +30,7 @@ class FragFavoritesMars : FragBind<FragFavoritesRecyclerViewBinding>() {
     override fun FragFavoritesRecyclerViewBinding.onBoundView() {
         recyclerFavorites.apply {
             layoutManager = LinearLayoutManager(requireContext())
-            adapter = AdapterMars()
+            adapter = AdapterMars(mutableSetOf<InfoWeather>(), mutableSetOf<String>())
         }
     }
 }
