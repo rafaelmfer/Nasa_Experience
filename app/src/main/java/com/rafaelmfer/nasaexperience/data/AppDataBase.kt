@@ -4,26 +4,22 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.rafaelmfer.nasaexperience.data.dao.AccessAsteroid
-import com.rafaelmfer.nasaexperience.data.dao.AccessMars
-import com.rafaelmfer.nasaexperience.data.dao.AccessPostsMars
-import com.rafaelmfer.nasaexperience.model.AsteroidModel
-import com.rafaelmfer.nasaexperience.model.MarsModel
-import com.rafaelmfer.nasaexperience.model.PostsMars
+import com.rafaelmfer.nasaexperience.data.dao.AccessImageOfDay
+import com.rafaelmfer.nasaexperience.model.imageoftheday.ImageResponseItem
 
 @Database(
-        entities = [MarsModel::class, AsteroidModel::class, PostsMars::class],
-        version = 1,
-        exportSchema = false
+    entities = [ImageResponseItem::class],
+    version = 1,
+    exportSchema = false
 )
 
 abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun accessAsteroid(): AccessAsteroid
+    /*abstract fun accessAsteroid(): AccessAsteroid
 
-    abstract fun accessMars(): AccessMars
+    abstract fun accessMars(): AccessMars*/
 
-    abstract fun accessPostsMars(): AccessPostsMars
+    abstract fun accessImageOfDay(): AccessImageOfDay
 }
 
 object DatabaseBuilder {
@@ -31,12 +27,12 @@ object DatabaseBuilder {
 
     @JvmStatic
     fun getAppDatabase(context: Context) = instance
-            ?: build(context)
+        ?: build(context)
 
     private fun build(context: Context): AppDatabase {
         val database = Room.databaseBuilder(
-                context.applicationContext,
-                AppDatabase::class.java, "database"
+            context.applicationContext,
+            AppDatabase::class.java, "database"
         )
         database.allowMainThreadQueries()
         val appDatabase = database.build()

@@ -3,22 +3,36 @@ package com.rafaelmfer.nasaexperience.ui.activity
 import android.content.Intent
 import android.view.MenuItem
 import android.view.View
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.core.view.GravityCompat
-import com.facebook.CallbackManager
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.navigation.NavigationView
-import com.google.firebase.auth.FirebaseAuth
 import com.rafaelmfer.nasaexperience.R
 import com.rafaelmfer.nasaexperience.baseviews.ActBind
 import com.rafaelmfer.nasaexperience.databinding.ActivityHomeBinding
 import com.rafaelmfer.nasaexperience.debugging.ExceptionHandler
+import com.rafaelmfer.nasaexperience.extensions.CircleTransform
 import com.rafaelmfer.nasaexperience.extensions.addMarginTopStatusBarHeight
 import com.rafaelmfer.nasaexperience.extensions.setFullScreen
+import com.rafaelmfer.nasaexperience.viewmodel.ViewModelLoginRegisterFirebase
+import com.squareup.picasso.Picasso
+
 
 class ActivityHome : ActBind<ActivityHomeBinding>(), NavigationView.OnNavigationItemSelectedListener {
 
-    private var callbackManager = CallbackManager.Factory.create()
-    private val authRegister: FirebaseAuth = FirebaseAuth.getInstance()
+    private val viewModelLoginFirebase : ViewModelLoginRegisterFirebase by viewModels()
+
+    private val loginIntentGoogle by lazy {
+        GoogleSignIn.getClient(this, GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build()
+        )
+    }
 
     override val bindClass: Class<ActivityHomeBinding> by lazy { ActivityHomeBinding::class.java }
 
@@ -35,6 +49,18 @@ class ActivityHome : ActBind<ActivityHomeBinding>(), NavigationView.OnNavigation
             btAstronomicImage.setOnClickListener(clickToStartNewActivity(ActivityAstronomicImageOfTheDay::class.java))
         }
         navigationView.setNavigationItemSelectedListener(this@ActivityHome)
+        val hView = navigationView.getHeaderView(0)
+        val profileName = hView.findViewById<View>(R.id.profile_name) as TextView
+        val profileEmail = hView.findViewById<View>(R.id.profile_email) as TextView
+        val profileImage = hView.findViewById<View>(R.id.profile_image) as ImageView
+        val currentUser = viewModelLoginFirebase.firebaseUser
+        profileName.text = currentUser?.displayName
+        profileEmail.text = currentUser?.email
+        Picasso.get().load(currentUser?.photoUrl)
+                .resize(100, 100)
+                .transform(CircleTransform())
+                .centerCrop()
+                .into(profileImage)
     }
 
     private fun clickToStartNewActivity(activity: Class<*>) =
@@ -62,13 +88,9 @@ class ActivityHome : ActBind<ActivityHomeBinding>(), NavigationView.OnNavigation
         startActivity(Intent(this@ActivityHome, ActivityFavorites::class.java))
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        callbackManager.onActivityResult(requestCode, resultCode, data)
-    }
-
     private fun logoffFire() {
-        authRegister.signOut()
+        viewModelLoginFirebase.logoffFirebase()
+        loginIntentGoogle.revokeAccess()
         onBackPressed()
     }
 }

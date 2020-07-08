@@ -19,7 +19,7 @@ class ViewModelLoginRegisterFirebase : ViewModel() {
 
     private val firebaseAuth: FirebaseAuth = FirebaseAuth.getInstance()
     val callbackManager: CallbackManager = CallbackManager.Factory.create()
-    private val firebaseUser get() = firebaseAuth.currentUser
+    val firebaseUser get() = firebaseAuth.currentUser
 
     val fireLoginResponse = MutableLiveData<Boolean>()
     val registerResponse = MutableLiveData<Boolean>()
