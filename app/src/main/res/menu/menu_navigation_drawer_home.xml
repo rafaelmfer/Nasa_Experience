@@ -12,12 +12,12 @@
     </item>
 
 
-    <item android:title="@string/nav_rateus_text">
+    <item android:title="@string/nav_about_text">
         <menu>
             <item
-                android:id="@+id/nav_rate_avaliation"
-                android:icon="@drawable/ic_rate_us"
-                android:title="@string/menu_rate"
+                android:id="@+id/nav_about"
+                android:icon="@drawable/ic_about"
+                android:title="@string/menu_about"
                 />
         </menu>
     </item>

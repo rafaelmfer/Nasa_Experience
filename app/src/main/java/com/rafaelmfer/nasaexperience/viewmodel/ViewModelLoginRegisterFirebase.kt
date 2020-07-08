@@ -19,7 +19,7 @@ class ViewModelLoginRegisterFirebase : ViewModel() {
 
     private val firebaseAuth: FirebaseAuth = FirebaseAuth.getInstance()
     val callbackManager: CallbackManager = CallbackManager.Factory.create()
-    private val firebaseUser get() = firebaseAuth.currentUser
+    val firebaseUser get() = firebaseAuth.currentUser
 
     val fireLoginResponse = MutableLiveData<Boolean>()
     val registerResponse = MutableLiveData<Boolean>()
@@ -48,12 +48,12 @@ class ViewModelLoginRegisterFirebase : ViewModel() {
         GoogleSignIn.getSignedInAccountFromIntent(data).run {
             val credential = GoogleAuthProvider.getCredential(result?.idToken, null)
             firebaseAuth.signInWithCredential(credential).addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        fireLoginResponse.postValue(true)
-                    } else {
-                        onLoginFail()
-                    }
+                if (task.isSuccessful) {
+                    fireLoginResponse.postValue(true)
+                } else {
+                    onLoginFail()
                 }
+            }
         }
     } catch (exception: Exception) {
         onLoginFail()

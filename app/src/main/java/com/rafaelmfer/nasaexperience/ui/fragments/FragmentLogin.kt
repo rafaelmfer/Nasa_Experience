@@ -23,7 +23,7 @@ import kotlinx.android.synthetic.main.fragment_login.*
 
 class FragmentLogin : Fragment() {
 
-    private val viewModelLoginFirebase : ViewModelLoginRegisterFirebase by viewModels()
+    private val viewModelLoginFirebase: ViewModelLoginRegisterFirebase by viewModels()
 
     private val loginIntentGoogle by lazy {
         GoogleSignIn.getClient(
@@ -31,7 +31,7 @@ class FragmentLogin : Fragment() {
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build()
-        ).signInIntent
+        )
     }
 
     private lateinit var activityContract: ActivityContract
@@ -55,7 +55,9 @@ class FragmentLogin : Fragment() {
             viewModelLoginFirebase.loginFire(etLoginUserEmail.text.toString(), etLoginUserPassword.text.toString())
         }
 
-        google_sing_in.setOnClickListener { startActivityForResult(loginIntentGoogle, LOGIN_CODE) }
+        google_sing_in.setOnClickListener {
+            startActivityForResult(loginIntentGoogle.signInIntent, LOGIN_CODE)
+        }
 
         facebook_sign_in.setOnClickListener {
             LoginManager.getInstance().logInWithReadPermissions(this, listOf("email", "public_profile"))

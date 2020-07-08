@@ -12,9 +12,9 @@ import com.rafaelmfer.nasaexperience.model.MarsModel
 import com.rafaelmfer.nasaexperience.model.PostsMars
 
 @Database(
-        entities = [MarsModel::class, AsteroidModel::class, PostsMars::class],
-        version = 1,
-        exportSchema = false
+    entities = [MarsModel::class, AsteroidModel::class, PostsMars::class],
+    version = 1,
+    exportSchema = false
 )
 
 abstract class AppDatabase : RoomDatabase() {
@@ -31,12 +31,12 @@ object DatabaseBuilder {
 
     @JvmStatic
     fun getAppDatabase(context: Context) = instance
-            ?: build(context)
+        ?: build(context)
 
     private fun build(context: Context): AppDatabase {
         val database = Room.databaseBuilder(
-                context.applicationContext,
-                AppDatabase::class.java, "database"
+            context.applicationContext,
+            AppDatabase::class.java, "database"
         )
         database.allowMainThreadQueries()
         val appDatabase = database.build()
