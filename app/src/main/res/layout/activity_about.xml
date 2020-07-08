@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@drawable/wallpaper_splash"
     tools:context=".ui.activity.ActivityAbout">
 
@@ -11,7 +11,6 @@
         android:id="@+id/about_back_button"
         android:layout_width="@dimen/width_48"
         android:layout_height="@dimen/height_48"
-        android:layout_marginStart="@dimen/margin_4"
         android:layout_marginTop="@dimen/margin_36"
         android:background="@color/transparent"
         android:contentDescription="@string/back_botton_about_activity"
@@ -24,7 +23,7 @@
     <ImageView
         android:id="@+id/image_about"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/height_60"
+        android:layout_height="@dimen/height_75"
         android:contentDescription="@string/nasa_logo_about_activity"
         app:layout_constraintBottom_toBottomOf="@+id/about_back_button"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,24 +33,21 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_about">
-
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-
             <TextView
                 android:id="@+id/text_about"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_12"
                 android:gravity="center"
                 android:padding="@dimen/margin_16"
                 android:text="@string/about_text"
