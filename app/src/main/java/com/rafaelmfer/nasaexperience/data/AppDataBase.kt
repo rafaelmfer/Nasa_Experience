@@ -7,12 +7,12 @@ import androidx.room.RoomDatabase
 import com.rafaelmfer.nasaexperience.data.dao.AccessImageOfDay
 import com.rafaelmfer.nasaexperience.data.dao.AccessMars
 import com.rafaelmfer.nasaexperience.data.dao.AccessNearObjects
+import com.rafaelmfer.nasaexperience.model.imageoftheday.ImageResponseItem
 import com.rafaelmfer.nasaexperience.model.room.CelestialRoom
-import com.rafaelmfer.nasaexperience.model.room.ImageResponseItemRoom
 import com.rafaelmfer.nasaexperience.model.room.InfoWeatherRoom
 
 @Database(
-    entities = [InfoWeatherRoom::class, CelestialRoom::class, ImageResponseItemRoom::class],
+    entities = [InfoWeatherRoom::class, CelestialRoom::class, ImageResponseItem::class],
     version = 1,
     exportSchema = false
 )

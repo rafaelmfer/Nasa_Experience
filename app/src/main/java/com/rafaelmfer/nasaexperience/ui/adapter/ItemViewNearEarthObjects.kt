@@ -25,7 +25,7 @@ class ItemViewNearEarthObjects : ItemViewBuilderViewBinding<Celestial, ItemAster
     override val bindClass by lazy { ItemAsteroidsBinding::class.java }
 
     override fun ItemAsteroidsBinding.onBind(position: Int) {
-        collection.get(position).run {
+        collection[position].run {
 
             nameObject.text = context.getString(R.string.object_name, name).setStringBoldRange(0, 5)
 
@@ -87,7 +87,7 @@ class ItemViewNearEarthObjects : ItemViewBuilderViewBinding<Celestial, ItemAster
             )
                 .setStringBoldRange(0, 11).apply { setSpan(StyleSpan(BOLD), 23, 32, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE) }
 
-            favoriteSunButton.setOnClickListener { view ->
+            favoriteNearObjectsButton.setOnClickListener { view ->
                 if ((view as CheckBox).isChecked) {
                     Toast.makeText(view.context, "selecionado", Toast.LENGTH_SHORT).show()
                 } else {

@@ -11,5 +11,7 @@ data class InfoWeatherRoom(
     @ColumnInfo(name = "horizontal_windSpeed") val horizontalWindSpeed: String = "",
     @ColumnInfo(name = "atmospheric_pressure") val atmosphericPressure: String = "",
     @ColumnInfo(name = "wind_direction") val windDirection: String = "",
+    @ColumnInfo(name = "sun_name") val sunName: String = "",
+    @ColumnInfo(name = "isSelected") val isSelected: Boolean = false,
     @PrimaryKey(autoGenerate = true) var id: Int = 0
 )

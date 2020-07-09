@@ -4,7 +4,7 @@ import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rafaelmfer.nasaexperience.baseviews.ActBind
-import com.rafaelmfer.nasaexperience.data.DatabaseBuilder
+import com.rafaelmfer.nasaexperience.data.RepositoryDatabase
 import com.rafaelmfer.nasaexperience.databinding.ActivityMarsWeatherBinding
 import com.rafaelmfer.nasaexperience.debugging.ExceptionHandler
 import com.rafaelmfer.nasaexperience.extensions.addMarginTopStatusBarHeight
@@ -20,13 +20,8 @@ class ActivityMarsWeather : ActBind<ActivityMarsWeatherBinding>(), OnItemClickSu
     override val bindClass by lazy { ActivityMarsWeatherBinding::class.java }
     private val viewModel: ViewModelMarsWeather by viewModels()
     private var sunSet = mutableSetOf<InfoWeather>()
-    private var sunNameSet = mutableSetOf<String>()
 
-    private val accessMars by lazy {
-        DatabaseBuilder.getAppDatabase(this).accessMars()
-    }
-
-//    private val repositoryRoom
+    private val repositoryDatabase by lazy { RepositoryDatabase(this) }
 
     override fun ActivityMarsWeatherBinding.onBoundView() {
         exceptionHandler = ExceptionHandler::class.java
@@ -36,34 +31,40 @@ class ActivityMarsWeather : ActBind<ActivityMarsWeatherBinding>(), OnItemClickSu
             addMarginTopStatusBarHeight()
             setOnClickListener { onBackPressed() }
         }
-
         recyclerMars.layoutManager = LinearLayoutManager(this@ActivityMarsWeather)
 
-        viewModel.marsWeatherResponse.observe(this@ActivityMarsWeather, Observer {
-            sunNameSet.addAll(it.solKeys)
+        viewModel.marsWeatherResponse.observe(this@ActivityMarsWeather, Observer { response ->
             sunSet.run {
-                add(it.sunNumber1)
-                add(it.sunNumber2)
-                add(it.sunNumber3)
-                add(it.sunNumber4)
-                add(it.sunNumber5)
-                add(it.sunNumber6)
-                add(it.sunNumber7)
+                add(response.sunNumber1)
+                add(response.sunNumber2)
+                add(response.sunNumber3)
+                add(response.sunNumber4)
+                add(response.sunNumber5)
+                add(response.sunNumber6)
+                add(response.sunNumber7)
             }
-            recyclerMars.adapter = AdapterMars(sunSet, sunNameSet)
+            sunSet.forEachIndexed { index, infoWeather ->
+                infoWeather.sunName = response.solKeys[index]
+            }
+            recyclerMars.adapter = AdapterMars(sunSet)
         })
         viewModel.getMarsWeather()
     }
 
-    override fun getPositionSunMar(infoWeather: InfoWeather) {
-        val entityRoom = InfoWeatherRoom(
-            infoWeather.atmosphericTemperature.toJson(),
-            infoWeather.firstUTC,
-            infoWeather.horizontalWindSpeed.toJson(),
-            infoWeather.atmosphericPressure.toJson(),
-            infoWeather.windDirection.toJson()
-        )
-
-        accessMars.insert(entityRoom)
+    override fun addPositionSunMar(infoWeather: InfoWeather) {
+            val entityRoom = InfoWeatherRoom(
+                infoWeather.atmosphericTemperature.toJson(),
+                infoWeather.firstUTC,
+                infoWeather.horizontalWindSpeed.toJson(),
+                infoWeather.atmosphericPressure.toJson(),
+                infoWeather.windDirection.toJson(),
+                infoWeather.sunName,
+                true
+            )
+        repositoryDatabase.accessMars.insert(entityRoom)
     }
+
+//    override fun removePositionSunMar(infoWeather: InfoWeather) {
+//        repositoryDatabase.accessMars.delete(repositoryDatabase.accessMars.findMarsName(infoWeather.sunName))
+//    }
 }

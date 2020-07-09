@@ -16,6 +16,9 @@ interface AccessMars {
     @Query("SELECT * FROM mars_model where id LIKE :id")
     fun findMarsId(id: Int): InfoWeatherRoom
 
+    @Query("SELECT * FROM mars_model where sun_name LIKE :sunName")
+    fun findMarsName(sunName: String): InfoWeatherRoom
+
     @Query("SELECT COUNT(*) from mars_model")
     fun countAllSunsMars(): Int
 

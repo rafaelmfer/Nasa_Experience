@@ -12,27 +12,8 @@ data class InfoWeather(
     @SerializedName("Last_UTC") val lastUTC: String = "0000-00-00T00:00:00Z",
     @SerializedName("PRE") val atmosphericPressure: AtmosphericPressure = AtmosphericPressure(),
     @SerializedName("Season") val season: String = "2020-06-04T02:07:38Z",
-    @SerializedName("WD") val windDirection: WindDirection = WindDirection()
+    @SerializedName("WD") val windDirection: WindDirection = WindDirection(),
+    var sunName: String = "",
+    var isSelected : Boolean = false,
+    var id: Int = 0
 ) : Parcelable
-
-fun main() {
-//        val response = InfoWeather()
-//        val entityRoom = InfoWeatherRoom(
-//                0,
-//                response.atmosphericTemperature.toJson(),
-//                response.firstUTC,
-//                response.horizontalWindSpeed.toJson(),
-//                response.atmosphericPressure.toJson(),
-//                response.windDirection.toJson()
-//        )
-
-//        val parcelInfoWeather = InfoWeather(
-//                entityRoom.atmosphericTemperature.toObjekt(),
-//                entityRoom.firstUTC,
-//                entityRoom.horizontalWindSpeed.toObjekt(),
-//                "",
-//                entityRoom.atmosphericPressure.toObjekt(),
-//                "",
-//                entityRoom.windDirection.toObjekt()
-//        )
-}
