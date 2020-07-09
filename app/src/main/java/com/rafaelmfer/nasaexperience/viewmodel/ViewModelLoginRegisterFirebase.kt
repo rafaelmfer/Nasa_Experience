@@ -105,6 +105,8 @@ class ViewModelLoginRegisterFirebase : ViewModel() {
                 isSuccess = response.jsonObject.getBoolean("success")
             } catch (e: JSONException) {
                 e.printStackTrace()
+            } catch (ex: NullPointerException){
+                isSuccess = false
             }
             if (isSuccess && response.error == null) {
                 // Application deleted from Facebook account
