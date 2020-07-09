@@ -23,7 +23,6 @@ import com.rafaelmfer.nasaexperience.extensions.toast
 import com.rafaelmfer.nasaexperience.viewmodel.ViewModelLoginRegisterFirebase
 import com.squareup.picasso.Picasso
 
-
 class ActivityHome : ActBind<ActivityHomeBinding>(), NavigationView.OnNavigationItemSelectedListener {
 
     private val viewModelLoginFirebase: ViewModelLoginRegisterFirebase by viewModels()
@@ -89,6 +88,7 @@ class ActivityHome : ActBind<ActivityHomeBinding>(), NavigationView.OnNavigation
         //TODO ABRIR BOTTOM SHEET FUTURAMENTE AQUI
         //TODO POR ENQUANTO ABRE ESSA ACTIVITY MESMO ( ͡° ʖ̯ ͡°)
         startActivity(Intent(this@ActivityHome, ActivityFavorites::class.java))
+        overridePendingTransition(R.anim.slide_in_top, android.R.anim.fade_out);
     }
 
     private fun openAboutScreen() {
