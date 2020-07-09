@@ -4,8 +4,10 @@ import android.graphics.Typeface.BOLD
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.StyleSpan
+import android.view.View
 import android.widget.CheckBox
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.rafaelmfer.nasaexperience.DATE_TIME_PATTERN_DESIRED
 import com.rafaelmfer.nasaexperience.R
 import com.rafaelmfer.nasaexperience.SERVER_NEAR_OBJECTS_DATE_PATTERN
@@ -18,20 +20,33 @@ import com.rafaelmfer.nasaexperience.extensions.formatFromServer
 import com.rafaelmfer.nasaexperience.extensions.get
 import com.rafaelmfer.nasaexperience.extensions.recyclerview.ItemViewBuilderViewBinding
 import com.rafaelmfer.nasaexperience.model.asteroids.Celestial
+import com.rafaelmfer.nasaexperience.ui.activity.OnItemClickNearObjects
+import com.rafaelmfer.nasaexperience.ui.fragments.FragFavoritesCelestialObjects
+import com.rafaelmfer.nasaexperience.ui.fragments.OnItemClickRemoveNearObjects
 import kotlinx.android.synthetic.main.web_view.*
 
 class ItemViewNearEarthObjects : ItemViewBuilderViewBinding<Celestial, ItemAsteroidsBinding>() {
 
     override val bindClass by lazy { ItemAsteroidsBinding::class.java }
 
+    private var listenerRemove: OnItemClickRemoveNearObjects? = null
+    private val listenerAdd by lazy {  (context as OnItemClickNearObjects) }
+
     override fun ItemAsteroidsBinding.onBind(position: Int) {
+        val manager = (context as AppCompatActivity).supportFragmentManager.fragments
+        for (fragment in manager) {
+            if (fragment.isVisible && fragment is FragFavoritesCelestialObjects) {
+                listenerRemove = fragment
+            }
+        }
+
         collection[position].run {
 
             nameObject.text = context.getString(R.string.object_name, name).setStringBoldRange(0, 5)
 
             dateSeenObject.text = context.getString(
                 R.string.seen_in,
-                if (closeApproachData[0].closeApproachDateFull != null) {
+                if (!closeApproachData[0].closeApproachDateFull.isNullOrEmpty()) {
                     closeApproachData[0].closeApproachDateFull?.formatFromServer(
                         SERVER_NEAR_OBJECTS_DATE_TIME_PATTERN, DATE_TIME_PATTERN_DESIRED
                     )
@@ -87,11 +102,22 @@ class ItemViewNearEarthObjects : ItemViewBuilderViewBinding<Celestial, ItemAster
             )
                 .setStringBoldRange(0, 11).apply { setSpan(StyleSpan(BOLD), 23, 32, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE) }
 
-            favoriteNearObjectsButton.setOnClickListener { view ->
-                if ((view as CheckBox).isChecked) {
-                    Toast.makeText(view.context, "selecionado", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(view.context, "nao selecionado", Toast.LENGTH_SHORT).show()
+            if (isSelected) {
+                favoriteNearObjectsButton.visibility = View.GONE
+                removeFavoriteNearObject.apply {
+                    visibility = View.VISIBLE
+                    setOnClickListener {
+                        listenerRemove?.onItemClickRemoveObjects(this@run)
+                    }
+                }
+            } else {
+                favoriteNearObjectsButton.setOnClickListener { view ->
+                    if ((view as CheckBox).isChecked) {
+                        listenerAdd.addNearObject(this)
+                        Toast.makeText(view.context, "selecionado", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(view.context, "nao selecionado", Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
             moreInfo.setOnClickListener {

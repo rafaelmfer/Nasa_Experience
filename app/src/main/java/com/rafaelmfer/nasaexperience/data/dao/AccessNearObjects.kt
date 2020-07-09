@@ -15,6 +15,9 @@ interface AccessNearObjects {
     @Query("SELECT * FROM near_objects_model where id LIKE :id")
     fun findObjectsId(id: Int): CelestialRoom
 
+    @Query("SELECT * FROM near_objects_model where id2 LIKE :id2")
+    fun findObjectsIdString(id2: String): CelestialRoom
+
     @Query("SELECT COUNT(*) from near_objects_model")
     fun countAllObjects(): Int
 

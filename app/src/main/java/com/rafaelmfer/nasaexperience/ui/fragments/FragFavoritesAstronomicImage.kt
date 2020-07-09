@@ -9,14 +9,14 @@ import com.rafaelmfer.nasaexperience.extensions.recyclerview.update
 import com.rafaelmfer.nasaexperience.model.imageoftheday.ImageResponseItem
 import com.rafaelmfer.nasaexperience.ui.adapter.ItemViewBuilderAstronomicImage
 
-class FragFavoritesAstronomicImage : FragBind<FragFavoritesRecyclerViewBinding>(),
-    OnItemClickRemoveImage {
+class FragFavoritesAstronomicImage : FragBind<FragFavoritesRecyclerViewBinding>(), OnItemClickRemoveImage {
 
     override val bindClass: Class<FragFavoritesRecyclerViewBinding> by lazy { FragFavoritesRecyclerViewBinding::class.java }
     private val accessImage by lazy { RepositoryDatabase(requireContext()).accessImageOfDay}
 
+    private val listRoom by lazy { accessImage.getImageList() }
+
     override fun FragFavoritesRecyclerViewBinding.onBoundView() {
-        val listRoom = accessImage.getImageList()
 
         recyclerFavorites.apply {
             layoutManager = LinearLayoutManager(requireContext())
@@ -26,6 +26,7 @@ class FragFavoritesAstronomicImage : FragBind<FragFavoritesRecyclerViewBinding>(
 
     override fun onItemClickRemoveImage(imageResponseItem: ImageResponseItem) {
         accessImage.delete(imageResponseItem)
+        listRoom.remove(imageResponseItem)
         binding.recyclerFavorites.update()
     }
 }

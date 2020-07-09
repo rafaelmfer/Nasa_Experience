@@ -44,7 +44,11 @@ class ActivityMarsWeather : ActBind<ActivityMarsWeatherBinding>(), OnItemClickSu
                 add(response.sunNumber7)
             }
             sunSet.forEachIndexed { index, infoWeather ->
-                infoWeather.sunName = response.solKeys[index]
+                try {
+                    infoWeather.sunName = response.solKeys[index]
+                } catch (ex: IndexOutOfBoundsException) {
+                    infoWeather.sunName = "1"
+                }
             }
             recyclerMars.adapter = AdapterMars(sunSet)
         })
