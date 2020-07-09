@@ -8,12 +8,15 @@ import com.facebook.AccessToken
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
 import com.facebook.FacebookException
+import com.facebook.GraphRequest
+import com.facebook.HttpMethod
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import org.json.JSONException
 
 class ViewModelLoginRegisterFirebase : ViewModel() {
 
@@ -93,6 +96,20 @@ class ViewModelLoginRegisterFirebase : ViewModel() {
         } else {
             exitResponse.postValue(false)
         }
+    }
+
+    fun fullLogoffFacebook() {
+        GraphRequest(AccessToken.getCurrentAccessToken(), "/me/permissions", null, HttpMethod.DELETE, GraphRequest.Callback { response ->
+            var isSuccess = false
+            try {
+                isSuccess = response.jsonObject.getBoolean("success")
+            } catch (e: JSONException) {
+                e.printStackTrace()
+            }
+            if (isSuccess && response.error == null) {
+                // Application deleted from Facebook account
+            }
+        }).executeAsync()
     }
 
     fun registerNewUser(name: String, lastName: String, email: String, pass: String) {
