@@ -10,8 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 
-inline fun <reified BuilderViewBinding : ItemViewBuilderViewBinding<*, *>>
-        RecyclerView.setupViewBinding(list: Collection<*>) =
+inline fun <reified BuilderViewBinding : ItemViewBuilderViewBinding<*, *>> RecyclerView.setupViewBinding(list: Collection<*>) =
     recyclerAdapterViewBinding<BuilderViewBinding>(list).apply { adapter = this }
 
 inline fun <reified BuilderViewBinding : ItemViewBuilderViewBinding<*, *>> recyclerAdapterViewBinding(collection: Collection<*>) =
@@ -36,8 +35,7 @@ inline fun <reified BuilderViewBinding : ItemViewBuilderViewBinding<*, *>> recyc
         }
     }
 
-open class RecyclerViewHolderViewBinding(val builder: ItemViewBuilderViewBinding<*, *>) :
-    RecyclerView.ViewHolder(builder.build())
+open class RecyclerViewHolderViewBinding(val builder: ItemViewBuilderViewBinding<*, *>) : RecyclerView.ViewHolder(builder.build())
 
 abstract class ItemViewBuilderViewBinding<Data, Binding : ViewBinding> {
 
@@ -46,15 +44,13 @@ abstract class ItemViewBuilderViewBinding<Data, Binding : ViewBinding> {
     lateinit var binding: Binding
     lateinit var collection: Collection<Data>
     lateinit var context: Context
-
-    private lateinit var viewGroup: ViewGroup
+    lateinit var recycler: RecyclerView
 
     @Suppress("UNCHECKED_CAST")
-    fun init(viewGroup: ViewGroup, collection: Collection<*>): ItemViewBuilderViewBinding<Data, Binding> {
-        this.viewGroup = viewGroup
-        this.collection = collection as Collection<Data>
-        context = viewGroup.context
-        return this
+    fun init(group: ViewGroup, coll: Collection<*>) = apply {
+        recycler = group as RecyclerView
+        collection = coll as Collection<Data>
+        context = group.context
     }
 
     fun build(): View {
@@ -66,7 +62,7 @@ abstract class ItemViewBuilderViewBinding<Data, Binding : ViewBinding> {
     @Suppress("UNCHECKED_CAST")
     fun inflate() =
         bindClass.getMethod("inflate", LayoutInflater::class.java).invoke(
-            null, ((viewGroup.context) as AppCompatActivity).layoutInflater
+            null, ((context) as AppCompatActivity).layoutInflater
         ) as Binding
 
 

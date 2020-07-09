@@ -6,12 +6,18 @@ import com.rafaelmfer.nasaexperience.R
 import com.rafaelmfer.nasaexperience.baseviews.ActBase
 import com.rafaelmfer.nasaexperience.debugging.ExceptionHandler
 import com.rafaelmfer.nasaexperience.extensions.viewpager.setupPagerAdapter
+import com.rafaelmfer.nasaexperience.ui.fragments.FragFavoritesAstronomicImage
+import com.rafaelmfer.nasaexperience.ui.fragments.FragFavoritesCelestialObjects
+import com.rafaelmfer.nasaexperience.ui.fragments.FragFavoritesMars
 import kotlinx.android.synthetic.main.bottom_sheet_favorites.*
 
 class ActivityFavorites : ActBase(R.layout.bottom_sheet_favorites) {
 
     private val fragmentList: MutableList<Fragment> =
-        mutableListOf(FragFavoritesCelestialObjects(), FragFavoritesMars(), FragFavoritesAstronomicImage())
+        mutableListOf(
+            FragFavoritesCelestialObjects(),
+            FragFavoritesMars(), FragFavoritesAstronomicImage()
+        )
 
     override fun ViewGroup.onView() {
         exceptionHandler = ExceptionHandler::class.java

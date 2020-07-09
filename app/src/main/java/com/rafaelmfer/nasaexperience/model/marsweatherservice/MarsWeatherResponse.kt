@@ -26,13 +26,15 @@ data class MarsWeatherResponse(
 //    @SerializedName("547") val sunNumber6: InfoWeather = InfoWeather(),
 //    @SerializedName("548") val sunNumber7: InfoWeather = InfoWeather(),
 
-    @SerializedName("560") val sunNumber1: InfoWeather = InfoWeather(),
-    @SerializedName("561") val sunNumber2: InfoWeather = InfoWeather(),
-    @SerializedName("562") val sunNumber3: InfoWeather = InfoWeather(),
-    @SerializedName("563") val sunNumber4: InfoWeather = InfoWeather(),
-    @SerializedName("564") val sunNumber5: InfoWeather = InfoWeather(),
-    @SerializedName("565") val sunNumber6: InfoWeather = InfoWeather(),
-    @SerializedName("566") val sunNumber7: InfoWeather = InfoWeather(),
+//    @SerializedName("560") val sunNumber1: InfoWeather = InfoWeather(),
+
+    @SerializedName("561") val sunNumber1: InfoWeather = InfoWeather(),
+    @SerializedName("562") val sunNumber2: InfoWeather = InfoWeather(),
+    @SerializedName("563") val sunNumber3: InfoWeather = InfoWeather(),
+    @SerializedName("564") val sunNumber4: InfoWeather = InfoWeather(),
+    @SerializedName("565") val sunNumber5: InfoWeather = InfoWeather(),
+    @SerializedName("566") val sunNumber6: InfoWeather = InfoWeather(),
+    @SerializedName("567") val sunNumber7: InfoWeather = InfoWeather(),
 
     @SerializedName("sol_keys") val solKeys: List<String> = listOf(),
     @SerializedName("validity_checks") val validityChecks: ValidityChecks = ValidityChecks()

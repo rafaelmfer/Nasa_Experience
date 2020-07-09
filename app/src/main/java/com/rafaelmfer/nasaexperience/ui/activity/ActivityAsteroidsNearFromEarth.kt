@@ -7,20 +7,24 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rafaelmfer.nasaexperience.R
 import com.rafaelmfer.nasaexperience.baseviews.ActBase
+import com.rafaelmfer.nasaexperience.data.RepositoryDatabase
 import com.rafaelmfer.nasaexperience.debugging.ExceptionHandler
 import com.rafaelmfer.nasaexperience.extensions.addMarginTopStatusBarHeight
 import com.rafaelmfer.nasaexperience.extensions.recyclerview.setupViewBinding
 import com.rafaelmfer.nasaexperience.extensions.recyclerview.update
 import com.rafaelmfer.nasaexperience.extensions.setFullScreen
+import com.rafaelmfer.nasaexperience.extensions.toJson
 import com.rafaelmfer.nasaexperience.model.asteroids.Celestial
+import com.rafaelmfer.nasaexperience.model.room.CelestialRoom
 import com.rafaelmfer.nasaexperience.ui.adapter.ItemViewNearEarthObjects
 import com.rafaelmfer.nasaexperience.viewmodel.ViewModelNearEarthObjects
 import kotlinx.android.synthetic.main.activity_asteroids_near_from_earth.*
 
-class ActivityAsteroidsNearFromEarth : ActBase(R.layout.activity_asteroids_near_from_earth) {
+class ActivityAsteroidsNearFromEarth : ActBase(R.layout.activity_asteroids_near_from_earth), OnItemClickNearObjects {
 
-    private var setNearObjects = mutableSetOf<Celestial>()
     private val viewModel: ViewModelNearEarthObjects by viewModels()
+    private var setNearObjects = mutableSetOf<Celestial>()
+    private val repositoryDatabase by lazy { RepositoryDatabase(this) }
 
     override fun ViewGroup.onView() {
         exceptionHandler = ExceptionHandler::class.java
@@ -55,5 +59,20 @@ class ActivityAsteroidsNearFromEarth : ActBase(R.layout.activity_asteroids_near_
         override fun onQueryTextChange(s: String): Boolean {
             return false
         }
+    }
+
+    override fun addNearObject(celestialObjects: Celestial) {
+        val entityRoom = CelestialRoom(
+            name = celestialObjects.name,
+            nasaJplUrl = celestialObjects.nasaJplUrl,
+            absoluteMagnitudeH = celestialObjects.absoluteMagnitudeH,
+            estimatedDiameter = celestialObjects.estimatedDiameter.toJson(),
+            isPotentiallyHazardousAsteroid = celestialObjects.isPotentiallyHazardousAsteroid,
+            closeApproachData = celestialObjects.closeApproachData.toJson,
+            isSentryObject = celestialObjects.isSentryObject,
+            isSelected = true,
+            id2 = celestialObjects.id
+        )
+        repositoryDatabase.accessNearObjects.insert(entityRoom)
     }
 }

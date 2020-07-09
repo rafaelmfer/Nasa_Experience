@@ -15,5 +15,6 @@ data class Celestial(
     @SerializedName("estimated_diameter") val estimatedDiameter: EstimatedDiameter = EstimatedDiameter(),
     @SerializedName("is_potentially_hazardous_asteroid") val isPotentiallyHazardousAsteroid: Boolean = false,
     @SerializedName("close_approach_data") val closeApproachData: List<CloseApproachData> = listOf(),
-    @SerializedName("is_sentry_object") val isSentryObject: Boolean = false
+    @SerializedName("is_sentry_object") val isSentryObject: Boolean = false,
+    var isSelected : Boolean = false
 ) : Parcelable

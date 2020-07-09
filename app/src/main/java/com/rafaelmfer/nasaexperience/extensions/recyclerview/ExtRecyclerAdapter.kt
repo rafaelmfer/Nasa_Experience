@@ -1,5 +1,6 @@
 package com.rafaelmfer.nasaexperience.extensions.recyclerview
 
+import android.content.Context
 import android.view.LayoutInflater.from
 import android.view.View
 import android.view.ViewGroup
@@ -41,17 +42,21 @@ inline fun <reified Builder : ItemViewBuilder<*>> recyclerAdapter(collection: Co
 
 open class RecyclerViewHolder(val builder: ItemViewBuilder<*>) : RecyclerView.ViewHolder(builder.build())
 
-abstract class ItemViewBuilder<Data> {
+abstract class ItemViewBuilder<Type> {
+
     abstract val layout: Int
     lateinit var viewGroup: ViewGroup
     lateinit var view: View
-    lateinit var collection: Collection<Data>
+    lateinit var collection: Collection<Type>
+    lateinit var recycler: RecyclerView
+    lateinit var context: Context
 
     @Suppress("UNCHECKED_CAST")
-    fun init(viewGroup: ViewGroup, collection: Collection<*>): ItemViewBuilder<Data> {
-        this.viewGroup = viewGroup
-        this.collection = collection as Collection<Data>
-        return this
+    fun init(group: ViewGroup, coll: Collection<*>): ItemViewBuilder<Type> = apply {
+        viewGroup = group
+        collection = coll as Collection<Type>
+        recycler = group as RecyclerView
+        context = group.context
     }
 
     fun build(): View {

@@ -9,11 +9,11 @@ import android.os.StrictMode
 import android.view.View
 import android.widget.CheckBox
 import android.widget.SearchView
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.rafaelmfer.nasaexperience.R
 import com.rafaelmfer.nasaexperience.baseviews.ActBase
+import com.rafaelmfer.nasaexperience.data.RepositoryDatabase
 import com.rafaelmfer.nasaexperience.debugging.ExceptionHandler
 import com.rafaelmfer.nasaexperience.extensions.addMarginTopStatusBarHeight
 import com.rafaelmfer.nasaexperience.extensions.setFullScreen
@@ -30,6 +30,7 @@ import java.io.IOException
 class ActivityAstronomicImageOfTheDay : ActBase() {
 
     private val viewModelImage by lazy { ViewModelProviders.of(this).get(ViewModelImage::class.java) }
+    private val repositoryDatabase by lazy { RepositoryDatabase(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,7 +48,7 @@ class ActivityAstronomicImageOfTheDay : ActBase() {
         viewModelImage.listMutableImage.observe(this, Observer { imageResponseItem ->
             imageResponseItem?.let { validateImage(imageResponseItem) }
         })
-        search_view_objects_image_day.setOnQueryTextListener(onTextSubmit { viewModelImage.getImageByDate(it) })
+        search_view_image_day.setOnQueryTextListener(onTextSubmit { viewModelImage.getImageByDate(it) })
         viewModelImage.getAllImage()
     }
 
@@ -64,7 +65,7 @@ class ActivityAstronomicImageOfTheDay : ActBase() {
                     setImageResource(R.drawable.ic_play_100dp)
                 }
                 tvImageVideoCase.text = getString(R.string.video_case_message)
-                //Considerem pensar um texto para quando for um dia difernte de hoje talvez...
+
                 astronomic_image_of_the_day.setOnClickListener {
                     toast(getString(R.string.video_click_message))
                     val url = response.url
@@ -88,12 +89,14 @@ class ActivityAstronomicImageOfTheDay : ActBase() {
                 }
             }
         }
-        //Click do ROOM
+
         favorite_image_day.setOnClickListener { view ->
             if ((view as CheckBox).isChecked) {
-                Toast.makeText(view.context, "selecionado", Toast.LENGTH_SHORT).show()
+                repositoryDatabase.accessImageOfDay.insert(response)
+                toast("Adicionado aos Favoritos")
             } else {
-                Toast.makeText(view.context, "nao selecionado", Toast.LENGTH_SHORT).show()
+                repositoryDatabase.accessImageOfDay.delete(response)
+                toast("Removido aos Favoritos")
             }
         }
     }
@@ -109,7 +112,7 @@ class ActivityAstronomicImageOfTheDay : ActBase() {
         }
     }
 
-    fun shareImageFromURI(url: String?, text: String?, description: String?) {
+    private fun shareImageFromURI(url: String?, text: String?, description: String?) {
         Picasso.get().load(url).into(object : Target {
             override fun onBitmapLoaded(bitmap: Bitmap?, from: Picasso.LoadedFrom?) {
                 val intent = Intent(Intent.ACTION_SEND)

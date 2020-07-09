@@ -4,5 +4,7 @@ import com.rafaelmfer.nasaexperience.model.marsweatherservice.InfoWeather
 
 interface OnItemClickSunMars {
 
-    fun getPositionSunMar(infoWeather: InfoWeather)
+    fun addPositionSunMar(infoWeather: InfoWeather)
+
+//    fun removePositionSunMar(infoWeather: InfoWeather)
 }

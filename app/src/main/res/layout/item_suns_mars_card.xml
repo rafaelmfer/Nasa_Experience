@@ -64,7 +64,18 @@
                 android:buttonTint="@color/black"
                 app:layout_constraintBottom_toTopOf="@id/decorator_suns_divider"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/material_delete"/>
+
+            <com.rafaelmfer.nasaexperience.customview.button.ButtonMaterialIcon
+                android:id="@+id/remove_favorite_sun"
+                android:layout_width="@dimen/width_48"
+                android:layout_height="@dimen/height_48"
+                android:textColor="@color/black"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/material_delete"/>
 
             <View
                 android:id="@+id/decorator_suns_divider"

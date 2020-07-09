@@ -32,13 +32,13 @@
                 android:layout_marginEnd="@dimen/margin_4"
                 android:textColor="@color/black"
                 android:textSize="@dimen/font_22"
-                app:layout_constraintEnd_toStartOf="@id/favorite_sun_button"
+                app:layout_constraintEnd_toStartOf="@id/favorite_near_objects_button"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Name: abcdef" />
 
             <CheckBox
-                android:id="@+id/favorite_sun_button"
+                android:id="@+id/favorite_near_objects_button"
                 android:layout_width="@dimen/width_24"
                 android:layout_height="@dimen/height_24"
                 android:layout_marginEnd="@dimen/margin_16"
@@ -47,6 +47,16 @@
                 app:layout_constraintBottom_toBottomOf="@id/name_object"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/name_object" />
+
+            <com.rafaelmfer.nasaexperience.customview.button.ButtonMaterialIcon
+                android:id="@+id/remove_favorite_near_object"
+                android:layout_width="@dimen/width_48"
+                android:layout_height="@dimen/height_48"
+                android:textColor="@color/black"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/material_delete"/>
 
             <View
                 android:id="@+id/decorator_suns_divider"

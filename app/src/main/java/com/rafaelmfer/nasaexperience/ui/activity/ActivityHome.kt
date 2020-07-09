@@ -7,13 +7,11 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.viewModels
-import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.core.view.GravityCompat
+import com.facebook.login.LoginManager
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.navigation.NavigationView
-import com.google.firebase.auth.FirebaseAuth
 import com.rafaelmfer.nasaexperience.R
 import com.rafaelmfer.nasaexperience.baseviews.ActBind
 import com.rafaelmfer.nasaexperience.databinding.ActivityHomeBinding
@@ -99,6 +97,7 @@ class ActivityHome : ActBind<ActivityHomeBinding>(), NavigationView.OnNavigation
     private fun logoffFire() {
         viewModelLoginFirebase.logoffFirebase()
         loginIntentGoogle.revokeAccess()
+        LoginManager.getInstance().logOut()
         onBackPressed()
     }
 
@@ -112,7 +111,7 @@ class ActivityHome : ActBind<ActivityHomeBinding>(), NavigationView.OnNavigation
             dialogInterface.cancel()
         }
         builder.setPositiveButton("Sair") { dialogInterface, exit ->
-            toast(getString(R.string.dialog_exite_message))
+            toast(getString(R.string.dialog_exit_message))
             finishAffinity()
         }
 

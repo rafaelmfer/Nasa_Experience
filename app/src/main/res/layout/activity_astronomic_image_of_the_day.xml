@@ -54,7 +54,7 @@
             android:layout_height="wrap_content">
 
             <SearchView
-                android:id="@+id/search_view_objects_image_day"
+                android:id="@+id/search_view_image_day"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_16"
@@ -80,7 +80,7 @@
                 android:textSize="@dimen/font_18"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/search_view_objects_image_day"
+                app:layout_constraintTop_toBottomOf="@+id/search_view_image_day"
                 tools:text="@tools:sample/lorem" />
 
             <ImageView
