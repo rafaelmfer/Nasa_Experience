@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.core.view.GravityCompat
+import com.facebook.login.LoginManager
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.navigation.NavigationView
@@ -96,6 +97,7 @@ class ActivityHome : ActBind<ActivityHomeBinding>(), NavigationView.OnNavigation
     private fun logoffFire() {
         viewModelLoginFirebase.logoffFirebase()
         loginIntentGoogle.revokeAccess()
+        LoginManager.getInstance().logOut()
         onBackPressed()
     }
 
