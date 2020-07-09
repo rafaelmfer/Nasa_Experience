@@ -23,6 +23,7 @@ import com.rafaelmfer.nasaexperience.extensions.toast
 import com.rafaelmfer.nasaexperience.viewmodel.ViewModelLoginRegisterFirebase
 import com.squareup.picasso.Picasso
 
+
 class ActivityHome : ActBind<ActivityHomeBinding>(), NavigationView.OnNavigationItemSelectedListener {
 
     private val viewModelLoginFirebase: ViewModelLoginRegisterFirebase by viewModels()
@@ -66,7 +67,7 @@ class ActivityHome : ActBind<ActivityHomeBinding>(), NavigationView.OnNavigation
     }
 
     private fun clickToStartNewActivity(activity: Class<*>) =
-            View.OnClickListener { startActivity(Intent(it.context, activity)) }
+        View.OnClickListener { startActivity(Intent(it.context, activity)) }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
@@ -95,19 +96,20 @@ class ActivityHome : ActBind<ActivityHomeBinding>(), NavigationView.OnNavigation
     }
 
     private fun logoffFire() {
-        viewModelLoginFirebase.logoffFirebase()
+        viewModelLoginFirebase.run {
+            logoffFirebase()
+            fullLogoffFacebook()
+        }
         loginIntentGoogle.revokeAccess()
         LoginManager.getInstance().logOut()
         onBackPressed()
     }
 
     override fun onBackPressed() {
-
         val builder = AlertDialog.Builder(this)
         builder.setMessage("Deseja sair da nave?")
         builder.setCancelable(true)
         builder.setNegativeButton("Cancelar") { dialogInterface, cancel ->
-
             dialogInterface.cancel()
         }
         builder.setPositiveButton("Sair") { dialogInterface, exit ->
