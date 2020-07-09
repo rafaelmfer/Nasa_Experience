@@ -1,6 +1,6 @@
 package com.rafaelmfer.nasaexperience.extensions
 
-fun <T> Collection<T>.get(index: Int): T {
+operator fun <T> Collection<T>.get(index: Int): T {
     forEachIndexed { indexed, element -> if (indexed == index) return element }
     throw IndexOutOfBoundsException()
 }
