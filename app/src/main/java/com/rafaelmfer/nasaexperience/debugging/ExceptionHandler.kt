@@ -1,8 +1,14 @@
 package com.rafaelmfer.nasaexperience.debugging
 
 import android.content.Intent
-import android.os.Build.*
-import android.os.Build.VERSION.*
+import android.os.Build.BRAND
+import android.os.Build.DEVICE
+import android.os.Build.ID
+import android.os.Build.MODEL
+import android.os.Build.PRODUCT
+import android.os.Build.VERSION.INCREMENTAL
+import android.os.Build.VERSION.RELEASE
+import android.os.Build.VERSION.SDK_INT
 import android.os.Process.killProcess
 import android.os.Process.myPid
 import com.rafaelmfer.nasaexperience.baseviews.ActBase.Companion.currentActivity
@@ -23,10 +29,7 @@ class ExceptionHandler : Thread.UncaughtExceptionHandler {
                 Intent(currentActivity, ActException::class.java)
                     .putExtra(EXCEPTION_MESSAGE, exception.message)
                     .putExtra(EXCEPTION_LOG, exception.formattedLog)
-                    .putExtra(
-                        EXCEPTION_DEVICE,
-                        deviceInfo
-                    )
+                    .putExtra(EXCEPTION_DEVICE, deviceInfo)
             )
             finish()
         }
