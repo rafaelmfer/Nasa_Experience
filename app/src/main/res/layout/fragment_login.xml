@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="@drawable/wallpaper_login"
+    tools:context=".ui.fragments.FragmentLogin">
+
+    <ImageView
+        android:id="@+id/ivNasaLogo"
+        android:layout_width="@dimen/height_200"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin_16"
+        android:adjustViewBounds="true"
+        android:importantForAccessibility="no"
+        android:src="@drawable/ic_nasa_logo"
+        app:layout_constraintBottom_toTopOf="@+id/tvAppName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvAppName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_16"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_24"
+        app:layout_constraintBottom_toTopOf="@+id/tilLoginUserEmail"
+        app:layout_constraintEnd_toEndOf="@+id/ivNasaLogo"
+        app:layout_constraintStart_toStartOf="@+id/ivNasaLogo" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilLoginUserEmail"
+        style="@style/Widget.Design.TextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/margin_16"
+        android:layout_marginEnd="@dimen/margin_16"
+        android:layout_marginBottom="@dimen/margin_8"
+        android:hint="@string/email"
+        android:textColorHint="@color/white"
+        app:hintTextColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/tilLoginUserPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etLoginUserEmail"
+            style="@style/Widget.AppCompat.EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:imeOptions="actionNext"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:textColor="@color/white" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilLoginUserPassword"
+        style="@style/Widget.Design.TextInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_16"
+        android:layout_marginEnd="@dimen/margin_16"
+        android:layout_marginBottom="@dimen/margin_24"
+        android:hint="@string/password"
+        android:textColorHint="@color/white"
+        app:hintTextColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:textColorHint="@color/black">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etLoginUserPassword"
+            style="@style/Widget.AppCompat.EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:textColor="@color/white" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height_55"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/margin_16"
+        android:layout_marginEnd="@dimen/margin_16"
+        android:layout_marginBottom="@dimen/margin_24"
+        android:alpha="0.8"
+        android:background="@drawable/shape_normal_button"
+        android:text="@string/sign_in"
+        android:textSize="@dimen/font_20"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toTopOf="@+id/tvOr"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvOr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_24"
+        android:gravity="center"
+        android:text="@string/or"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_32"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/facebook_sign_in"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <in.championswimmer.libsocialbuttons.BtnSocial
+        android:id="@+id/facebook_sign_in"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height_75"
+        android:layout_marginStart="@dimen/margin_6"
+        android:layout_marginEnd="@dimen/margin_6"
+        android:layout_marginBottom="@dimen/margin_16"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:background="@drawable/facebook_button_custom"
+        android:text="@string/sign_in_with_facebook"
+        android:textSize="@dimen/font_20"
+        app:backgroundTint="@color/facebook_color"
+        app:iconGravity="textStart"
+        app:iconPadding="@dimen/padding_12"
+        app:iconSize="@dimen/height_24"
+        app:layout_constraintBottom_toTopOf="@+id/google_sing_in"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <in.championswimmer.libsocialbuttons.BtnSocial
+        android:id="@+id/google_sing_in"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_75"
+        android:layout_marginStart="@dimen/margin_6"
+        android:layout_marginEnd="@dimen/margin_6"
+        android:layout_marginBottom="@dimen/margin_32"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:background="@drawable/google_button_cutom"
+        android:text="@string/sign_in_with_google"
+        android:textSize="@dimen/font_20"
+        app:iconGravity="textStart"
+        app:iconPadding="@dimen/padding_12"
+        app:iconSize="@dimen/height_24"
+        app:social="google"
+        app:iconTint="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/sign_up_question"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/sign_up_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_16"
+        android:layout_marginBottom="@dimen/margin_24"
+        android:gravity="center"
+        android:text="@string/does_not_have_an_account_sign_up"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_18"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/sign_up"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/sign_up"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="@color/transparent"
+        android:padding="0dp"
+        android:text="@string/sign_up"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_18"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/sign_up_question"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/sign_up_question"
+        app:layout_constraintTop_toTopOf="@+id/sign_up_question" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

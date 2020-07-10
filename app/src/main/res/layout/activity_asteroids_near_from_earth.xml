@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/wallpaper_asteroids"
+    tools:context=".ui.activity.ActivityAsteroidsNearFromEarth">
+
+    <ImageButton
+        android:id="@+id/asteroids_back"
+        android:layout_width="@dimen/width_48"
+        android:layout_height="@dimen/height_48"
+        android:layout_marginStart="@dimen/margin_4"
+        android:layout_marginTop="@dimen/margin_8"
+        android:layout_marginBottom="@dimen/margin_4"
+        android:background="@color/transparent"
+        android:contentDescription="@string/back"
+        android:padding="@dimen/padding_8"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_arrow_24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/asteroids_title_toolbar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="@dimen/margin_36"
+        android:background="@color/transparent"
+        android:gravity="center"
+        android:padding="@dimen/padding_4"
+        android:text="@string/monitoring_asteroids"
+        android:textAlignment="center"
+        android:textSize="@dimen/font_20"
+        app:layout_constraintBottom_toBottomOf="@+id/asteroids_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/asteroids_back"
+        app:layout_constraintTop_toTopOf="@+id/asteroids_back" />
+
+    <SearchView
+        android:id="@+id/search_view_objects"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_16"
+        android:alpha="0.7"
+        android:closeIcon="@drawable/ic_close_24dp"
+        android:iconifiedByDefault="false"
+        android:inputType="phone"
+        android:queryHint="@string/search_asteroids_by_date"
+        android:searchIcon="@drawable/ic_search_24dp"
+        android:theme="@style/SearchViewTextWhite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/asteroids_title_toolbar" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_objects"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/margin_4"
+        android:layout_marginBottom="@dimen/margin_4"
+        android:nestedScrollingEnabled="false"
+        app:layout_constraintBottom_toTopOf="@id/cl_logo_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_view_objects"
+        tools:itemCount="4"
+        tools:listitem="@layout/item_asteroids" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_logo_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recycler_objects">
+
+        <ImageView
+            android:id="@+id/nasa_logo_bottom_image"
+            android:layout_width="@dimen/width_60"
+            android:layout_height="@dimen/height_60"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_nasa_logo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/nasa_logo_bottom_name"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/nasa_logo_bottom_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/padding_4"
+            android:text="@string/app_name"
+            android:textAlignment="center"
+            android:textSize="@dimen/font_20"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/nasa_logo_bottom_image"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,3 +1,102 @@
 <resources>
     <string name="app_name">Nasa Experience</string>
+    <string name="facebook_app_id">287810432583184</string>
+    <string name="fb_login_protocol_scheme">fb287810432583184</string>
+
+    <!--    COMMON-->
+    <string name="back">voltar</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="error_field_must_be_filled">Campo deve ser preenchido</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+
+    <!--    CUSTOM VIEWS-->
+    <string name="acs_back">voltar</string>
+    <string name="acs_close">fechar</string>
+    <string name="acs_toolbar_title">%1$s</string>
+    <string name="panel">Panel</string>
+
+    <!--    LOGIN ACTIVITY-->
+    <string name="sign_in">Sign In</string>
+    <string name="sign_in_with_google">Sign In with Google</string>
+    <string name="sign_in_with_facebook">Sign In with Facebook</string>
+    <string name="or">OR</string>
+    <string name="does_not_have_an_account_sign_up">Does not have an account?</string>
+    <string name="sign_up">Sign up</string>
+    <string name="title_activity_logged_in">Authenticated</string>
+
+    <!--    REGISTER ACTIVITY-->
+    <string name="name">Name</string>
+    <string name="last_name">Last name</string>
+    <string name="register">Cadastre-se</string>
+    <string name="create_account">Create Account</string>
+
+    <!--    HOME ACTIVITY-->
+    <string name="menu">Menu</string>
+    <string name="menu_favorites">Favoritos</string>
+    <string name="menu_logout">Sair da nave</string>
+    <string name="menu_about">Nosso caminho até aqui!</string>
+    <string name="image_header">image_header</string>
+    <string name="astronomy_picture_of_the_day">Imagem Astronômica do Dia</string>
+    <string name="near_earth_objects">Objetos que passaram próximo da Terra</string>
+    <string name="mars_weather_and_his_sols">Informações Meteorológica de Marte</string>
+
+    <!--    MARS WEATHER SUNS ACTIVITY-->
+    <string name="mars_weather_and_his_suns">Clima de Marte e Seus Sols</string>
+    <string name="sun_number">Sol %1$s</string>
+    <string name="date_of_observation">Observado em: %1$s</string>
+    <string name="temperature_min_max">• Temperatura:\n\t\tMín.: %1$s°F - Máx.: %2$s°F</string>
+    <string name="wind_speed_min_max">• Vel. Vento:\n\t\tMín.: %1$s m/s - Máx.: %2$s m/s</string>
+    <string name="pressure_min_max">• Pressão:\n\t\tMín.: %1$s Pa - Máx.: %2$s Pa</string>
+
+    <!--    ASTEROIDS NEAR FROM EARTH ACTIVITY-->
+    <string name="monitoring_asteroids">Monitorando Asteroids</string>
+    <string name="search_asteroids_by_date">Data – 2015–09–08</string>
+    <string name="object_name">Nome: %1$s</string>
+    <string name="seen_in">Visto em: %1$s</string>
+    <string name="potentially_hazardous_asteroid">Objeto Potencial Perigoso: %1$s</string>
+    <string name="sentry_object">Sentinela da NASA monitora? %1$s</string>
+    <string name="absolute_magnitude">Magnitude Absoluta (H): %1$s</string>
+    <string name="relative_velocity_title">Velocidade Estimada:</string>
+    <string name="relative_velocity">%1$s Km/h \t\tou\t\t%2$s Km/s</string>
+    <string name="estimated_diameter_title">Diâmetro Estimado:</string>
+    <string name="estimated_diameter_min">Min.: %1$s Km\nMin.: %2$s m</string>
+    <string name="estimated_diameter_max">Máx.: %1$s Km\nMáx.: %2$s m</string>
+    <string name="miss_distance_title">Distancia aproximada entre a Terra:</string>
+    <string name="miss_distance">Kilômetros: %1$s\t\t\tLunar: %2$s</string>
+    <string name="more_info"><u>more info</u></string>
+
+    <!--    ASTRONOMIC IMAGE OF THE DAY ACTIVITY-->
+    <string name="enter_a_date_to_search">Digite uma data para procurar</string>
+    <string name="search_image_by_date">Data – YYYY-MM-DD</string>
+    <string name="video_case_message">Temos um vídeo! Aperte o Play!</string>
+    <string name="video_click_message">Você está sendo redirecionado!</string>
+    <string name="null_case_message">Desculpe, não houve imagem para esta data.</string>
+
+    <!--    NAVDRAWER -->
+    <string name="nav_favorites_text">Minhas preferências</string>
+    <string name="nav_about_text">Saiba mais sobre o app</string>
+    <string name="nav_logout_text">Meu acesso</string>
+
+    <!--    ABOUT ACTIVITY -->
+    <string name="about_text">Se você chegou até aqui, posso começar te dando o spoiler de que essa foi uma história que acabou muito bem! \n
+        \nNós, assim como todos aqueles que se propõe a ser um estudante, precisam ter seus conhecimentos avaliados, ou mais do que isso, colocados em prática, afinal de contas não podemos viver apenas de conhecimento teórico, certo? \n
+        \nHoje nós que fomos da turma de Desenvolvimento Mobile da escola de tecnologia Digital House, estamos aqui lhe apresentando o fruto de nosso trabalho em cima do que foi proposto como tema de projeto. \n
+        \nQual o objetivo do nosso trabalho? \nDesenvolver conhecimentos sobre o mundo da programação na teoria e na prática, e nosso grupo fez isso da melhor forma que o brasileiro poderia imaginar, estudando a NASA! \n
+        \nTínhamos muitas possibilidades de o que fazer com o material que a própria NASA disponibiliza, e tentamos trazer algo diferente para o público e que ao mesmo tempo também fosse prático. \n
+        \nForam alguns meses de trabalho até chegarmos aqui, pois essa foi literalmente a nossa última tela feita até a entrega do nosso trabalho. Muitos irão chamar de isto de “TCC”, mas hoje não poderia chamar de outra coisa além de “nosso Astro de bolso”. \n
+        \nDeixamos aqui o crédito a todos os que se envolveram diretamente no projeto, seja em sua idealização ou fase de produção, todos tiveram uma função importante para o resultado que foi entregue hoje à você, nosso querido usuário!\n</string>
+
+    <string name="final_thanks">A todos uns envolvidos, obrigado! \n
+        \nRafael de Mello Ferreira
+        \nAlexandre dos Santos Silva
+        \nSandro Batista
+        \n\n\n\n\n\n\n</string>
+
+    <string name="loginfire_message_fail">Erro: E-mail e senha estão corretos?</string>
+    <string name="loginfire_message_success">Seja bem-vindo!</string>
+    <string name="dialog_exit_message">Cuidado com o vácuo do espaço!</string>
+    <string name="profile_photo">profile_photo</string>
+
 </resources>
