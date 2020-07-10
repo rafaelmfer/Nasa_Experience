@@ -1,5 +1,6 @@
 package com.rafaelmfer.nasaexperience.ui.adapter
 
+import android.app.AlertDialog
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.rafaelmfer.nasaexperience.R
@@ -30,7 +31,17 @@ class ItemViewBuilderAstronomicImage : ItemViewBuilder<ImageResponseItem>() {
             image_date.text = date
 
             remove_favorite_image.setOnClickListener {
-                listener?.onItemClickRemoveImage(this)
+                val builder = AlertDialog.Builder(context)
+                builder.setMessage("Deseja remover o item?")
+                builder.setCancelable(true)
+                builder.setNegativeButton("Cancelar") { dialogInterface, cancel ->
+                    dialogInterface.cancel()
+                }
+                builder.setPositiveButton("Remover") { dialogInterface, exit ->
+                    listener?.onItemClickRemoveImage(this)
+                }
+                val alertDialog = builder.create()
+                alertDialog.show()
             }
         }
     }

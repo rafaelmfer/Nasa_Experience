@@ -1,5 +1,6 @@
 package com.rafaelmfer.nasaexperience.ui.adapter
 
+import android.app.AlertDialog
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -54,7 +55,17 @@ class AdapterMars(private var sunSet: MutableSet<InfoWeather>) : RecyclerView.Ad
                     removeFavoriteSun.apply {
                         visibility = View.VISIBLE
                         setOnClickListener {
-                            listener?.onItemClickRemoveSun(this@run)
+                            val builder = AlertDialog.Builder(context)
+                            builder.setMessage("Deseja remover o item?")
+                            builder.setCancelable(true)
+                            builder.setNegativeButton("Cancelar") { dialogInterface, cancel ->
+                                dialogInterface.cancel()
+                            }
+                            builder.setPositiveButton("Remover") { dialogInterface, exit ->
+                                listener?.onItemClickRemoveSun(this@run)
+                            }
+                            val alertDialog = builder.create()
+                            alertDialog.show()
                         }
                     }
                 } else {

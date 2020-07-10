@@ -1,5 +1,6 @@
 package com.rafaelmfer.nasaexperience.ui.adapter
 
+import android.app.AlertDialog
 import android.graphics.Typeface.BOLD
 import android.text.Spannable
 import android.text.SpannableString
@@ -19,6 +20,7 @@ import com.rafaelmfer.nasaexperience.databinding.ItemAsteroidsBinding
 import com.rafaelmfer.nasaexperience.extensions.formatFromServer
 import com.rafaelmfer.nasaexperience.extensions.get
 import com.rafaelmfer.nasaexperience.extensions.recyclerview.ItemViewBuilderViewBinding
+import com.rafaelmfer.nasaexperience.extensions.toast
 import com.rafaelmfer.nasaexperience.model.asteroids.Celestial
 import com.rafaelmfer.nasaexperience.ui.activity.OnItemClickNearObjects
 import com.rafaelmfer.nasaexperience.ui.fragments.FragFavoritesCelestialObjects
@@ -107,7 +109,17 @@ class ItemViewNearEarthObjects : ItemViewBuilderViewBinding<Celestial, ItemAster
                 removeFavoriteNearObject.apply {
                     visibility = View.VISIBLE
                     setOnClickListener {
-                        listenerRemove?.onItemClickRemoveObjects(this@run)
+                        val builder = AlertDialog.Builder(context)
+                        builder.setMessage("Deseja remover o item?")
+                        builder.setCancelable(true)
+                        builder.setNegativeButton("Cancelar") { dialogInterface, cancel ->
+                            dialogInterface.cancel()
+                        }
+                        builder.setPositiveButton("Remover") { dialogInterface, exit ->
+                            listenerRemove?.onItemClickRemoveObjects(this@run)
+                        }
+                        val alertDialog = builder.create()
+                        alertDialog.show()
                     }
                 }
             } else {
