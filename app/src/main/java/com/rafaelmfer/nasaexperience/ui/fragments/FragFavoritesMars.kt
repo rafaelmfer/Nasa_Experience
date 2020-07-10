@@ -34,7 +34,6 @@ class FragFavoritesMars : FragBind<FragFavoritesRecyclerViewBinding>(),
             listParcel.add(parcelInfoWeather)
         }
 
-
         adapterSunMars.addItems(listParcel)
         adapterSunMars.addListener(this@FragFavoritesMars)
 

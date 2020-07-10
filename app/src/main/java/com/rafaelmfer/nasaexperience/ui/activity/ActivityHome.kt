@@ -114,7 +114,7 @@ class ActivityHome : ActBind<ActivityHomeBinding>(), NavigationView.OnNavigation
         }
         builder.setPositiveButton("Sair") { dialogInterface, exit ->
             toast(getString(R.string.dialog_exit_message))
-            finishAffinity()
+            finish()
         }
 
         val alertDialog = builder.create()
